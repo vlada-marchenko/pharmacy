@@ -1,0 +1,33 @@
+{
+  "name": "pharmacy",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.90.20",
+    "axios": "^1.13.5",
+    "js-cookie": "^3.0.5",
+    "modern-normalize": "^3.0.1",
+    "next": "16.1.6",
+    "query": "^0.2.0",
+    "react": "^19.2.3",
+    "react-dom": "19.2.3",
+    "reqct": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
