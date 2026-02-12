@@ -19,6 +19,7 @@ export type User = {
     phone: string,
     createdAt: Date,
     updatedAt: Date,
+    shopId: string
 }
 
 export type LoginResponse = {

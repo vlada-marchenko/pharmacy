@@ -446,3 +446,11 @@ Import traces:
 [03:14:23.431] Server  LOG     ✓ Compiled in 30ms
 [03:17:10.354] Server  LOG     ✓ Compiled in 143ms
 [03:22:04.036] Server  LOG     ✓ Compiled in 139ms
+[05:18:55.973] Server  ERROR   ⨯ Error: NextRouter was not mounted. https://nextjs.org/docs/messages/next-router-not-mounted
+[05:18:56.947] Browser ERROR   uncaughtError: Error: NextRouter was not mounted. https://nextjs.org/docs/messages/next-router-not-mounted
+[05:19:38.925] Server  LOG     ✓ Compiled in 1071ms
+[05:19:39.019] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:19:43.410] Server  ERROR   ⨯ Error: NextRouter was not mounted. https://nextjs.org/docs/messages/next-router-not-mounted
+[05:19:44.982] Browser ERROR   uncaughtError: Error: NextRouter was not mounted. https://nextjs.org/docs/messages/next-router-not-mounted
+[05:20:53.014] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[05:20:53.052] Server  LOG     ✓ Compiled in 564ms
