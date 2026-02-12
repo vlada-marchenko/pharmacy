@@ -17,7 +17,10 @@
     "query": "^0.2.0",
     "react": "^19.2.3",
     "react-dom": "19.2.3",
-    "reqct": "^0.0.1-security"
+    "react-hook-form": "^7.71.1",
+    "react-toastify": "^11.0.5",
+    "reqct": "^0.0.1-security",
+    "toast": "^0.5.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

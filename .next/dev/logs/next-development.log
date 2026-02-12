@@ -1,0 +1,448 @@
+[00:00:01.822] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.897] Server  LOG     ✓ Ready in 1649ms
+[00:05:40.566] Server  LOG     ✓ Compiled in 40ms
+[01:32:26.296] Server  LOG     ✓ Compiled in 874ms
+[01:36:07.590] Browser ERROR   ./src/components/Footer/Footer.tsx:1:10
+Ecmascript file had an error
+> 1 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  2 |
+  3 |
+  4 | export default function Footer() {
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Footer/Footer.tsx
+    ./src/app/layout.tsx
+[01:36:29.119] Server  LOG     ✓ Compiled in 313ms
+[01:38:23.806] Server  LOG     ✓ Compiled in 201ms
+[01:38:24.949] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/register. Falling back to browser navigation. {}
+[01:41:44.008] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:44.160] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:44.363] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:45.024] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:45.415] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:45.560] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:45.734] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:45.872] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:46.013] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:46.210] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:46.346] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:46.481] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:47.159] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:47.344] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:47.543] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:47.677] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:48.536] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:48.677] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:48.823] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:48.965] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:49.103] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:49.242] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:49.465] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:49.612] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:49.761] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:49.926] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:50.113] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:50.256] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:50.571] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:50.767] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:50.919] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:51.056] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:51.191] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:51.328] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:51.508] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:41:51.718] Server  ERROR   ⨯ Error: The default export is not a React Component in "/register/page"
+[01:44:16.649] Server  LOG     ✓ Compiled in 132ms
+[01:44:17.081] Server  ERROR   ⨯ Error: Cannot access unstable_prefetch.mode on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+[01:44:17.303] Server  ERROR   ⨯ Error: Cannot access unstable_prefetch.mode on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+[01:45:41.549] Browser ERROR   ./src/app/register/page.tsx:9:1
+Parsing ecmascript source code failed
+   7 |
+   8 |     const 
+>  9 | }
+     | ^
+  10 |
+
+Unexpected token `}`. Expected yield, an identifier, [ or {
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+[01:49:33.794] Server  LOG     ✓ Compiled in 335ms
+[02:46:40.429] Server  ERROR   ⨯ ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[02:46:40.464] Server  ERROR   ⨯ ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[02:46:40.466] Server  ERROR   ⨯ ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[02:46:40.479] Server  ERROR   ⨯ ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[02:46:40.499] Server  ERROR   ⨯ ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[02:46:40.500] Server  ERROR   ⨯ ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[02:46:40.501] Server  ERROR   ⨯ ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[02:46:40.502] Server  ERROR   ⨯ ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[02:46:40.510] Server  ERROR   ⨯ ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[02:46:40.513] Server  ERROR   ⨯ ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[02:46:40.514] Server  ERROR   ⨯ ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[02:46:40.514] Server  ERROR   ⨯ ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[02:46:40.692] Browser ERROR   ./src/app/register/page.tsx:5:1
+Module not found: Can't resolve 'react-hook-form'
+  3 | import { RegisterRequest } from "@/src/lib/auth"
+  4 | import { useRouter } from "next/router"
+> 5 | import { useForm } from "react-hook-form"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 |
+  7 |
+  8 | export default function RegisterPage() {
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[02:47:12.841] Server  LOG     ✓ Compiled in 736ms
+[02:49:43.488] Server  LOG     ✓ Compiled in 89ms
+[02:49:43.603] Browser ERROR   ./src/app/register/page.tsx:25:1
+Parsing ecmascript source code failed
+  23 |         }
+  24 | }
+> 25 |
+     | ^
+
+Expected '}', got '<eof>'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+[02:50:28.602] Browser ERROR   ./src/app/register/page.tsx:25:1
+Parsing ecmascript source code failed
+  23 |         }
+  24 | }
+> 25 |
+     | ^
+
+Expected '}', got '<eof>'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+[02:50:29.241] Browser ERROR   ./src/app/register/page.tsx:25:1
+Parsing ecmascript source code failed
+  23 |         }
+  24 | }
+> 25 |
+     | ^
+
+Expected '}', got '<eof>'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+[02:51:42.693] Server  LOG     ✓ Compiled in 1041ms
+[02:55:31.820] Server  LOG     ✓ Compiled in 1063ms
+[03:00:45.218] Server  LOG     ✓ Compiled in 211ms
+[03:14:23.431] Server  LOG     ✓ Compiled in 30ms
+[03:17:10.354] Server  LOG     ✓ Compiled in 143ms
+[03:22:04.036] Server  LOG     ✓ Compiled in 139ms
