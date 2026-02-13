@@ -454,3 +454,375 @@ Import traces:
 [05:19:44.982] Browser ERROR   uncaughtError: Error: NextRouter was not mounted. https://nextjs.org/docs/messages/next-router-not-mounted
 [05:20:53.014] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
 [05:20:53.052] Server  LOG     ✓ Compiled in 564ms
+[25:43:28.351] Server  LOG     ✓ Compiled in 767ms
+[25:43:45.548] Server  LOG     ✓ Compiled in 314ms
+[25:51:46.407] Server  LOG     ✓ Compiled in 2.1s
+[25:51:49.368] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/register. Falling back to browser navigation. {}
+[25:51:49.368] Browser ERROR   unhandledRejection: undefined
+[25:51:49.368] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/register. Falling back to browser navigation. {}
+[25:51:49.368] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/register. Falling back to browser navigation. {}
+[25:53:05.488] Server  LOG     ✓ Compiled in 157ms
+[25:57:14.319] Server  LOG     ✓ Compiled in 350ms
+[25:57:14.522] Browser ERROR   uncaughtError: ReferenceError: Can't find variable: css
+[26:01:38.728] Server  LOG     ✓ Compiled in 431ms
+[26:01:38.755] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[26:01:38.851] Browser ERROR   uncaughtError: ReferenceError: Can't find variable: css
+[26:01:41.282] Server  ERROR   ⨯ ReferenceError: css is not defined
+[26:01:49.341] Browser ERROR   uncaughtError: ReferenceError: Can't find variable: css
+[26:06:48.895] Server  LOG     ✓ Compiled in 346ms
+[26:06:48.906] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[26:06:49.887] Server  ERROR   An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+[26:06:51.824] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[26:06:51.826] Browser ERROR   Image is missing required "src" property: <img>
+[26:13:04.461] Server  LOG     ✓ Compiled in 328ms
+[26:15:22.186] Server  LOG     ✓ Compiled in 553ms
+[26:16:14.627] Server  LOG     ✓ Compiled in 229ms
+[26:20:22.929] Server  LOG     ✓ Compiled in 204ms
+[26:21:46.649] Server  LOG     ✓ Compiled in 1597ms
+[26:22:31.187] Server  LOG     ✓ Compiled in 186ms
+[26:22:59.645] Server  LOG     ✓ Compiled in 58ms
+[26:23:03.291] Server  ERROR   An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+[26:23:07.010] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[26:23:07.011] Browser ERROR   Image is missing required "src" property: <img>
+[26:23:18.260] Server  ERROR   An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string.
+[26:23:19.123] Browser ERROR   An empty string ("") was passed to the %s attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to %s instead of an empty string. src src
+[26:23:19.123] Browser ERROR   Image is missing required "src" property: <img>
+[26:24:30.450] Server  LOG     ✓ Compiled in 202ms
+[26:24:30.712] Browser ERROR   uncaughtError: Error: Image with src "../../public/pill.png" is missing required "width" property.
+[26:24:39.975] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[26:24:39.998] Server  LOG     ✓ Compiled in 245ms
+[26:24:40.133] Browser ERROR   uncaughtError: Error: Image with src "./public/pill.png" is missing required "width" property.
+[26:24:41.321] Server  ERROR   ⨯ Error: Image with src "./public/pill.png" is missing required "width" property.
+[26:24:42.399] Browser ERROR   uncaughtError: Error: Image with src "./public/pill.png" is missing required "width" property.
+[26:25:02.779] Server  LOG     ✓ Compiled in 178ms
+[26:25:02.885] Browser ERROR   ./src/app/register/page.tsx:32:60
+Parsing ecmascript source code failed
+  30 |     <div>
+  31 |       <div className={css.title}>
+> 32 |         <Image src="./public/pill.png" alt="pill" width={} height={}/>
+     |                                                            ^^^^^^
+  33 |         <h1>
+  34 |           Your medication, delivered Say goodbye to all{' '}
+  35 |           <span className={css.span}>your healthcare</span> worries with us
+
+Expected '</', got 'ident'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+[26:25:31.879] Server  LOG     ✓ Compiled in 423ms
+[26:25:31.961] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[26:25:32.814] Server  ERROR   TypeError: Invalid URL
+[26:25:32.838] Server  ERROR   ⨯ Error: Failed to parse src "./public/pill.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[26:25:34.062] Browser ERROR   {}
+[26:25:34.062] Browser ERROR   {}
+[26:25:34.062] Browser ERROR   uncaughtError: Error: Failed to parse src "./public/pill.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[26:25:51.686] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[26:25:51.696] Server  LOG     ✓ Compiled in 95ms
+[26:25:52.220] Server  ERROR   TypeError: Invalid URL
+[26:25:52.266] Server  ERROR   ⨯ Error: Failed to parse src "../public/pill.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[26:25:53.233] Browser ERROR   {}
+[26:25:53.233] Browser ERROR   {}
+[26:25:53.233] Browser ERROR   uncaughtError: Error: Failed to parse src "../public/pill.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[26:26:03.890] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[26:26:03.937] Server  LOG     ✓ Compiled in 73ms
+[26:26:04.580] Server  ERROR   TypeError: Invalid URL
+[26:26:04.623] Server  ERROR   ⨯ Error: Failed to parse src "../pill.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[26:26:05.506] Browser ERROR   {}
+[26:26:05.506] Browser ERROR   {}
+[26:26:05.507] Browser ERROR   uncaughtError: Error: Failed to parse src "../pill.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[26:26:27.155] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[26:26:27.157] Server  LOG     ✓ Compiled in 186ms
+[26:26:29.407] Server  ERROR   TypeError: Invalid URL
+[26:26:29.516] Server  ERROR   ⨯ Error: Failed to parse src "../../public/pill.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[26:26:31.141] Browser ERROR   {}
+[26:26:31.142] Browser ERROR   {}
+[26:26:31.142] Browser ERROR   uncaughtError: Error: Failed to parse src "../../public/pill.png" on `next/image`, if using relative image it must start with a leading slash "/" or be an absolute URL (http:// or https://)
+[26:26:52.570] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[26:26:52.581] Server  LOG     ✓ Compiled in 234ms
+[26:26:58.409] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/public/pill.png" "received" null
+[26:27:07.709] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/public/pill.png" "received" null
+[26:28:14.321] Server  LOG     ✓ Compiled in 162ms
+[26:28:14.705] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/src/public/pill.png" "received" null
+[26:28:18.561] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/src/public/pill.png" "received" null
+[26:28:27.625] Server  LOG     ✓ Compiled in 110ms
+[26:28:27.809] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/pill.png" "received" null
+[26:28:32.083] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/pill.png" "received" null
+[26:29:18.004] Server  LOG     ✓ Compiled in 78ms
+[26:29:18.272] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/src/public/pill.png" "received" null
+[26:33:10.088] Server  LOG     ✓ Compiled in 1571ms
+[26:33:10.873] Server  ERROR   ⨯ TypeError: Cannot read properties of undefined (reading 'container')
+[26:33:10.970] Server  ERROR   ⨯ TypeError: Cannot read properties of undefined (reading 'container')
+[26:33:11.036] Server  ERROR   ⨯ TypeError: Cannot read properties of undefined (reading 'container')
+[26:33:12.638] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'container')
+[26:34:19.535] Server  LOG     ✓ Compiled in 519ms
+[26:34:27.243] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/src/public/pill.png" "received" null
+[26:38:09.868] Server  LOG     ✓ Compiled in 346ms
+[26:38:17.349] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/src/public/pill.png" "received" null
+[26:41:45.822] Server  LOG     ✓ Compiled in 193ms
+[26:43:41.544] Server  LOG     ✓ Compiled in 462ms
+[26:45:57.563] Server  LOG     ✓ Compiled in 364ms
+[26:47:19.140] Server  LOG     ✓ Compiled in 243ms
+[26:47:35.829] Server  LOG     ✓ Compiled in 58ms
+[26:50:14.506] Server  LOG     ✓ Compiled in 124ms
+[26:53:27.360] Server  LOG     ✓ Compiled in 221ms
+[26:54:08.326] Server  LOG     ✓ Compiled in 271ms
+[26:54:33.746] Server  LOG     ✓ Compiled in 121ms
+[26:55:50.717] Server  LOG     ✓ Compiled in 183ms
+[26:56:26.414] Server  LOG     ✓ Compiled in 123ms
+[26:57:03.514] Server  LOG     ✓ Compiled in 304ms
+[26:57:13.327] Server  LOG     ✓ Compiled in 79ms
+[26:57:37.351] Server  LOG     ✓ Compiled in 72ms
+[26:57:46.791] Server  LOG     ✓ Compiled in 148ms
+[26:58:44.844] Server  LOG     ✓ Compiled in 164ms
+[26:58:59.936] Server  LOG     ✓ Compiled in 82ms
+[26:59:58.360] Server  LOG     ✓ Compiled in 169ms
+[27:00:07.535] Server  LOG     ✓ Compiled in 130ms
+[27:00:32.939] Server  LOG     ✓ Compiled in 106ms
+[27:00:42.203] Server  LOG     ✓ Compiled in 62ms
+[27:01:35.774] Server  LOG     ✓ Compiled in 173ms
+[27:02:05.563] Server  LOG     ✓ Compiled in 123ms
+[27:02:19.987] Server  LOG     ✓ Compiled in 26ms
+[27:02:29.697] Server  LOG     ✓ Compiled in 93ms
+[27:02:37.276] Server  LOG     ✓ Compiled in 132ms
+[27:02:47.893] Server  LOG     ✓ Compiled in 63ms
+[27:02:53.572] Server  LOG     ✓ Compiled in 49ms
+[27:02:58.033] Server  LOG     ✓ Compiled in 74ms
+[27:03:02.821] Server  LOG     ✓ Compiled in 29ms
+[27:03:07.721] Server  LOG     ✓ Compiled in 32ms
+[27:03:16.830] Server  LOG     ✓ Compiled in 39ms
+[27:03:41.983] Server  LOG     ✓ Compiled in 73ms
+[27:03:52.427] Server  LOG     ✓ Compiled in 89ms
+[27:04:50.518] Server  LOG     ✓ Compiled in 56ms
+[27:05:19.360] Server  LOG     ✓ Compiled in 44ms
+[27:05:53.476] Server  LOG     ✓ Compiled in 68ms
+[27:06:19.353] Server  LOG     ✓ Compiled in 58ms
+[27:06:24.242] Server  LOG     ✓ Compiled in 121ms
+[27:06:46.063] Server  LOG     ✓ Compiled in 38ms
+[27:07:00.308] Server  LOG     ✓ Compiled in 113ms
+[27:07:04.384] Server  LOG     ✓ Compiled in 22ms
+[27:07:08.983] Server  LOG     ✓ Compiled in 52ms
+[27:07:14.178] Server  LOG     ✓ Compiled in 16ms
+[27:07:18.688] Server  LOG     ✓ Compiled in 24ms
+[27:07:25.604] Server  LOG     ✓ Compiled in 43ms
+[27:10:08.947] Server  LOG     ✓ Compiled in 100ms
+[27:10:16.178] Server  LOG     ✓ Compiled in 46ms
+[27:12:20.770] Server  LOG     ○ Compiling /login ...
+[27:12:20.929] Server  ERROR   ⨯ ./src/app/login/page.tsx:10:1
+Module not found: Can't resolve './page.module.css'
+   8 | import { useRouter } from "next/navigation"
+   9 | import Image from 'next/image';
+> 10 | import css from './page.module.css';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import Link from 'next/link';
+  12 |
+  13 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[27:12:21.195] Browser ERROR   ./src/app/login/page.tsx:10:1
+Module not found: Can't resolve './page.module.css'
+   8 | import { useRouter } from "next/navigation"
+   9 | import Image from 'next/image';
+> 10 | import css from './page.module.css';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import Link from 'next/link';
+  12 |
+  13 |
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[27:12:21.316] Browser ERROR   ./src/app/login/page.tsx:10:1
+Module not found: Can't resolve './page.module.css'
+   8 | import { useRouter } from "next/navigation"
+   9 | import Image from 'next/image';
+> 10 | import css from './page.module.css';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import Link from 'next/link';
+  12 |
+  13 |
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[27:12:21.438] Server  ERROR   ⨯ ./src/app/login/page.tsx:10:1
+Module not found: Can't resolve './page.module.css'
+   8 | import { useRouter } from "next/navigation"
+   9 | import Image from 'next/image';
+> 10 | import css from './page.module.css';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import Link from 'next/link';
+  12 |
+  13 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[27:12:22.089] Browser ERROR   uncaughtError: Error: ./src/app/login/page.tsx:10:1
+Module not found: Can't resolve './page.module.css'
+   8 | import { useRouter } from "next/navigation"
+   9 | import Image from 'next/image';
+> 10 | import css from './page.module.css';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import Link from 'next/link';
+  12 |
+  13 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[27:12:22.229] Browser ERROR   ./src/app/login/page.tsx:10:1
+Module not found: Can't resolve './page.module.css'
+   8 | import { useRouter } from "next/navigation"
+   9 | import Image from 'next/image';
+> 10 | import css from './page.module.css';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import Link from 'next/link';
+  12 |
+  13 |
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[27:12:23.146] Browser ERROR   ./src/app/login/page.tsx:10:1
+Module not found: Can't resolve './page.module.css'
+   8 | import { useRouter } from "next/navigation"
+   9 | import Image from 'next/image';
+> 10 | import css from './page.module.css';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  11 | import Link from 'next/link';
+  12 |
+  13 |
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[27:12:34.367] Server  LOG     ✓ Compiled in 141ms
+[27:12:45.855] Server  LOG     ✓ Compiled in 178ms
+[27:13:50.926] Server  LOG     ✓ Compiled in 235ms
+[27:14:05.629] Server  LOG     ✓ Compiled in 234ms
+[27:14:26.496] Server  LOG     ✓ Compiled in 34ms
+[27:15:17.271] Server  LOG     ✓ Compiled in 213ms
+[27:15:58.228] Browser LOG     {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://pharmacy-backend-app.onrender.com/api","data":"{}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"legacyInterceptorReqResOrdering":true,"silentJSONParsing":true},"url":"/register","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:6393:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:6911:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:7717:49)\n    at async register (http://localhost:3000/_next/static/chunks/src_0871bdbf._.js:46:17)\n    at async onSubmit (http://localhost:3000/_next/static/chunks/src_7f364c75._.js:103:13)\n    at async http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:2090:21","status":404}
+[27:16:07.183] Server  LOG     ✓ Compiled in 101ms
+[27:17:12.228] Server  LOG     ✓ Compiled in 74ms
+[27:17:22.902] Server  LOG     ✓ Compiled in 72ms
+[27:17:35.868] Server  LOG     ✓ Compiled in 35ms
+[27:18:31.945] Browser LOG     {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://pharmacy-backend-app.onrender.com/api","data":"{}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"legacyInterceptorReqResOrdering":true,"silentJSONParsing":true},"url":"/register","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_771fb1ed._.js:3465:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_771fb1ed._.js:3983:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_771fb1ed._.js:4789:49)\n    at async register (http://localhost:3000/_next/static/chunks/src_7f364c75._.js:46:17)\n    at async onSubmit (http://localhost:3000/_next/static/chunks/src_7f364c75._.js:103:13)\n    at async http://localhost:3000/_next/static/chunks/node_modules_771fb1ed._.js:7486:21","status":404}
+[27:21:18.405] Server  LOG     ✓ Compiled in 168ms
+[27:24:26.889] Server  LOG     ✓ Compiled in 183ms
+[27:29:21.092] Server  LOG     ✓ Compiled in 51ms
+[27:29:56.627] Server  LOG     ✓ Compiled in 189ms
+[27:32:12.673] Server  LOG     ✓ Compiled in 164ms
+[27:32:33.823] Server  LOG     ✓ Compiled in 67ms
+[27:34:56.694] Server  LOG     ✓ Compiled in 45ms
+[27:36:34.536] Server  LOG     ✓ Compiled in 45ms
+[27:37:39.739] Server  LOG     ✓ Compiled in 115ms
+[27:39:10.105] Server  LOG     ✓ Compiled in 167ms
+[27:40:01.624] Server  LOG     ✓ Compiled in 95ms
+[27:41:17.516] Server  LOG     ✓ Compiled in 177ms
+[27:41:30.325] Server  LOG     ✓ Compiled in 162ms
+[27:42:23.370] Server  LOG     ✓ Compiled in 68ms
+[27:42:32.685] Server  LOG     ✓ Compiled in 137ms
+[27:44:31.494] Server  LOG     ✓ Compiled in 203ms
+[27:44:39.954] Server  LOG     ✓ Compiled in 104ms
+[27:45:06.666] Server  LOG     ✓ Compiled in 170ms
+[27:45:55.578] Server  LOG     ✓ Compiled in 229ms
+[27:46:23.338] Server  LOG     ✓ Compiled in 49ms
+[27:46:42.088] Server  LOG     ✓ Compiled in 187ms
+[27:49:20.540] Server  LOG     ✓ Compiled in 72ms
+[27:49:56.581] Server  LOG     ✓ Compiled in 48ms
+[27:51:09.546] Server  LOG     ✓ Compiled in 131ms
+[27:51:39.154] Server  LOG     ✓ Compiled in 139ms
+[27:53:11.577] Server  LOG     ✓ Compiled in 191ms
+[27:53:34.854] Server  LOG     ✓ Compiled in 165ms
+[27:54:44.659] Server  LOG     ✓ Compiled in 67ms
+[27:56:12.082] Server  LOG     ✓ Compiled in 193ms
+[27:56:27.312] Server  LOG     ✓ Compiled in 61ms
+[27:57:00.628] Server  LOG     ✓ Compiled in 216ms
+[27:57:30.270] Server  LOG     ✓ Compiled in 295ms
+[28:01:37.511] Server  LOG     ✓ Compiled in 132ms
+[28:02:58.473] Server  LOG     ✓ Compiled in 85ms
+[28:03:46.046] Server  LOG     ✓ Compiled in 76ms
+[28:04:13.087] Server  LOG     ✓ Compiled in 300ms
+[28:04:47.422] Server  LOG     ✓ Compiled in 177ms
+[28:04:51.865] Server  LOG     ✓ Compiled in 158ms
+[28:05:21.158] Server  LOG     ✓ Compiled in 46ms
+[28:06:21.452] Server  LOG     ✓ Compiled in 142ms
+[28:07:20.605] Server  LOG     ✓ Compiled in 65ms
+[28:07:26.560] Server  LOG     ✓ Compiled in 54ms
+[28:07:35.716] Server  LOG     ✓ Compiled in 48ms
+[28:08:16.099] Server  LOG     ✓ Compiled in 42ms
+[28:08:26.902] Server  LOG     ✓ Compiled in 70ms
+[28:08:32.267] Server  LOG     ✓ Compiled in 89ms
+[28:08:43.641] Server  LOG     ✓ Compiled in 54ms
+[28:09:46.353] Server  LOG     ✓ Compiled in 42ms
+[28:10:30.579] Server  LOG     ✓ Compiled in 82ms
