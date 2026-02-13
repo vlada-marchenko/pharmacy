@@ -37,53 +37,55 @@ export default function LoginPage() {
   };
 
   return (
-    <div className={`container ${css.container}`}>
-      <div className={css.titleCont}>
-        <Image
-          className={css.image}
-          src="/pill.png"
-          alt="pill"
-          width={95}
-          height={95}
-        />
-        <h1 className={css.title}>
-          Your medication, <br /> delivered Say goodbye to all{' '}
-          <span className={css.span}>your healthcare</span> worries with us
-        </h1>
-      </div>
-      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-        <div className={css.field}>
-          <input
-            className={css.input}
-            id="email"
-            type="email"
-            placeholder=" "
-            {...formRegister('email', { required: true })}
+    <div className={`'container' ${css.page}`}>
+      <div className={css.content}>
+        <div className={css.titleCont}>
+          <Image
+            className={css.image}
+            src="/pill.png"
+            alt="pill"
+            width={92}
+            height={92}
           />
-          <label className={css.label} htmlFor="email">
-            Email address
-          </label>
+          <h1 className={css.title}>
+            Your medication, <br /> delivered Say goodbye to all{' '}
+            <span className={css.span}>your healthcare</span> worries with us
+          </h1>
         </div>
-        <div className={css.field}>
-          <input
-            className={css.input}
-            id="password"
-            type="password"
-            placeholder=" "
-            {...formRegister('password', { required: true })}
-          />
-          <label className={css.label} htmlFor="password">
-            Password
-          </label>
-        </div>
+        <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+          <div className={css.field}>
+            <input
+              className={css.input}
+              id="email"
+              type="email"
+              placeholder=" "
+              {...formRegister('email', { required: true })}
+            />
+            <label className={css.label} htmlFor="email">
+              Email address
+            </label>
+          </div>
+          <div className={css.field}>
+            <input
+              className={css.input}
+              id="password"
+              type="password"
+              placeholder=" "
+              {...formRegister('password', { required: true })}
+            />
+            <label className={css.label} htmlFor="password">
+              Password
+            </label>
+          </div>
 
-        <button className={css.button} type="submit" disabled={isSubmitting}>
-          Log in
-        </button>
-      </form>
-      <Link className={css.link} href={'/register'}>
-        Don't have an account?
-      </Link>
+          <button className={css.button} type="submit" disabled={isSubmitting}>
+            Log in
+          </button>
+        </form>
+        <Link className={css.link} href={'/register'}>
+          Don't have an account?
+        </Link>
+      </div>
     </div>
   );
 }

@@ -29,11 +29,11 @@ export type LoginResponse = {
 
 
 export const register = async (data: RegisterRequest) => {
-const res = await api.post<User>('/register', data)
+const res = await api.post<User>('/user/register', data)
 return res.data
 }
 
 export const login = async (data: LoginRequest) => {
-    const res = await api.post<LoginResponse>('/login', data)
+    const res = await api.post<LoginResponse>('/user/login', data)
     return res.data
 }

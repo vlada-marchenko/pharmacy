@@ -826,3 +826,60 @@ https://nextjs.org/docs/messages/module-not-found
 [28:08:43.641] Server  LOG     ✓ Compiled in 54ms
 [28:09:46.353] Server  LOG     ✓ Compiled in 42ms
 [28:10:30.579] Server  LOG     ✓ Compiled in 82ms
+[28:13:52.925] Browser LOG     {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://pharmacy-backend-app.onrender.com/api","data":"{\"name\":\"Alexander Marchenko\",\"email\":\"megamaris@ukr.net\",\"phone\":\"0501964300\",\"password\":\"krisas\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"legacyInterceptorReqResOrdering":true,"silentJSONParsing":true},"url":"/register","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:6393:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:6911:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:7717:49)\n    at async register (http://localhost:3000/_next/static/chunks/src_0871bdbf._.js:46:17)\n    at async onSubmit (http://localhost:3000/_next/static/chunks/src_7f364c75._.js:103:13)\n    at async http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:2090:21","status":404}
+[28:13:53.403] Browser LOG     {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://pharmacy-backend-app.onrender.com/api","data":"{\"name\":\"Alexander Marchenko\",\"email\":\"megamaris@ukr.net\",\"phone\":\"0501964300\",\"password\":\"krisas\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"legacyInterceptorReqResOrdering":true,"silentJSONParsing":true},"url":"/register","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:6393:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:6911:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:7717:49)\n    at async register (http://localhost:3000/_next/static/chunks/src_0871bdbf._.js:46:17)\n    at async onSubmit (http://localhost:3000/_next/static/chunks/src_7f364c75._.js:103:13)\n    at async http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:2090:21","status":404}
+[29:40:58.683] Browser LOG     {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://pharmacy-backend-app.onrender.com/api","data":"{\"name\":\"Alexander Marchenko\",\"email\":\"megamaris@ukr.net\",\"phone\":\"0501964300\",\"password\":\"krisas\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"legacyInterceptorReqResOrdering":true,"silentJSONParsing":true},"url":"/register","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:6393:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:6911:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:7717:49)\n    at async register (http://localhost:3000/_next/static/chunks/src_0871bdbf._.js:46:17)\n    at async onSubmit (http://localhost:3000/_next/static/chunks/src_7f364c75._.js:103:13)\n    at async http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:2090:21","status":404}
+[29:42:07.110] Browser LOG     {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://pharmacy-backend-app.onrender.com/api","data":"{\"name\":\"Alexander Marchenko\",\"email\":\"megamaris@ukr.net\",\"phone\":\"0501964300\",\"password\":\"krisas\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"legacyInterceptorReqResOrdering":true,"silentJSONParsing":true},"url":"/register","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:6393:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:6911:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:7717:49)\n    at async register (http://localhost:3000/_next/static/chunks/src_0871bdbf._.js:46:17)\n    at async onSubmit (http://localhost:3000/_next/static/chunks/src_7f364c75._.js:103:13)\n    at async http://localhost:3000/_next/static/chunks/node_modules_33e89165._.js:2090:21","status":404}
+[29:42:41.064] Browser LOG     {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://pharmacy-backend-app.onrender.com/api","data":"{\"name\":\"Alexander Marchenko\",\"email\":\"megamaris@ukr.net\",\"phone\":\"9991113331313\",\"password\":\"amnesia\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"legacyInterceptorReqResOrdering":true,"silentJSONParsing":true},"url":"/register","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 404","name":"AxiosError","stack":"AxiosError: Request failed with status code 404\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_771fb1ed._.js:3465:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_771fb1ed._.js:3983:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_771fb1ed._.js:4789:49)\n    at async register (http://localhost:3000/_next/static/chunks/src_7f364c75._.js:46:17)\n    at async onSubmit (http://localhost:3000/_next/static/chunks/src_7f364c75._.js:104:13)\n    at async http://localhost:3000/_next/static/chunks/node_modules_771fb1ed._.js:7486:21","status":404}
+[29:46:11.189] Server  LOG     ✓ Compiled in 490ms
+[29:46:13.981] Browser LOG     {"code":"ERR_BAD_REQUEST","config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"https://pharmacy-backend-app.onrender.com/api","data":"{\"name\":\"Alexander Marchenko\",\"email\":\"megamaris@ukr.net\",\"phone\":\"9991113331313\",\"password\":\"amnesia\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json"},"maxBodyLength":-1,"maxContentLength":-1,"method":"post","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"legacyInterceptorReqResOrdering":true,"silentJSONParsing":true},"url":"/user/register","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"message":"Request failed with status code 400","name":"AxiosError","stack":"AxiosError: Request failed with status code 400\n    at settle (http://localhost:3000/_next/static/chunks/node_modules_771fb1ed._.js:3465:16)\n    at XMLHttpRequest.onloadend (http://localhost:3000/_next/static/chunks/node_modules_771fb1ed._.js:3983:174)\n    at Axios.request (http://localhost:3000/_next/static/chunks/node_modules_771fb1ed._.js:4789:49)\n    at async register (http://localhost:3000/_next/static/chunks/src_7f364c75._.js?id=%255Bproject%255D%252Fsrc%252Flib%252Fauth.ts+%255Bapp-client%255D+%2528ecmascript%2529:13:17)\n    at async onSubmit (http://localhost:3000/_next/static/chunks/src_7f364c75._.js:104:13)\n    at async http://localhost:3000/_next/static/chunks/node_modules_771fb1ed._.js:7486:21","status":400}
+[30:03:24.497] Server  LOG     ✓ Compiled in 431ms
+[30:03:38.005] Server  LOG     ✓ Compiled in 413ms
+[30:03:45.977] Server  LOG     ✓ Compiled in 46ms
+[30:04:34.172] Server  LOG     ✓ Compiled in 1798ms
+[30:04:55.690] Server  LOG     ✓ Compiled in 343ms
+[30:06:01.436] Server  LOG     ✓ Compiled in 73ms
+[30:06:08.266] Server  LOG     ✓ Compiled in 134ms
+[30:06:17.300] Server  LOG     ✓ Compiled in 35ms
+[30:06:27.131] Server  LOG     ✓ Compiled in 35ms
+[30:06:31.536] Server  LOG     ✓ Compiled in 48ms
+[30:07:04.216] Server  LOG     ✓ Compiled in 62ms
+[30:08:52.764] Server  LOG     ✓ Compiled in 390ms
+[30:08:52.882] Browser ERROR   ./src/app/register/page.tsx:34:34
+Parsing ecmascript source code failed
+  32 |
+  33 |   return (
+> 34 |     <div className='container' ${css.container}>
+     |                                  ^^^
+  35 |
+  36 |       {/* 2. Внутрішній шар (обмежена ширина + картинка) */}
+  37 |       <div className={css.content}>
+
+Expected '...', got 'ident'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.tsx [Client Component Browser]
+    ./src/app/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.tsx [Client Component SSR]
+    ./src/app/register/page.tsx [Server Component]
+[30:09:07.884] Server  LOG     ✓ Compiled in 99ms
+[30:09:33.364] Server  LOG     ✓ Compiled in 173ms
+[30:10:08.253] Server  LOG     ✓ Compiled in 56ms
+[30:10:29.843] Server  LOG     ✓ Compiled in 44ms
+[30:11:33.333] Server  LOG     ✓ Compiled in 49ms
+[30:12:01.179] Server  LOG     ✓ Compiled in 26ms
+[30:12:32.337] Server  LOG     ✓ Compiled in 70ms
+[30:12:49.408] Server  LOG     ✓ Compiled in 249ms
+[30:14:00.227] Server  LOG     ✓ Compiled in 141ms
+[30:14:54.152] Server  LOG     ✓ Compiled in 63ms
+[30:17:00.032] Server  LOG     ✓ Compiled in 202ms
+[30:17:12.941] Server  LOG     ✓ Compiled in 42ms
+[30:19:04.397] Server  LOG     ✓ Compiled in 187ms
+[30:19:14.740] Server  LOG     ✓ Compiled in 45ms
+[30:19:17.966] Server  LOG     ✓ Compiled in 22ms
+[30:19:28.102] Server  LOG     ✓ Compiled in 35ms
+[30:19:33.430] Server  LOG     ✓ Compiled in 186ms
+[30:20:08.974] Server  LOG     ✓ Compiled in 74ms
