@@ -29,7 +29,12 @@ export default function LoginPage() {
       }
       localStorage.setItem('user', JSON.stringify(res.user));
       toast.success(`Welcome back, ${res.user.name}`);
-      router.push('/shop');
+      if (res.user.shopId) {
+        Cookies.set('shopId', res.user.shopId, { expires: 1 });
+        router.push(`/shop/${res.user.shopId}`);
+        } else {
+        router.push('/shop/create');
+      }
     } catch (err) {
       toast.error('Login failed');
       console.log(err);
@@ -42,7 +47,7 @@ export default function LoginPage() {
         <div className={css.titleCont}>
           <Image
             className={css.image}
-            src="/pill.png"
+            src="/pilll.png"
             alt="pill"
             width={92}
             height={92}

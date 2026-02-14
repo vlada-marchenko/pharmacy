@@ -36,7 +36,7 @@ export default function RegisterPage() {
         <div className={css.titleCont}>
           <Image
             className={css.image}
-            src="/pill.png"
+            src="/pilll.png"
             alt="pill"
             width={92}
             height={92}

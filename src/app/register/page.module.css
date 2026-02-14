@@ -1,6 +1,5 @@
 .titleCont {
   position: relative;
-  margin-top: 20px;
 }
 
 /* .container {
@@ -17,7 +16,7 @@ width: 100%;
 } */
 
 .page {
-  min-height: 100vh;
+  min-height: 92vh;
   width: 100%;
   background-color: #f7f8fa;
   background-image: url('/elements.png');
@@ -72,7 +71,6 @@ width: 100%;
 
 .label {
   position: absolute;
-  font-family: Inter;
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;

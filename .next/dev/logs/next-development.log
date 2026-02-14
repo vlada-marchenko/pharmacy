@@ -977,3 +977,179 @@ Import traces:
 [55:40:12.862] Server  LOG     ✓ Compiled in 55ms
 [55:40:57.367] Server  LOG     ✓ Compiled in 168ms
 [55:41:07.471] Server  LOG     ✓ Compiled in 20ms
+[59:09:18.630] Server  LOG     ✓ Compiled in 271ms
+[59:14:14.338] Server  LOG     ✓ Compiled in 258ms
+[59:14:14.803] Server  ERROR   ⨯ ReferenceError: css is not defined
+[59:14:14.832] Server  ERROR   ⨯ ReferenceError: css is not defined
+[59:14:14.856] Server  ERROR   ⨯ ReferenceError: css is not defined
+[59:14:14.887] Server  ERROR   ⨯ ReferenceError: css is not defined
+[59:14:15.055] Browser ERROR   uncaughtError: ReferenceError: css is not defined
+[59:17:13.755] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[59:17:14.778] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[59:17:16.247] Server  LOG     ✓ Compiled in 340ms
+[59:47:00.116] Server  LOG     ✓ Compiled in 0ms
+[59:47:01.803] Server  ERROR   ⨯ Error: Failed prop type: The prop `href` expects a `string` or `object` in `<Link>`, but got `undefined` instead.
+[59:47:03.443] Browser ERROR   uncaughtError: Error: Failed prop type: The prop `href` expects a `string` or `object` in `<Link>`, but got `undefined` instead.
+Open your browser's console to view the Component stack trace.
+[59:47:21.221] Server  LOG     ✓ Compiled in 442ms
+[59:47:22.051] Server  ERROR   ⨯ Error: Failed prop type: The prop `href` expects a `string` or `object` in `<Link>`, but got `undefined` instead.
+[59:47:27.403] Browser ERROR   uncaughtError: Error: Failed prop type: The prop `href` expects a `string` or `object` in `<Link>`, but got `undefined` instead.
+Open your browser's console to view the Component stack trace.
+[59:47:36.723] Server  LOG     ✓ Compiled in 184ms
+[59:47:37.171] Server  ERROR   ⨯ Error: Image with src "/logo.png" is missing required "width" property.
+[59:47:38.131] Browser ERROR   uncaughtError: Error: Image with src "/logo.png" is missing required "width" property.
+[59:47:42.851] Server  ERROR   ⨯ Error: Image with src "/logo.png" is missing required "width" property.
+[59:47:43.618] Browser ERROR   uncaughtError: Error: Image with src "/logo.png" is missing required "width" property.
+[59:47:58.519] Browser ERROR   ./src/components/Header/Header.tsx:10:50
+Parsing ecmascript source code failed
+   8 |     <div className={css.container}>
+   9 |       <Link href='/register'>
+> 10 |       <Image src='/logo.png' alt='logo' width={} height={}/>
+     |                                                  ^^^^^^
+  11 |       </Link>
+  12 |     </div>
+  13 |   );
+
+Expected '</', got 'ident'
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[59:48:13.043] Server  LOG     ✓ Compiled in 120ms
+[59:49:32.361] Server  LOG     ✓ Compiled in 234ms
+[59:50:25.871] Server  LOG     ✓ Compiled in 35ms
+[59:51:33.411] Server  LOG     ✓ Compiled in 44ms
+[59:51:41.997] Server  LOG     ✓ Compiled in 311ms
+[59:51:54.512] Server  LOG     ✓ Compiled in 49ms
+[59:52:11.950] Server  LOG     ✓ Compiled in 62ms
+[59:52:22.734] Server  LOG     ✓ Compiled in 39ms
+[59:52:51.314] Server  LOG     ✓ Compiled in 44ms
+[59:53:32.032] Server  LOG     ✓ Compiled in 47ms
+[59:53:46.670] Server  LOG     ✓ Compiled in 31ms
+[59:55:26.116] Server  LOG     ✓ Compiled in 110ms
+[59:56:30.634] Server  LOG     ✓ Compiled in 408ms
+[59:59:38.457] Server  LOG     ✓ Compiled in 95ms
+[59:59:45.114] Server  LOG     ✓ Compiled in 43ms
+[60:01:21.996] Server  LOG     ✓ Compiled in 258ms
+[60:07:35.880] Server  LOG     ✓ Compiled in 234ms
+[60:07:48.265] Server  LOG     ✓ Compiled in 154ms
+[60:08:31.944] Server  LOG     ✓ Compiled in 404ms
+[60:09:06.844] Server  LOG     ✓ Compiled in 51ms
+[60:09:42.784] Server  LOG     ✓ Compiled in 71ms
+[60:12:23.677] Server  LOG     ✓ Compiled in 122ms
+[60:12:34.283] Server  LOG     ✓ Compiled in 71ms
+[60:13:41.137] Server  LOG     ✓ Compiled in 84ms
+[60:14:29.630] Server  LOG     ✓ Compiled in 49ms
+[60:14:42.557] Server  LOG     ✓ Compiled in 40ms
+[60:15:21.467] Server  LOG     ✓ Compiled in 59ms
+[60:15:30.000] Server  LOG     ✓ Compiled in 47ms
+[60:18:11.394] Browser ERROR   ./src/components/Header/Header.tsx:5:15
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { use, useState } from "react";
+    |               ^^^^^^^^
+  6 |
+  7 | export default function Header() {
+  8 |   const [isLoggedIn, setisLoggedIn] = useState(false)
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:27:06.314] Server  LOG     ✓ Compiled in 840ms
+[60:27:06.416] Browser ERROR   ./src/components/Header/Header.tsx:5:15
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { use, useState } from "react";
+    |               ^^^^^^^^
+  6 |
+  7 | export default function Header() {
+  8 |   const [isLoggedIn, setisLoggedIn] = useState(false)
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:33:38.505] Server  LOG     ✓ Compiled in 1068ms
+[60:33:38.683] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:33:38.683] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:33:38.683] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:33:38.683] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
