@@ -52,39 +52,45 @@ export default function LoginPage() {
             <span className={css.span}>your healthcare</span> worries with us
           </h1>
         </div>
-        <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-          <div className={css.field}>
-            <input
-              className={css.input}
-              id="email"
-              type="email"
-              placeholder=" "
-              {...formRegister('email', { required: true })}
-            />
-            <label className={css.label} htmlFor="email">
-              Email address
-            </label>
-          </div>
-          <div className={css.field}>
-            <input
-              className={css.input}
-              id="password"
-              type="password"
-              placeholder=" "
-              {...formRegister('password', { required: true })}
-            />
-            <label className={css.label} htmlFor="password">
-              Password
-            </label>
-          </div>
+        <div className={css.formCont}>
+          <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+            <div className={css.field}>
+              <input
+                className={css.input}
+                id="email"
+                type="email"
+                placeholder=" "
+                {...formRegister('email', { required: true })}
+              />
+              <label className={css.label} htmlFor="email">
+                Email address
+              </label>
+            </div>
+            <div className={css.field}>
+              <input
+                className={css.input}
+                id="password"
+                type="password"
+                placeholder=" "
+                {...formRegister('password', { required: true })}
+              />
+              <label className={css.label} htmlFor="password">
+                Password
+              </label>
+            </div>
 
-          <button className={css.button} type="submit" disabled={isSubmitting}>
-            Log in
-          </button>
-        </form>
-        <Link className={css.link} href={'/register'}>
-          Don't have an account?
-        </Link>
+            <button
+              className={css.button}
+              type="submit"
+              disabled={isSubmitting}
+            >
+              Log in
+            </button>
+          </form>
+          <Link className={css.link} href={'/register'}>
+            Don't have an account?
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ width: 100%;
 .page {
   min-height: 100vh;
   width: 100%;
-  background-color: #F7F8FA;
+  background-color: #f7f8fa;
   background-image: url('/elements.png');
   background-repeat: no-repeat;
   background-position: bottom right;
@@ -144,6 +144,12 @@ width: 100%;
   margin-top: 14px;
 }
 
+.formCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media screen and (min-width: 375px) {
   .content {
     width: 375px;
@@ -155,12 +161,69 @@ width: 100%;
     width: 768px;
     padding: 40px;
     background-size: 200px;
+    align-items: start;
+  }
+
+  .page {
+    background-size: 35%;
+  }
+
+  .titleCont {
+    width: 614px;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 54px;
+    line-height: 60px;
+  }
+
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .image {
+    width: 179px;
+    height: 175px;
+    top: -75px;
+    right: 20px;
+  }
+
+  .button {
+    width: 100%;
+    max-width: unset;
+    margin-top: 52px;
+  }
+
+  .link {
+    margin-left: 13%;
+  }
+
+  .formCont {
+    align-items: start;
   }
 }
-
 
 @media screen and (min-width: 1440px) {
   .content {
     width: 1440px;
+    display: grid;
+    padding: 38px;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .page {
+    background-size: 25%;
+  }
+
+  .link {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .formCont {
+    margin-top: 40px;
   }
 }
