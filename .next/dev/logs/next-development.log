@@ -1153,3 +1153,2364 @@ Import trace:
   Server Component:
     ./src/components/Header/Header.tsx
     ./src/app/layout.tsx
+[60:35:13.144] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.145] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.146] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.147] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.147] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.147] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.147] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[60:35:13.147] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.733] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[69:21:24.734] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:51.628] Server  ERROR   ⨯ ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+
+./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+
+./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+
+./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+[94:33:51.856] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:51.857] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:51.857] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:51.857] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.454] Browser ERROR   uncaughtError: Error: ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:33:52.878] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.500] Server  ERROR   ⨯ ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+
+./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+
+./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+
+./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+[94:34:02.705] Browser ERROR   uncaughtError: Error: ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:7:1
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/router";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You have a Server Component that imports next/router. Use next/navigation instead.
+Learn more: https://nextjs.org/docs/app/api-reference/functions/use-router
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:02.910] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/router";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:17.839] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:17.845] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:17.846] Browser ERROR   ./src/components/Header/Header.tsx:7:10
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/navigation";
+     |          ^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:17.846] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.083] Server  ERROR   ⨯ ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+
+./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+
+./src/components/Header/Header.tsx:7:10
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/navigation";
+     |          ^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+
+./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+[94:34:18.415] Browser ERROR   uncaughtError: Error: ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+
+
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:7:10
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/navigation";
+     |          ^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:7:10
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/navigation";
+     |          ^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:7:10
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/navigation";
+     |          ^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:7:10
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/navigation";
+     |          ^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:7:10
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/navigation";
+     |          ^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:18.597] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:56.049] Server  LOG     ✓ Compiled in 513ms
+[94:34:56.077] Browser ERROR   ./src/components/Header/Header.tsx:5:10
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |          ^^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:56.077] Browser ERROR   ./src/components/Header/Header.tsx:6:10
+Ecmascript file had an error
+  4 | import Image from "next/image";
+  5 | import { useEffect, useState } from "react";
+> 6 | import { usePathname } from "next/navigation";
+    |          ^^^^^^^^^^^
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+  9 |
+
+You're importing a component that needs `usePathname`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:56.077] Browser ERROR   ./src/components/Header/Header.tsx:7:10
+Ecmascript file had an error
+   5 | import { useEffect, useState } from "react";
+   6 | import { usePathname } from "next/navigation";
+>  7 | import { useRouter } from "next/navigation";
+     |          ^^^^^^^^^
+   8 | import Cookies from "js-cookie";
+   9 |
+  10 | export default function Header() {
+
+You're importing a component that needs `useRouter`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:34:56.077] Browser ERROR   ./src/components/Header/Header.tsx:5:21
+Ecmascript file had an error
+  3 | import Link from "next/link";
+  4 | import Image from "next/image";
+> 5 | import { useEffect, useState } from "react";
+    |                     ^^^^^^^^
+  6 | import { usePathname } from "next/navigation";
+  7 | import { useRouter } from "next/navigation";
+  8 | import Cookies from "js-cookie";
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:39:22.313] Server  LOG     ✓ Compiled in 530ms
+[94:40:49.977] Server  LOG     ✓ Compiled in 190ms
+[94:41:37.377] Server  LOG     ✓ Compiled in 452ms
+[94:42:51.027] Browser ERROR   ./src/components/Header/Header.tsx:50:84
+Parsing ecmascript source code failed
+  48 |           </nav>
+  49 |
+> 50 |           <button className={css.burger} onClick={() => setIsMenuOpen(!isMenuOpen)}</button>
+     |                                                                                    ^
+  51 |         </div>
+  52 |       )}
+  53 |       </div>
+
+Expression expected
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:42:51.027] Browser ERROR   ./src/components/Header/Header.tsx:50:85
+Parsing ecmascript source code failed
+  48 |           </nav>
+  49 |
+> 50 |           <button className={css.burger} onClick={() => setIsMenuOpen(!isMenuOpen)}</button>
+     |                                                                                     ^^^^^^^^
+  51 |         </div>
+  52 |       )}
+  53 |       </div>
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./src/components/Header/Header.tsx
+    ./src/app/layout.tsx
+[94:42:57.348] Server  LOG     ✓ Compiled in 80ms
+[94:43:20.260] Server  LOG     ✓ Compiled in 28ms
+[94:44:22.042] Server  LOG     ✓ Compiled in 770ms
