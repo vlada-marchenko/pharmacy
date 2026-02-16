@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///Users/vvvvadya/Documents/GitHub/pharmacy/src/components/TanStackProvider/TanStackProvider.tsx"],"sourcesContent":["'use client'\n\nimport { QueryClient, QueryClientProvider } from \"@tanstack/react-query\"\nimport React, { useState } from \"react\"\n\ntype Props = {\n    children: React.ReactNode\n}\n\nconst TanStackProvider = ({ children }: Props) => {\n    const [queryClient] = useState(() => new QueryClient())\n\n    return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>\n}\n\nexport default TanStackProvider\n"],"names":[],"mappings":";;;;;AAEA;AAAA;AACA;AAHA;;;;AASA,MAAM,mBAAmB,CAAC,EAAE,QAAQ,EAAS;IACzC,MAAM,CAAC,YAAY,GAAG,IAAA,iNAAQ,EAAC,IAAM,IAAI,4LAAW;IAEpD,qBAAO,8OAAC,6MAAmB;QAAC,QAAQ;kBAAc;;;;;;AACtD;uCAEe"}}]
-}
