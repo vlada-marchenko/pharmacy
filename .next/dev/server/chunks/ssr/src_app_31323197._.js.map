@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/app/page.module.css [app-rsc] (css module)"],"sourcesContent":["__turbopack_context__.v({\n});\n"],"names":[],"mappings":"AAAA;AACA"}},
+    {"offset": {"line": 9, "column": 0}, "map": {"version":3,"sources":["file:///Users/vvvvadya/Documents/GitHub/pharmacy/src/app/not-found.tsx"],"sourcesContent":["import css from './page.module.css'\n\nconst NotFound = () => {\n    return (\n        <>\n        <h1 className={css.title}>404 - Page not found</h1>\n        <p className={css.description}>Sorry, the page you are looking for does not exist.</p>\n        </>\n    )\n}\n\nexport default NotFound\n"],"names":[],"mappings":";;;;;AAAA;;;AAEA,MAAM,WAAW;IACb,qBACI;;0BACA,8OAAC;gBAAG,WAAW,yIAAG,CAAC,KAAK;0BAAE;;;;;;0BAC1B,8OAAC;gBAAE,WAAW,yIAAG,CAAC,WAAW;0BAAE;;;;;;;;AAGvC;uCAEe"}}]
+}
