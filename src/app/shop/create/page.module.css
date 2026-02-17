@@ -1,0 +1,192 @@
+.page {
+  width: 100%;
+  background-color: #f7f8fa;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 100%;
+  padding: 30px 20px 60px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 335px;
+  background-color: #ffffff;
+  border-radius: 27px;
+  padding: 40px 20px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: #1d1e21;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #6a6a6f;
+  margin-top: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: #1d1e21;
+  padding-left: 18px;
+}
+
+.labelPoll {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: #1d1e21;
+  margin-top: 8px;
+}
+
+.labelRadio {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #1d1e2199;
+}
+
+.input {
+  width: 295px;
+  height: 44px;
+  padding-left: 18px;
+  border: 1px solid rgba(29, 30, 33, 0.2);
+  border-radius: 60px;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.errorMessage {
+font-weight: 400;
+font-size: 12px;
+line-height: 18px;
+color: #ff0000;
+margin-left: 18px;
+margin-top: -2px;
+}
+
+.input:hover,
+.input:focus {
+  border-color: #59b17a;
+  outline: none;
+}
+
+.inputRadio {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(29, 30, 33, 0.2);
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  margin: 0;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.2s border-color ease-in-out;
+}
+
+.inputRadio::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.1s transform ease-in-out;
+  background-color: #59b17a;
+}
+
+.inputRadio:checked {
+  border-color: #59b17a;
+}
+
+.inputRadio:checked::before {
+  transform: scale(1);
+}
+
+.poll {
+  display: flex;
+  gap: 8px;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 26px;
+  gap: 8px;
+  text-wrap: nowrap;
+  width: 155px;
+  height: 44px;
+  border: none;
+  background: #59b17a;
+  border-radius: 60px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ffffff;
+  cursor: pointer;
+  margin-top: 28px;
+}
+
+.image {
+  width: 100%;
+  max-width: 335px;
+  height: 470px;
+  object-fit: cover;
+  border-radius: 27px;
+  margin-top: 20px;
+  display: block;
+}
+
+@media screen and (min-width: 375px) {
+  .content {
+    width: 375px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .content {
+    width: 768px;
+    padding: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .content {
+    width: 1440px;
+    padding: 38px;
+  }
+}
