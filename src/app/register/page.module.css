@@ -197,7 +197,7 @@
     padding: 0 138px;
     align-items: center;
     grid-template-columns: 1fr 1fr;
-    gap: 55px;
+    gap: 40px;
   }
 
   .title {
@@ -216,8 +216,8 @@
   }
 
     .image {
-    top: -105px;
-    right: 2px;
+    top: -115px;
+    left: 420px;
   }
 
   .button {
