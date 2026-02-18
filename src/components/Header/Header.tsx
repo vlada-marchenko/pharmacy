@@ -18,6 +18,7 @@ export default function Header() {
 
   useEffect(() => {
     const token = Cookies.get('token');
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsLoggedIn(!!token);
     setIsMenuOpen(false);
   }, [pathname]);
@@ -32,12 +33,15 @@ export default function Header() {
     router.push('/login');
   };
 
-  const getMobileNavClass = (path: string) => {
-    return pathname === path ? `${css.navLinkMobActive} ${css.navLinkMob}`: css.navLinkMob;
+
+  const shopId = Cookies.get('shopId');
+
+  const getMobileNavClass = (paths: string[]) => {
+    return paths.includes(pathname) ? `${css.navLinkMobActive} ${css.navLinkMob}`: css.navLinkMob;
   }
 
-  const getDesktopNavClass = (path: string) => {
-    return pathname === path ? `${css.navLinkActive} ${css.navLink}`: css.navLink;
+  const getDesktopNavClass = (paths: string[]) => {
+    return paths.includes(pathname) ? `${css.navLinkActive} ${css.navLink}`: css.navLink;
   }
 
   return (
@@ -51,13 +55,13 @@ export default function Header() {
           <>
             <div>
               <nav className={css.desktopNav}>
-                <Link href="/shop" className={getDesktopNavClass('/shop')}>
+                <Link href="/shop/create" className={getDesktopNavClass(['/shop/create', `/shop/${shopId}/update`])}>
                   Shop
                 </Link>
-                <Link href="/medicine" className={getDesktopNavClass('/medicine')}>
+                <Link href="/medicine" className={getDesktopNavClass(['/medicine'])}>
                   Medicine
                 </Link>
-                <Link href="/statistics" className={getDesktopNavClass('/statistics')}>
+                <Link href="/statistics" className={getDesktopNavClass(['/statistics'])}>
                   Statistics
                 </Link>
               </nav>
@@ -65,13 +69,13 @@ export default function Header() {
               {isMenuOpen && (
                 <div className={css.mobileOverlay}>
                   <nav className={css.mobileNav}>
-                    <Link href="/shop" className={getMobileNavClass('/shop')}>
+                    <Link href="/shop/create" className={getMobileNavClass(['/shop/create', `/shop/${shopId}/update`])}>
                       Shop
                     </Link>
-                    <Link href="/medicine" className={getMobileNavClass('/medicine')}>
+                    <Link href="/medicine" className={getMobileNavClass(['/medicine'])}>
                       Medicine
                     </Link>
-                    <Link href="/statistics" className={getMobileNavClass('/statistics')}>
+                    <Link href="/statistics" className={getMobileNavClass(['/statistics'])}>
                       Statistics
                     </Link>
                     <button className={css.logoutMob} onClick={handleLogout}>

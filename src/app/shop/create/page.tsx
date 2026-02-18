@@ -34,6 +34,7 @@ export default function CreateShopPage() {
 
   const onSubmit = async (data: Props) => {
     try {
+
       const backendData = {
         shopName: data.shopName,
         shopOwnerName: data.ownerName,
@@ -49,11 +50,13 @@ export default function CreateShopPage() {
 
       if (response && response.shopId) {
         Cookies.set('shopId', response.shopId, { expires: 1 });
+        toast.success('Shop created successfully!');
+        router.push(`/shop/${response.shopId}/product`);
+      } else {
+        toast.error('Failed to create shop. Please try again.');
+        return;
       }
 
-      toast.success('Shop created successfully!');
-
-      router.push('/shop');
     } catch (error) {
       console.error('Error creating shop:', error);
       toast.error(typeof error === 'string' ? error : JSON.stringify(error));
@@ -70,6 +73,7 @@ export default function CreateShopPage() {
             share.
           </p>
           <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+            <div className={css.grid}>
             <div className={css.field}>
               <label htmlFor="name" className={css.label}>
                 Shop Name
@@ -183,6 +187,7 @@ export default function CreateShopPage() {
                 <span className={css.errorMessage}>{errors.zip.message}</span>
               )}
             </div>
+            </div>
 
             <div className={css.field}>
               <label htmlFor="delivery" className={css.labelPoll}>
@@ -221,7 +226,7 @@ export default function CreateShopPage() {
           </form>
         </div>
         <Image
-          src="/pic.jpg"
+          src="/pic.png"
           alt="Shop image"
           className={css.image}
           width={335}

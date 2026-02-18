@@ -2,19 +2,6 @@
   position: relative;
 }
 
-/* .container {
-min-height: 100vh;
-width: 100%;
-  background-image: url('/elements.png');
-  background-position: bottom right;
-  background-repeat: no-repeat;
-  background-size: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-
 .page {
   min-height: 92vh;
   width: 100%;
@@ -127,7 +114,7 @@ width: 100%;
   line-height: 18px;
   border: none;
   color: #ffffff;
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 .button:hover {
@@ -195,7 +182,7 @@ width: 100%;
   }
 
   .link {
-    margin-left: 13%;
+    margin-left: 14%;
   }
 
   .formCont {
@@ -207,9 +194,41 @@ width: 100%;
   .content {
     width: 1440px;
     display: grid;
-    padding: 38px;
+    padding: 0 138px;
     align-items: center;
     grid-template-columns: 1fr 1fr;
+    gap: 55px;
+  }
+
+  .title {
+    margin-top: 0;
+  }
+
+    .form {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 0px;
+    width: 510px;
+  }
+
+  .input {
+    width: 250px;
+  }
+
+    .image {
+    top: -105px;
+    right: 2px;
+  }
+
+  .button {
+    width: 250px;
+    max-width: 250px;
+    min-width: 250px;
+    padding: 0;
+  }
+
+ .titleCont {
+    min-width: 596px;
   }
 
   .page {
@@ -217,11 +236,10 @@ width: 100%;
   }
 
   .link {
-    grid-column: 2;
-    justify-self: start;
+    margin-left: 10.5%;
   }
 
   .formCont {
-    margin-top: 40px;
+    margin-top: 0;
   }
 }

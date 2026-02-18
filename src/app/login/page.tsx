@@ -14,7 +14,7 @@ export default function LoginPage() {
   const {
     register: formRegister,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { isSubmitting },
   } = useForm<LoginRequest>();
   const router = useRouter();
 
@@ -89,11 +89,11 @@ export default function LoginPage() {
               type="submit"
               disabled={isSubmitting}
             >
-              Log in
+              {isSubmitting ? 'Logging in...' : 'Login'}
             </button>
           </form>
           <Link className={css.link} href={'/register'}>
-            Don't have an account?
+            Don`t have an account?
           </Link>
         </div>
       </div>

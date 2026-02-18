@@ -182,13 +182,13 @@
   }
 
   .button {
-    width: 100%;
+    width: 339px;
     max-width: unset;
     margin-top: 52px;
   }
 
   .link {
-    margin-left: 14%;
+    margin-left: 15%;
   }
 
   .formCont {
@@ -199,10 +199,14 @@
 @media screen and (min-width: 1440px) {
   .content {
     width: 1440px;
-    padding: 38px;
+    padding: 0 138px;
     display: grid;
     align-items: center;
     grid-template-columns: 1fr 1fr;
+  }
+
+ .titleCont {
+    width: 596px;
   }
 
   .form {
@@ -214,10 +218,25 @@
     max-width: 334px;
   }
 
+    .button {
+    width: 335px;
+    }
+
+  .title {
+    margin-top: 0;
+  }
+
+
+    .image {
+    top: -105px;
+    right: 2px;
+  }
+
+
   .link {
     grid-column: 2;
     justify-self: center;
-    margin-left: unset;
+    margin-left: 2%;
   }
 
   .page {
@@ -226,6 +245,6 @@
 
   .formCont {
     align-items: center;
-    margin-top: 40px;
+    margin-top: 0;
   }
 }
