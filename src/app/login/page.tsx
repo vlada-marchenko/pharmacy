@@ -1,7 +1,8 @@
 'use client';
 
-import { LoginRequest } from '@/src/lib/auth';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import { login } from '@/src/lib/auth';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
@@ -10,16 +11,31 @@ import Image from 'next/image';
 import css from './page.module.css';
 import Link from 'next/link';
 
+const schema = yup.object({
+  email: yup
+    .string()
+    .email('Enter a valid email address')
+    .required('Email is required'),
+  password: yup
+    .string()
+    .min(8, 'Password must be at least 8 characters')
+    .required('Password is required'),
+});
+
+type LoginFormData = yup.InferType<typeof schema>;
+
 export default function LoginPage() {
   const {
     register: formRegister,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<LoginRequest>();
+  } = useForm<LoginFormData>({
+    resolver: yupResolver(schema),
+  });
+
   const router = useRouter();
 
-  const onSubmit = async (data: LoginRequest) => {
-
+  const onSubmit = async (data: LoginFormData) => {
     try {
       const res = await login(data);
 
@@ -31,9 +47,8 @@ export default function LoginPage() {
       localStorage.setItem('user', JSON.stringify(res.user));
       toast.success(`Welcome back, ${res.user.name}`);
       if (res.user.shopId) {
-        Cookies.set('shopId', res.user.shopId, { expires: 1 });
         router.push(`/shop/${res.user.shopId}`);
-        } else {
+      } else {
         router.push('/shop/create');
       }
     } catch (err) {
@@ -59,7 +74,11 @@ export default function LoginPage() {
           </h1>
         </div>
         <div className={css.formCont}>
-          <form className={css.form} onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+          <form
+            className={css.form}
+            onSubmit={handleSubmit(onSubmit)}
+            autoComplete="off"
+          >
             <div className={css.field}>
               <input
                 className={css.input}

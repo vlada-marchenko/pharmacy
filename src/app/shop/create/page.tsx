@@ -7,17 +7,27 @@ import { useRouter } from 'next/navigation';
 import { createShop } from '../../../lib/shop';
 import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
-type Props = {
-  shopName: string;
-  ownerName: string;
-  email: string;
-  phone: string;
-  address: string;
-  city: string;
-  zip: string;
-  hasDelivery: 'yes' | 'no';
-};
+const schema = yup.object({
+  shopName: yup.string().min(2, 'Shop name must be at least 2 characters').required('Shop name is required'),
+  ownerName: yup.string().min(2, 'Owner name must be at least 2 characters').required('Owner name is required'),
+  email: yup.string().email('Enter a valid email address').required('Email is required'),
+  phone: yup
+    .string()
+    .matches(/^\+?[0-9\s\-().]{7,20}$/, 'Enter a valid phone number')
+    .required('Phone number is required'),
+  address: yup.string().min(5, 'Enter a full street address').required('Address is required'),
+  city: yup.string().min(2, 'Enter a valid city name').required('City is required'),
+  zip: yup
+    .string()
+    .matches(/^[A-Z0-9\s\-]{3,10}$/i, 'Enter a valid ZIP / postal code')
+    .required('ZIP code is required'),
+  hasDelivery: yup.mixed<'yes' | 'no'>().oneOf(['yes', 'no']).required(),
+});
+
+type Props = yup.InferType<typeof schema>;
 
 export default function CreateShopPage() {
   const router = useRouter();
@@ -27,6 +37,7 @@ export default function CreateShopPage() {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<Props>({
+    resolver: yupResolver(schema),
     defaultValues: {
       hasDelivery: 'yes',
     },
@@ -57,10 +68,10 @@ export default function CreateShopPage() {
         return;
       }
 
-    } catch (error) {
-      console.error('Error creating shop:', error);
-      toast.error(typeof error === 'string' ? error : JSON.stringify(error));
-      toast.error('Failed to create shop. Please try again.');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      const message = error.response?.data?.message || 'Shop creating error';
+      toast.error(message);
     }
   };
   return (
