@@ -1,6 +1,6 @@
 
 
-export function ProductPage() {
+export default function ProductPage() {
     return (
     <div>Product Page</div>
     )
