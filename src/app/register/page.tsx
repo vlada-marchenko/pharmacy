@@ -15,7 +15,6 @@ export default function RegisterPage() {
   const {
     register: formRegister,
     handleSubmit,
-    formState: { errors },
   } = useForm<RegisterRequest>();
 
   const onSubmit = async (data: RegisterRequest) => {
@@ -47,7 +46,7 @@ export default function RegisterPage() {
           </h1>
         </div>
         <div className={css.formCont}>
-          <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+          <form className={css.form} onSubmit={handleSubmit(onSubmit)} autoComplete="off">
             <div className={css.field}>
               <input
                 className={css.input}

@@ -4,7 +4,6 @@ import api from "./api";
 export const createShop = async (data: any) => {
     const res = await api.post('/shop/create', data)
     return res.data
-
 }
 
 export const getShop = async (shopId: string) => {

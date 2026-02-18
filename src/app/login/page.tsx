@@ -19,6 +19,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   const onSubmit = async (data: LoginRequest) => {
+
     try {
       const res = await login(data);
 
@@ -58,7 +59,7 @@ export default function LoginPage() {
           </h1>
         </div>
         <div className={css.formCont}>
-          <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+          <form className={css.form} onSubmit={handleSubmit(onSubmit)} autoComplete="off">
             <div className={css.field}>
               <input
                 className={css.input}
