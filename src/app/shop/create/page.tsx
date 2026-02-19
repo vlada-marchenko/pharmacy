@@ -73,17 +73,15 @@ export default function CreateShopPage() {
       };
 
       const response = await createShop(backendData);
+      const id = response?.shopId || response?._id; // ← check both
 
-      if (response && response.shopId) {
-        const id = response.shopId || response._id;
+      if (id) {
         Cookies.set('shopId', id, { expires: 1 });
         toast.success('Shop created successfully!');
         router.push(`/shop/${id}/product`);
       } else {
         toast.error('Failed to create shop. Please try again.');
-        return;
       }
-
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       const message = error.response?.data?.message || 'Shop creating error';
