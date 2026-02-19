@@ -5,7 +5,7 @@ const protectedRoutes = ['/shop', '/medicine', '/statistics'];
 
 const authRoutes = ['/login', '/register'];
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
   const shopId = request.cookies.get('shopId')?.value;
   const { pathname } = request.nextUrl;
