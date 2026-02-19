@@ -41,6 +41,7 @@ export default function UpdateShopPage() {
     formState: { errors, isSubmitting },
   } = useForm<Props>({
     resolver: yupResolver(schema),
+    mode: 'onTouched',
     defaultValues: {
       hasDelivery: 'yes',
     },

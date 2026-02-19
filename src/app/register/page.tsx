@@ -33,7 +33,9 @@ export default function RegisterPage() {
   const {
     register: formRegister,
     handleSubmit,
+    formState: { errors },
   } = useForm<RegisterFormData>({
+    mode: 'onTouched',
     resolver: yupResolver(schema),
   });
 
@@ -78,6 +80,7 @@ export default function RegisterPage() {
               <label className={css.label} htmlFor="name">
                 User Name
               </label>
+              {errors.name && <span className={css.errorMessage}>{errors.name.message}</span>}
             </div>
             <div className={css.field}>
               <input
@@ -90,6 +93,7 @@ export default function RegisterPage() {
               <label className={css.label} htmlFor="email">
                 Email address
               </label>
+              {errors.email && <span className={css.errorMessage}>{errors.email.message}</span>}
             </div>
             <div className={css.field}>
               <input
@@ -102,6 +106,7 @@ export default function RegisterPage() {
               <label className={css.label} htmlFor="phone">
                 Phone number
               </label>
+              {errors.phone && <span className={css.errorMessage}>{errors.phone.message}</span>}
             </div>
             <div className={css.field}>
               <input
@@ -114,6 +119,7 @@ export default function RegisterPage() {
               <label className={css.label} htmlFor="password">
                 Password
               </label>
+              {errors.password && <span className={css.errorMessage}>{errors.password.message}</span>}
             </div>
 
             <button className={css.button} type="submit">

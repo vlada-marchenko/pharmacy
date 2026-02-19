@@ -28,8 +28,9 @@ export default function LoginPage() {
   const {
     register: formRegister,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { errors, isSubmitting },
   } = useForm<LoginFormData>({
+    mode: 'onTouched',
     resolver: yupResolver(schema),
   });
 
@@ -90,6 +91,7 @@ export default function LoginPage() {
               <label className={css.label} htmlFor="email">
                 Email address
               </label>
+              {errors.email && <span className={css.errorMessage}>{errors.email.message}</span>}
             </div>
             <div className={css.field}>
               <input
@@ -102,6 +104,7 @@ export default function LoginPage() {
               <label className={css.label} htmlFor="password">
                 Password
               </label>
+              {errors.password && <span className={css.errorMessage}>{errors.password.message}</span>}
             </div>
 
             <button
