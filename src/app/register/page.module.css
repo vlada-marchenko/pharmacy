@@ -196,6 +196,22 @@
   .formCont {
     align-items: start;
   }
+
+  .errorMessage {
+position: absolute;
+  top: 100%; /* Positions it directly below the input box */
+  left: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #ff0000;
+  margin-left: 18px;
+  margin-top: 0;
+}
+
+    .field {
+    margin-bottom: 10px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -227,6 +243,7 @@
     top: -115px;
     left: 420px;
   }
+
 
   .button {
     width: 250px;

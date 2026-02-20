@@ -90,7 +90,7 @@ export default function ProductPage() {
 
 
           <div className={css.products}>
-            <p className={css.empty}>No products yet</p>
+            <p className={css.empty}>No medicine yet</p>
           </div>
       </div>
     </div>
