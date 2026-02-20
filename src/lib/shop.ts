@@ -17,7 +17,3 @@ export const editShop = async (data: any) => {
     return res.data
 }
 
-export const deleteShop = async (shopId: string) => {
-    const res = await api.delete(`/shop/${shopId}/delete`)
-    return res.data
-}

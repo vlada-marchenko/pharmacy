@@ -11,6 +11,7 @@ import Image from 'next/image';
 import css from './page.module.css';
 import Link from 'next/link';
 
+
 const schema = yup.object({
   email: yup
     .string()
@@ -39,16 +40,15 @@ export default function LoginPage() {
   const onSubmit = async (data: LoginFormData) => {
     try {
       const res = await login(data);
-
       Cookies.set('token', res.token, { expires: 1 });
-
-      if (res.user.shopId) {
-        Cookies.set('shopId', res.user.shopId, { expires: 1 });
-      }
       localStorage.setItem('user', JSON.stringify(res.user));
       toast.success(`Welcome back, ${res.user.name}`);
-      if (res.user.shopId) {
-        router.push(`/shop/${res.user.shopId}`);
+
+      const shopId = res.user.shopId || localStorage.getItem('shopId');
+
+      if (shopId) {
+        Cookies.set('shopId', shopId, { expires: 1 });
+        router.push(`/shop/${shopId}/product`);
       } else {
         router.push('/shop/create');
       }
@@ -86,12 +86,14 @@ export default function LoginPage() {
                 id="email"
                 type="email"
                 placeholder=" "
-                {...formRegister('email', { required: true })}
+                {...formRegister('email')}
               />
               <label className={css.label} htmlFor="email">
                 Email address
               </label>
-              {errors.email && <span className={css.errorMessage}>{errors.email.message}</span>}
+              {errors.email && (
+                <span className={css.errorMessage}>{errors.email.message}</span>
+              )}
             </div>
             <div className={css.field}>
               <input
@@ -99,12 +101,16 @@ export default function LoginPage() {
                 id="password"
                 type="password"
                 placeholder=" "
-                {...formRegister('password', { required: true })}
+                {...formRegister('password')}
               />
               <label className={css.label} htmlFor="password">
                 Password
               </label>
-              {errors.password && <span className={css.errorMessage}>{errors.password.message}</span>}
+              {errors.password && (
+                <span className={css.errorMessage}>
+                  {errors.password.message}
+                </span>
+              )}
             </div>
 
             <button

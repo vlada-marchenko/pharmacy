@@ -73,10 +73,11 @@ export default function CreateShopPage() {
       };
 
       const response = await createShop(backendData);
-      const id = response?.shopId || response?._id; // ← check both
+      const id = response?.shopId || response?._id;
 
       if (id) {
         Cookies.set('shopId', id, { expires: 1 });
+        localStorage.setItem('shopId', id);
         toast.success('Shop created successfully!');
         router.push(`/shop/${id}/product`);
       } else {
