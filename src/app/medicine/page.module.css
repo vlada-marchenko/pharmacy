@@ -27,7 +27,7 @@
   margin-bottom: 8px;
 }
 
-.name {
+.ownerName {
   color: #1d1e21;
 }
 
@@ -164,7 +164,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 }
 
 .name {
@@ -187,6 +187,7 @@
   font-size: 16px;
   line-height: 140%;
   color: #1d1e21;
+  margin: 0;
 }
 
 .btn {
@@ -228,6 +229,77 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.filters {
+display: flex;
+flex-direction: column;
+gap: 12px;
+width: 100%;
+margin-bottom: 40px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+width: 100%;
+height: 44px;
+background: #FFFFFF;
+border: 1px solid rgba(29, 30, 33, 0.1);
+border-radius: 60px;
+padding-left: 20px;
+font-weight: 400;
+font-size: 12px;
+line-height: 18px;
+color: rgba(29, 30, 33, 0.4);
+position: relative;
+}
+
+.input::placeholder {
+  color: rgba(29, 30, 33, 0.4);
+}
+
+.input:focus,
+.input:hover {
+  outline: none;
+  border-color: #59B17A;
+}
+
+.search {
+  position: relative;
+  width: 100%;
+}
+
+.button {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap: 8px;
+width: 116px;
+height: 44px;
+background: #59B17A;
+border-radius: 60px;
+border: none;
+font-weight: 500;
+font-size: 14px;
+line-height: 18px;
+color: #FFFFFF;
+cursor: pointer;
+}
+
+.icon {
+  position: absolute;
+  stroke: #1D1E21;
+  fill: none;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+
 }
 
 @media screen and (min-width: 375px) {
@@ -309,6 +381,24 @@
   .category{
     font-size: 11px;
   }
+
+  .filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+  }
+
+  .search {
+    width: 224px;
+  }
+
 }
 
 @media screen and (min-width: 1440px) {
@@ -335,6 +425,11 @@
     align-items: center;
     gap: 8px;
   }
+
+.filters {
+  justify-content: start;
+  gap: 12px;
+}
 
   .text {
     text-wrap: nowrap;
@@ -376,6 +471,10 @@
 
   .price {
     font-size: 18px;
+  }
+
+  .btn:hover {
+    background-color: #3F945F;
   }
 
   .category{

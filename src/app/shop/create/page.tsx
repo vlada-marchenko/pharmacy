@@ -9,6 +9,8 @@ import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { useState } from 'react';
+import Loading from '../../loading';
 
 const schema = yup.object({
   shopName: yup
@@ -46,6 +48,7 @@ type Props = yup.InferType<typeof schema>;
 
 export default function CreateShopPage() {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
 
   const {
     register,
@@ -85,10 +88,20 @@ export default function CreateShopPage() {
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
+      setLoading(false);
       const message = error.response?.data?.message || 'Shop creating error';
       toast.error(message);
     }
   };
+
+  if (loading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
+
   return (
     <div className={css.page}>
       <div className={css.content}>

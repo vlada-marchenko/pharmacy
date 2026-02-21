@@ -7,21 +7,36 @@ import { useRouter } from 'next/navigation';
 import { getShop, editShop } from '../../../../lib/shop';
 import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-
+import Loading from '@/src/app/loading';
 
 const schema = yup.object({
-  shopName: yup.string().min(2, 'Shop name must be at least 2 characters').required('Shop name is required'),
-  ownerName: yup.string().min(2, 'Owner name must be at least 2 characters').required('Owner name is required'),
-  email: yup.string().email('Enter a valid email address').required('Email is required'),
+  shopName: yup
+    .string()
+    .min(2, 'Shop name must be at least 2 characters')
+    .required('Shop name is required'),
+  ownerName: yup
+    .string()
+    .min(2, 'Owner name must be at least 2 characters')
+    .required('Owner name is required'),
+  email: yup
+    .string()
+    .email('Enter a valid email address')
+    .required('Email is required'),
   phone: yup
     .string()
     .matches(/^\+?[0-9\s\-().]{7,20}$/, 'Enter a valid phone number')
     .required('Phone number is required'),
-  address: yup.string().min(5, 'Enter a full street address').required('Address is required'),
-  city: yup.string().min(2, 'Enter a valid city name').required('City is required'),
+  address: yup
+    .string()
+    .min(5, 'Enter a full street address')
+    .required('Address is required'),
+  city: yup
+    .string()
+    .min(2, 'Enter a valid city name')
+    .required('City is required'),
   zip: yup
     .string()
     .matches(/^[A-Z0-9\s\-]{3,10}$/i, 'Enter a valid ZIP / postal code')
@@ -33,6 +48,7 @@ type Props = yup.InferType<typeof schema>;
 
 export default function UpdateShopPage() {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
 
   const {
     register,
@@ -71,6 +87,7 @@ export default function UpdateShopPage() {
           hasDelivery: shopData.hasDeliverySystem ? 'yes' : 'no',
         });
       } catch (error) {
+        setLoading(false);
         console.error('Error fetching shop data:', error);
         toast.error('Failed to fetch shop data. Please try again.');
       }
@@ -104,11 +121,21 @@ export default function UpdateShopPage() {
 
       router.push(`/shop/${shopId}/product`);
     } catch (error) {
+      setLoading(false);
       console.error('Error updating shop:', error);
       toast.error(typeof error === 'string' ? error : JSON.stringify(error));
       toast.error('Failed to update shop. Please try again.');
     }
   };
+
+  if (loading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
+
   return (
     <div className={css.page}>
       <div className={css.content}>

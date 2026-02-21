@@ -10,7 +10,8 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import css from './page.module.css';
 import Link from 'next/link';
-
+import Loading from '../loading';
+import { useState } from 'react';
 
 const schema = yup.object({
   email: yup
@@ -36,9 +37,11 @@ export default function LoginPage() {
   });
 
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data: LoginFormData) => {
     try {
+      setLoading(true);
       const res = await login(data);
       Cookies.set('token', res.token, { expires: 1 });
       localStorage.setItem('user', JSON.stringify(res.user));
@@ -53,10 +56,17 @@ export default function LoginPage() {
         router.push('/shop/create');
       }
     } catch (err) {
+      setLoading(false);
       toast.error('Login failed');
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className={`'container' ${css.page}`}>

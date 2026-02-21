@@ -9,10 +9,18 @@ import css from './page.module.css';
 import Link from 'next/link';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import Loading from '../loading';
+import { useState } from 'react';
 
 const schema = yup.object({
-  name: yup.string().min(2, 'Name must be at least 2 characters').required('Name is required'),
-  email: yup.string().email('Enter a valid email address').required('Email is required'),
+  name: yup
+    .string()
+    .min(2, 'Name must be at least 2 characters')
+    .required('Name is required'),
+  email: yup
+    .string()
+    .email('Enter a valid email address')
+    .required('Email is required'),
   phone: yup
     .string()
     .matches(/^\+?[0-9\s\-().]{7,20}$/, 'Enter a valid phone number')
@@ -29,6 +37,7 @@ type RegisterFormData = yup.InferType<typeof schema>;
 
 export default function RegisterPage() {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const {
     register: formRegister,
@@ -41,6 +50,7 @@ export default function RegisterPage() {
 
   const onSubmit = async (data: RegisterFormData) => {
     try {
+      setLoading(true);
       await register(data);
 
       toast.success('Registration successful');
@@ -48,8 +58,15 @@ export default function RegisterPage() {
     } catch (err) {
       toast.error('Registration failed');
       console.log(err);
+    } finally {
+      setLoading(false);
+
     }
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className={`'container' ${css.page}`}>
@@ -68,7 +85,11 @@ export default function RegisterPage() {
           </h1>
         </div>
         <div className={css.formCont}>
-          <form className={css.form} onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+          <form
+            className={css.form}
+            onSubmit={handleSubmit(onSubmit)}
+            autoComplete="off"
+          >
             <div className={css.field}>
               <input
                 className={css.input}
@@ -80,7 +101,9 @@ export default function RegisterPage() {
               <label className={css.label} htmlFor="name">
                 User Name
               </label>
-              {errors.name && <span className={css.errorMessage}>{errors.name.message}</span>}
+              {errors.name && (
+                <span className={css.errorMessage}>{errors.name.message}</span>
+              )}
             </div>
             <div className={css.field}>
               <input
@@ -93,7 +116,9 @@ export default function RegisterPage() {
               <label className={css.label} htmlFor="email">
                 Email address
               </label>
-              {errors.email && <span className={css.errorMessage}>{errors.email.message}</span>}
+              {errors.email && (
+                <span className={css.errorMessage}>{errors.email.message}</span>
+              )}
             </div>
             <div className={css.field}>
               <input
@@ -106,7 +131,9 @@ export default function RegisterPage() {
               <label className={css.label} htmlFor="phone">
                 Phone number
               </label>
-              {errors.phone && <span className={css.errorMessage}>{errors.phone.message}</span>}
+              {errors.phone && (
+                <span className={css.errorMessage}>{errors.phone.message}</span>
+              )}
             </div>
             <div className={css.field}>
               <input
@@ -119,7 +146,11 @@ export default function RegisterPage() {
               <label className={css.label} htmlFor="password">
                 Password
               </label>
-              {errors.password && <span className={css.errorMessage}>{errors.password.message}</span>}
+              {errors.password && (
+                <span className={css.errorMessage}>
+                  {errors.password.message}
+                </span>
+              )}
             </div>
 
             <button className={css.button} type="submit">
