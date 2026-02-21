@@ -85,7 +85,7 @@ export default function ProductPage() {
 
           <div className={css.tabsCont}>
             <Link href={`/shop/${id}/product`}className={`${css.tab} ${pathname.includes('/product') ? css.tabActive : ''}`}>Drug store</Link>
-            <Link href={`/shop/${id}/medicine`} className={`${css.tab} ${pathname.includes('/medicine') ? css.tabActive : ''}`}>All medicine</Link>
+            <Link href={`/medicine`} className={`${css.tab} ${pathname.includes('/medicine') ? css.tabActive : ''}`}>All medicine</Link>
           </div>
 
 

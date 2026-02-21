@@ -1,12 +1,13 @@
 'use client';
 
 import Icon from '@/src/components/Icon/Icon';
-import css from './page.module.css';
+import css from './Shop.module.css';
 import { getShop } from '@/src/lib/shop';
-import { useParams, usePathname } from 'next/navigation';
+import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import Loading from '@/src/app/loading';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export type ShopProps = {
   _id: string;
@@ -23,19 +24,20 @@ export type ShopProps = {
   updatedAt: string;
 };
 
-export default function ProductPage() {
-  const params = useParams();
-  const id = params.id as string;
+
+export default function Shop() {
   const pathname = usePathname();
+  const shopId = Cookies.get('shopId');
 
   const [shop, setShop] = useState<ShopProps | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchShop = async () => {
-      if (!id) return;
       try {
-        const data = await getShop(id);
+        const shopId = Cookies.get('shopId');
+        if (!shopId) return
+        const data = await getShop(shopId);
         setShop(data);
       } catch (error) {
         console.error('Error fetching shop:', error);
@@ -44,7 +46,7 @@ export default function ProductPage() {
       }
     };
     fetchShop();
-  }, [id]);
+  }, []);
 
   if (loading) {
     return <Loading />;
@@ -77,22 +79,16 @@ export default function ProductPage() {
               </div>
             </div>
             <div className={css.buttons}>
-              <Link href={`/shop/${id}/update`} className={css.edit}>Edit data</Link>
+              <Link href={`/shop/${shopId}/update`} className={css.edit}>Edit data</Link>
               <button className={css.add}>Add medicine</button>
             </div>
           </div>
           </div>
 
           <div className={css.tabsCont}>
-            <Link href={`/shop/${id}/product`}className={`${css.tab} ${pathname.includes('/product') ? css.tabActive : ''}`}>Drug store</Link>
-            <Link href={`/shop/${id}/medicine`} className={`${css.tab} ${pathname.includes('/medicine') ? css.tabActive : ''}`}>All medicine</Link>
+            <Link href={`/shop/${shopId}/product`}className={`${css.tab} ${pathname.includes('/product') ? css.tabActive : ''}`}>Drug store</Link>
+            <Link href={`/medicine`} className={`${css.tab} ${pathname.includes('/medicine') ? css.tabActive : ''}`}>All medicine</Link>
           </div>
-
-
-          <div className={css.products}>
-            <p className={css.empty}>No medicine yet</p>
           </div>
-      </div>
-    </div>
-  );
-}
+          </div>
+)}
