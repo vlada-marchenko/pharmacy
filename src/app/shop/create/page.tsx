@@ -48,7 +48,7 @@ type Props = yup.InferType<typeof schema>;
 
 export default function CreateShopPage() {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -64,6 +64,7 @@ export default function CreateShopPage() {
 
   const onSubmit = async (data: Props) => {
     try {
+      setLoading(true);
       const backendData = {
         shopName: data.shopName,
         shopOwnerName: data.ownerName,
@@ -86,13 +87,15 @@ export default function CreateShopPage() {
       } else {
         toast.error('Failed to create shop. Please try again.');
       }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      setLoading(false);
       const message = error.response?.data?.message || 'Shop creating error';
       toast.error(message);
+    } finally {
+      setLoading(false);
     }
-  };
+    }
+
 
   if (loading) {
     return (

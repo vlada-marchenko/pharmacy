@@ -11,6 +11,8 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { getMedicine } from '@/src/lib/medicine';
 import Select from 'react-select';
+import { addToShop } from '@/src/lib/product';
+import { toast } from 'react-toastify';
 
 export type PropertierProps = {
   anti_inflammatory: string;
@@ -116,6 +118,18 @@ export default function MedicinePage() {
 
     setMedicine(filtered);
   };
+
+  const handleAddToShop = async (id: string) => {
+    const price = window.prompt('Enter the price of the medicine:')
+    if (!price) return;
+    try {
+      await addToShop(shopId!, id, Number(price))
+      toast.success('Medicine added to shop');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+  }
 
   const categories = [...new Set(allMedicine.map((item) => item.category))];
 
@@ -288,7 +302,7 @@ export default function MedicinePage() {
                       <p className={css.price}>৳{item.price}</p>
                     </div>
                     <div className={css.down}>
-                      <button className={css.btn}>Add to shop</button>
+                      <button className={css.btn} onClick={() => handleAddToShop(item.id)}>Add to shop</button>
                       <Link href={`/medicine/${item.id}`} className={css.link}>
                         Details
                       </Link>

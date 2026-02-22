@@ -2,7 +2,7 @@
 
 import css from './page.module.css';
 import Image from 'next/image';
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { getShop, editShop } from '../../../../lib/shop';
 import Cookies from 'js-cookie';
@@ -48,7 +48,7 @@ type Props = yup.InferType<typeof schema>;
 
 export default function UpdateShopPage() {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -66,6 +66,7 @@ export default function UpdateShopPage() {
   useEffect(() => {
     const fetchShopData = async () => {
       try {
+        setLoading(true);
         const shopId = Cookies.get('shopId');
 
         if (!shopId) {
@@ -87,9 +88,10 @@ export default function UpdateShopPage() {
           hasDelivery: shopData.hasDeliverySystem ? 'yes' : 'no',
         });
       } catch (error) {
-        setLoading(false);
         console.error('Error fetching shop data:', error);
         toast.error('Failed to fetch shop data. Please try again.');
+      } finally {
+        setLoading(false);
       }
     };
     fetchShopData();

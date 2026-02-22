@@ -58,7 +58,7 @@ export default function Header() {
                 <Link href="/shop/create" className={getDesktopNavClass(['/shop/create', `/shop/${shopId}/update`])}>
                   Shop
                 </Link>
-                <Link href={`/shop/${shopId}/product`} className={getDesktopNavClass([`/shop/${shopId}/medicine`, `/shop/${shopId}/product`])}>
+                <Link href={`/shop/${shopId}/product`} className={getDesktopNavClass([`/medicine`, `/shop/${shopId}/product`])}>
                   Medicine
                 </Link>
                 <Link href="/statistics" className={getDesktopNavClass(['/statistics'])}>
@@ -72,7 +72,7 @@ export default function Header() {
                     <Link href="/shop/create" className={getMobileNavClass(['/shop/create', `/shop/${shopId}/update`])}>
                       Shop
                     </Link>
-                    <Link href="/medicine" className={getMobileNavClass([`/shop/${shopId}/medicine`, `/shop/${shopId}/product`])}>
+                    <Link href={`/shop/${shopId}/product`} className={getMobileNavClass([`/medicine`, `/shop/${shopId}/product`])}>
                       Medicine
                     </Link>
                     <Link href="/statistics" className={getMobileNavClass(['/statistics'])}>
