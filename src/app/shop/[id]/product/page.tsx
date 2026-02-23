@@ -7,9 +7,10 @@ import { useParams, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Loading from '@/src/app/loading';
 import Link from 'next/link';
-import { addToShop, createProduct, getProducts } from '@/src/lib/product';
+import { createProduct, getProducts } from '@/src/lib/product';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
+import { deleteProduct, editProduct } from '@/src/lib/product';
 
 export type ShopProps = {
   _id: string;
@@ -42,7 +43,8 @@ export default function ProductPage() {
 
   const [shop, setShop] = useState<ShopProps | null>(null);
   const [loading, setLoading] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isProductModalOpen, setIsProductModalOpen] = useState(false);
   const [products, setProducts] = useState<ProductProps[]>([]);
 
   useEffect(() => {
@@ -84,11 +86,44 @@ export default function ProductPage() {
       const newProduct = await createProduct(id, data);
       setProducts([...products, newProduct]);
       toast.success('Medicine added successfully');
+      setIsAddModalOpen(true);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
+      console.log('ERROR RESPONSE:', error.response?.data);
       toast.error('Error adding medicine');
     }
   };
+
+  const handleEdit = async (shopId: string, productId: string) => {
+    try {
+      await editProduct(shopId, productId );
+      products
+        .map((product) =>
+          product.id === productId ? { ...product} : product
+        );
+        setIsProductModalOpen(true)
+    } catch (error) {
+      console.error('Error editing product:', error);
+    } finally {
+      toast.success('Product edited successfully');
+
+    }
+  }
+
+  const handleDelete = async (shopId: string, productId: string) => {
+    try {
+      await deleteProduct(shopId, productId)
+      const updatedProducts = products.filter((product) => product.id !== productId);
+      setProducts(updatedProducts);
+      toast.success('Product deleted successfully');
+
+    } catch (error) {
+      console.error('Error deleting product:', error);
+    } finally {
+      toast.success('Product deleted successfully');
+
+    }
+  }
 
   if (loading) {
     return <Loading />;
@@ -107,7 +142,7 @@ export default function ProductPage() {
           <div className={css.info}>
             <div className={css.data}>
               <p className={css.owner}>
-                Owner: <span className={css.name}>{shop.shopOwnerName}</span>
+                Owner: <span className={css.ownerName}>{shop.shopOwnerName}</span>
               </p>
               <div className={css.contact}>
                 <div className={css.item}>
@@ -124,7 +159,7 @@ export default function ProductPage() {
               <Link href={`/shop/${id}/update`} className={css.edit}>
                 Edit data
               </Link>
-              <button className={css.add}>Add medicine</button>
+              <button className={css.add} onClick={() => setIsAddModalOpen(true)}>Add medicine</button>
             </div>
           </div>
         </div>
@@ -154,7 +189,7 @@ export default function ProductPage() {
           ) : (
             <ul className={css.list}>
               {products.map((item) => (
-                <li className={css.item} key={item.id}>
+                <li className={css.itemLi} key={item.id}>
                   <Image
                     src={item.photo}
                     alt={item.name}
@@ -171,8 +206,8 @@ export default function ProductPage() {
                       <p className={css.price}>৳{item.price}</p>
                     </div>
                     <div className={css.down}>
-                      <button className={css.btn}>Edit</button>
-                      <button className={css.btn}>Delete</button>
+                      <button className={css.btnEdit} onClick={() => handleEdit(shop._id, item.id)}>Edit</button>
+                      <button className={css.btnDelete} onClick={() => handleDelete(shop._id, item.id)}>Delete</button>
                     </div>
                   </div>
                 </li>

@@ -49,7 +49,7 @@ export type ShopProps = {
 };
 
 export type MedicineProps = {
-  id: string;
+  _id: string;
   photo: string;
   name: string;
   price: string;
@@ -119,17 +119,16 @@ export default function MedicinePage() {
     setMedicine(filtered);
   };
 
-  const handleAddToShop = async (id: string) => {
-    const price = window.prompt('Enter the price of the medicine:')
-    if (!price) return;
+  const handleAddToShop = async (id: string, price: string) => {
     try {
-      await addToShop(shopId!, id, Number(price))
+      await addToShop(shopId!, id, Number(price));
       toast.success('Medicine added to shop');
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      toast.error(error.message);
+      console.log('ERROR RESPONSE:', error.response?.data);
+      toast.error(error.response?.data?.message || 'Failed to add to shop');
     }
-  }
+  };
 
   const categories = [...new Set(allMedicine.map((item) => item.category))];
 
@@ -200,82 +199,86 @@ export default function MedicinePage() {
         <div className={css.products}>
           <div className={css.filters}>
             <div className={css.inputs}>
-            <div className={css.search}>
-            <Select
-              isSearchable={false}
-              isClearable={false}
-              options={categoryOptions}
-              value={
-                category
-                  ? categoryOptions.find(
-                      (option) => option.value === category,
-                    ) || null
-                  : null
-              }
-              onChange={(option) => setCategory(option?.value || '')}
-              placeholder="Product category"
-              styles={{
-                control: (base, state) => ({
-                  ...base,
-                  borderRadius: '60px',
-                  borderColor: state.isFocused
-                    ? '#59b17a'
-                    : 'rgba(29, 30, 33, 0.1)',
-                  boxShadow: 'none',
-                  height: '44px',
-                  paddingLeft: '12px',
-                  backgroundColor: '#fff',
-                  '&:hover': { borderColor: '#59b17a' },
-                }),
-                placeholder: (base) => ({
-                  ...base,
-                  fontSize: '12px',
-                  color: 'rgba(29, 30, 33, 0.4)',
-                }),
-                singleValue: (base) => ({
-                  ...base,
-                  fontSize: '12px',
-                  color: '#1d1e21',
-                }),
-                option: (base, state) => ({
-                  ...base,
-                  backgroundColor: state.isSelected
-                    ? '#59b17a'
-                    : state.isFocused
-                    ? '#f0f9f4'
-                    : '#fff',
-                  color: state.isSelected ? '#fff' : '#1d1e21',
-                  fontSize: '12px',
-                  cursor: 'pointer',
-                }),
-                menu: (base) => ({
-                  ...base,
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-                }),
-                indicatorSeparator: () => ({ display: 'none' }),
-                dropdownIndicator: (base) => ({
-                  ...base,
-                  color: '#1d1e21',
-                  paddingRight: '16px',
-                }),
-              }}
-            />
-            </div>
+              <div className={css.search}>
+                <Select
+                  isSearchable={false}
+                  isClearable={false}
+                  options={categoryOptions}
+                  value={
+                    category
+                      ? categoryOptions.find(
+                          (option) => option.value === category,
+                        ) || null
+                      : null
+                  }
+                  onChange={(option) => setCategory(option?.value || '')}
+                  placeholder="Product category"
+                  styles={{
+                    control: (base, state) => ({
+                      ...base,
+                      borderRadius: '60px',
+                      borderColor: state.isFocused
+                        ? '#59b17a'
+                        : 'rgba(29, 30, 33, 0.1)',
+                      boxShadow: 'none',
+                      height: '44px',
+                      paddingLeft: '12px',
+                      backgroundColor: '#fff',
+                      '&:hover': { borderColor: '#59b17a' },
+                    }),
+                    placeholder: (base) => ({
+                      ...base,
+                      fontSize: '12px',
+                      color: 'rgba(29, 30, 33, 0.4)',
+                    }),
+                    singleValue: (base) => ({
+                      ...base,
+                      fontSize: '12px',
+                      color: '#1d1e21',
+                    }),
+                    option: (base, state) => ({
+                      ...base,
+                      backgroundColor: state.isSelected
+                        ? '#59b17a'
+                        : state.isFocused
+                        ? '#f0f9f4'
+                        : '#fff',
+                      color: state.isSelected ? '#fff' : '#1d1e21',
+                      fontSize: '12px',
+                      cursor: 'pointer',
+                    }),
+                    menu: (base) => ({
+                      ...base,
+                      borderRadius: '16px',
+                      overflow: 'hidden',
+                      boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                    }),
+                    indicatorSeparator: () => ({ display: 'none' }),
+                    dropdownIndicator: (base) => ({
+                      ...base,
+                      color: '#1d1e21',
+                      paddingRight: '16px',
+                    }),
+                  }}
+                />
+              </div>
 
-            <div className={css.search}>
-              <input
-                type="text"
-                className={css.input}
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search medicine"
-              />
-              <Icon name="search" width={18} height={18} className={css.icon} />
+              <div className={css.search}>
+                <input
+                  type="text"
+                  className={css.input}
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search medicine"
+                />
+                <Icon
+                  name="search"
+                  width={18}
+                  height={18}
+                  className={css.icon}
+                />
+              </div>
             </div>
-
-</div>
             <button className={css.button} onClick={handleFilter}>
               <Icon name="filter" width={18} height={18} />
               Filter
@@ -285,7 +288,7 @@ export default function MedicinePage() {
           <ul className={css.list}>
             {medicine.map((item) => {
               return (
-                <li key={item.id} className={css.itemLi}>
+                <li key={item._id} className={css.itemLi}>
                   <Image
                     src={item.photo}
                     alt={item.name}
@@ -302,8 +305,13 @@ export default function MedicinePage() {
                       <p className={css.price}>৳{item.price}</p>
                     </div>
                     <div className={css.down}>
-                      <button className={css.btn} onClick={() => handleAddToShop(item.id)}>Add to shop</button>
-                      <Link href={`/medicine/${item.id}`} className={css.link}>
+                      <button
+                        className={css.btn}
+                        onClick={() => handleAddToShop(item._id, item.price)}
+                      >
+                        Add to shop
+                      </button>
+                      <Link href={`/medicine/${item._id}`} className={css.link}>
                         Details
                       </Link>
                     </div>
