@@ -11,6 +11,8 @@ import { createProduct, getProducts } from '@/src/lib/product';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
 import { deleteProduct, editProduct } from '@/src/lib/product';
+import DeleteModal from '@/src/components/DeleteModal/DeleteModal';
+
 
 export type ShopProps = {
   _id: string;
@@ -44,7 +46,8 @@ export default function ProductPage() {
   const [shop, setShop] = useState<ShopProps | null>(null);
   const [loading, setLoading] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [isProductModalOpen, setIsProductModalOpen] = useState(false);
+  const [deleteTarget, setDeleteTarget] = useState<ProductProps | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [products, setProducts] = useState<ProductProps[]>([]);
 
   useEffect(() => {
@@ -86,7 +89,7 @@ export default function ProductPage() {
       const newProduct = await createProduct(id, data);
       setProducts([...products, newProduct]);
       toast.success('Medicine added successfully');
-      setIsAddModalOpen(true);
+      setIsAddModalOpen(false);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.log('ERROR RESPONSE:', error.response?.data);
@@ -101,7 +104,6 @@ export default function ProductPage() {
         .map((product) =>
           product.id === productId ? { ...product} : product
         );
-        setIsProductModalOpen(true)
     } catch (error) {
       console.error('Error editing product:', error);
     } finally {
@@ -110,18 +112,18 @@ export default function ProductPage() {
     }
   }
 
-  const handleDelete = async (shopId: string, productId: string) => {
+  const handleDelete = async () => {
+    if (!deleteTarget) return
+    setIsDeleting(true)
     try {
-      await deleteProduct(shopId, productId)
-      const updatedProducts = products.filter((product) => product.id !== productId);
-      setProducts(updatedProducts);
+      await deleteProduct(shop!._id, deleteTarget.id)
+      setProducts((prevProducts) => prevProducts.filter((product) => product.id !== deleteTarget.id))
       toast.success('Product deleted successfully');
-
+      setDeleteTarget(null)
     } catch (error) {
       console.error('Error deleting product:', error);
     } finally {
-      toast.success('Product deleted successfully');
-
+      setIsDeleting(false)
     }
   }
 
@@ -207,7 +209,7 @@ export default function ProductPage() {
                     </div>
                     <div className={css.down}>
                       <button className={css.btnEdit} onClick={() => handleEdit(shop._id, item.id)}>Edit</button>
-                      <button className={css.btnDelete} onClick={() => handleDelete(shop._id, item.id)}>Delete</button>
+                      <button className={css.btnDelete} onClick={() => setDeleteTarget(item)}>Delete</button>
                     </div>
                   </div>
                 </li>
@@ -216,6 +218,17 @@ export default function ProductPage() {
           )}
         </div>
       </div>
+
+     <DeleteModal
+     isOpen={!!deleteTarget}
+     onClose={() => setDeleteTarget(null)}
+     itemName={deleteTarget?.name || ''}
+     onConfirm={handleDelete}
+     isLoading={isDeleting}
+     itemPhoto={deleteTarget?.photo || ''}
+     itemCategory={deleteTarget?.category || ''}
+     />
+
     </div>
   );
 }
