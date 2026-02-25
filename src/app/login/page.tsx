@@ -40,8 +40,8 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data: LoginFormData) => {
+    setLoading(true);
     try {
-      setLoading(true);
       const res = await login(data);
       Cookies.set('token', res.token, { expires: 1 });
       localStorage.setItem('user', JSON.stringify(res.user));
@@ -59,10 +59,8 @@ export default function LoginPage() {
       setLoading(false);
       toast.error('Login failed');
       console.log(err);
-    } finally {
-      setLoading(false);
     }
-  };
+    }
 
   if (loading) {
     return <Loading />;

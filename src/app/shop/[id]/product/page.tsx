@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 import Image from 'next/image';
 import { deleteProduct, editProduct } from '@/src/lib/product';
 import DeleteModal from '@/src/components/DeleteModal/DeleteModal';
-
+import AddProductModal from '@/src/components/AddProductModal/AddProductModal';
 
 export type ShopProps = {
   _id: string;
@@ -30,6 +30,7 @@ export type ShopProps = {
 };
 
 export type ProductProps = {
+  _id: string;
   id: string;
   photo: string;
   name: string;
@@ -49,6 +50,8 @@ export default function ProductPage() {
   const [deleteTarget, setDeleteTarget] = useState<ProductProps | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const [products, setProducts] = useState<ProductProps[]>([]);
+  const categories = [...new Set(products.map((product) => product.category))];
+  
 
   useEffect(() => {
     const fetchShop = async () => {
@@ -80,52 +83,52 @@ export default function ProductPage() {
         setLoading(false);
       }
     };
-          fetchProducts();
+    fetchProducts();
   }, [id]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleAddMedicine = async (data: any) => {
-    try {
-      const newProduct = await createProduct(id, data);
-      setProducts([...products, newProduct]);
-      toast.success('Medicine added successfully');
-      setIsAddModalOpen(false);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
-      console.log('ERROR RESPONSE:', error.response?.data);
-      toast.error('Error adding medicine');
-    }
-  };
+  // const handleAddMedicine = async (data: any) => {
+  //   try {
+  //     const newProduct = await createProduct(id, data);
+  //     setProducts([...products, newProduct]);
+  //     toast.success('Medicine added successfully');
+  //     setIsAddModalOpen(false);
+  //     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  //   } catch (error: any) {
+  //     console.log('ERROR RESPONSE:', error.response?.data);
+  //     toast.error('Error adding medicine');
+  //   }
+  // };
 
   const handleEdit = async (shopId: string, productId: string) => {
     try {
-      await editProduct(shopId, productId );
-      products
-        .map((product) =>
-          product.id === productId ? { ...product} : product
-        );
+      await editProduct(shopId, productId);
+      products.map((product) =>
+        product.id === productId ? { ...product } : product,
+      );
     } catch (error) {
       console.error('Error editing product:', error);
     } finally {
       toast.success('Product edited successfully');
-
     }
-  }
+  };
 
   const handleDelete = async () => {
-    if (!deleteTarget) return
-    setIsDeleting(true)
+    if (!deleteTarget) return;
+    setIsDeleting(true);
     try {
-      await deleteProduct(shop!._id, deleteTarget.id)
-      setProducts((prevProducts) => prevProducts.filter((product) => product.id !== deleteTarget.id))
+      await deleteProduct(shop!._id, deleteTarget.id);
+      setProducts((prevProducts) =>
+        prevProducts.filter((product) => product.id !== deleteTarget.id),
+      );
       toast.success('Product deleted successfully');
-      setDeleteTarget(null)
+      setDeleteTarget(null);
     } catch (error) {
       console.error('Error deleting product:', error);
     } finally {
-      setIsDeleting(false)
+      setIsDeleting(false);
     }
-  }
+  };
 
   if (loading) {
     return <Loading />;
@@ -144,7 +147,8 @@ export default function ProductPage() {
           <div className={css.info}>
             <div className={css.data}>
               <p className={css.owner}>
-                Owner: <span className={css.ownerName}>{shop.shopOwnerName}</span>
+                Owner:{' '}
+                <span className={css.ownerName}>{shop.shopOwnerName}</span>
               </p>
               <div className={css.contact}>
                 <div className={css.item}>
@@ -161,7 +165,12 @@ export default function ProductPage() {
               <Link href={`/shop/${id}/update`} className={css.edit}>
                 Edit data
               </Link>
-              <button className={css.add} onClick={() => setIsAddModalOpen(true)}>Add medicine</button>
+              <button
+                className={css.add}
+                onClick={() => setIsAddModalOpen(true)}
+              >
+                Add medicine
+              </button>
             </div>
           </div>
         </div>
@@ -191,7 +200,7 @@ export default function ProductPage() {
           ) : (
             <ul className={css.list}>
               {products.map((item) => (
-                <li className={css.itemLi} key={item.id}>
+                <li className={css.itemLi} key={item.id || item._id}>
                   <Image
                     src={item.photo}
                     alt={item.name}
@@ -208,8 +217,18 @@ export default function ProductPage() {
                       <p className={css.price}>৳{item.price}</p>
                     </div>
                     <div className={css.down}>
-                      <button className={css.btnEdit} onClick={() => handleEdit(shop._id, item.id)}>Edit</button>
-                      <button className={css.btnDelete} onClick={() => setDeleteTarget(item)}>Delete</button>
+                      <button
+                        className={css.btnEdit}
+                        onClick={() => handleEdit(shop._id, item.id)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className={css.btnDelete}
+                        onClick={() => setDeleteTarget(item)}
+                      >
+                        Delete
+                      </button>
                     </div>
                   </div>
                 </li>
@@ -219,16 +238,22 @@ export default function ProductPage() {
         </div>
       </div>
 
-     <DeleteModal
-     isOpen={!!deleteTarget}
-     onClose={() => setDeleteTarget(null)}
-     itemName={deleteTarget?.name || ''}
-     onConfirm={handleDelete}
-     isLoading={isDeleting}
-     itemPhoto={deleteTarget?.photo || ''}
-     itemCategory={deleteTarget?.category || ''}
-     />
+      <DeleteModal
+        isOpen={!!deleteTarget}
+        onClose={() => setDeleteTarget(null)}
+        itemName={deleteTarget?.name || ''}
+        onConfirm={handleDelete}
+        isLoading={isDeleting}
+        itemPhoto={deleteTarget?.photo || ''}
+        itemCategory={deleteTarget?.category || ''}
+      />
 
+      <AddProductModal
+        isOpen={isAddModalOpen}
+        shopId={id}
+        onClose={() => setIsAddModalOpen(false)}
+        onSuccess={(newProduct) => setProducts((prev) => [newProduct, ...prev])}
+      />
     </div>
   );
 }

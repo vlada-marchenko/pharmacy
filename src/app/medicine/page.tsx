@@ -13,6 +13,7 @@ import { getMedicine } from '@/src/lib/medicine';
 import Select from 'react-select';
 import { addToShop } from '@/src/lib/product';
 import { toast } from 'react-toastify';
+import AddProductModal from '@/src/components/AddProductModal/AddProductModal';
 
 export type PropertierProps = {
   anti_inflammatory: string;
@@ -69,6 +70,7 @@ export default function MedicinePage() {
   const [allMedicine, setAllMedicine] = useState<MedicineProps[]>([]);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('');
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchShop = async () => {
@@ -172,7 +174,12 @@ export default function MedicinePage() {
               <Link href={`/shop/${shopId}/update`} className={css.edit}>
                 Edit data
               </Link>
-              <button className={css.add}>Add medicine</button>
+              <button
+                className={css.add}
+                onClick={() => setIsAddModalOpen(true)}
+              >
+                Add medicine
+              </button>
             </div>
           </div>
         </div>
@@ -322,6 +329,12 @@ export default function MedicinePage() {
           </ul>
         </div>
       </div>
+      <AddProductModal
+        isOpen={isAddModalOpen}
+        shopId={shopId!}
+        onClose={() => setIsAddModalOpen(false)}
+        onSuccess={() => {}}
+      />
     </div>
   );
 }
