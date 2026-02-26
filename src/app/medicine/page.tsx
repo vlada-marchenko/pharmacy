@@ -13,7 +13,6 @@ import { getMedicine } from '@/src/lib/medicine';
 import Select from 'react-select';
 import { addToShop } from '@/src/lib/product';
 import { toast } from 'react-toastify';
-import AddProductModal from '@/src/components/AddProductModal/AddProductModal';
 
 export type PropertierProps = {
   anti_inflammatory: string;
@@ -174,12 +173,12 @@ export default function MedicinePage() {
               <Link href={`/shop/${shopId}/update`} className={css.edit}>
                 Edit data
               </Link>
-              <button
+              <Link
+                href={`/shop/${shopId}/product/add`}
                 className={css.add}
-                onClick={() => setIsAddModalOpen(true)}
               >
                 Add medicine
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -329,12 +328,6 @@ export default function MedicinePage() {
           </ul>
         </div>
       </div>
-      <AddProductModal
-        isOpen={isAddModalOpen}
-        shopId={shopId!}
-        onClose={() => setIsAddModalOpen(false)}
-        onSuccess={() => {}}
-      />
     </div>
   );
 }

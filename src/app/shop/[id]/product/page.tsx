@@ -7,12 +7,11 @@ import { useParams, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Loading from '@/src/app/loading';
 import Link from 'next/link';
-import { createProduct, getProducts } from '@/src/lib/product';
+import { getProducts } from '@/src/lib/product';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
 import { deleteProduct, editProduct } from '@/src/lib/product';
 import DeleteModal from '@/src/components/DeleteModal/DeleteModal';
-import AddProductModal from '@/src/components/AddProductModal/AddProductModal';
 
 export type ShopProps = {
   _id: string;
@@ -46,12 +45,10 @@ export default function ProductPage() {
 
   const [shop, setShop] = useState<ShopProps | null>(null);
   const [loading, setLoading] = useState(false);
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [deleteTarget, setDeleteTarget] = useState<ProductProps | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const [products, setProducts] = useState<ProductProps[]>([]);
-  const categories = [...new Set(products.map((product) => product.category))];
-  
+
 
   useEffect(() => {
     const fetchShop = async () => {
@@ -165,12 +162,12 @@ export default function ProductPage() {
               <Link href={`/shop/${id}/update`} className={css.edit}>
                 Edit data
               </Link>
-              <button
+              <Link
+                href={`/shop/${id}/product/add`}
                 className={css.add}
-                onClick={() => setIsAddModalOpen(true)}
               >
                 Add medicine
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -248,12 +245,6 @@ export default function ProductPage() {
         itemCategory={deleteTarget?.category || ''}
       />
 
-      <AddProductModal
-        isOpen={isAddModalOpen}
-        shopId={id}
-        onClose={() => setIsAddModalOpen(false)}
-        onSuccess={(newProduct) => setProducts((prev) => [newProduct, ...prev])}
-      />
     </div>
   );
 }
