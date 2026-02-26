@@ -57,6 +57,7 @@
   border: 1.15486px solid rgba(89, 177, 122, 0.6);
   border-radius: 20px;
   margin-top: 10px;
+  object-fit: contain;
 }
 
 .imageWrap {
@@ -156,6 +157,19 @@ margin-left: 10px;
   margin-top: 2px;
 }
 
+.imageError {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #ff0000;
+  width: 100%;
+  text-align: center;
+  margin-top: 4px;
+  display: block;
+  margin-left: 4px;
+}
+
+
 .buttons {
   display: flex;
   flex-direction: row;
@@ -246,3 +260,4 @@ margin-left: 10px;
     justify-content: center;
   }
 }
+

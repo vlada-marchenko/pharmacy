@@ -1,5 +1,5 @@
 'use client';
-import css from './page.module.css';
+import css from './AddModal.module.css'
 import Icon from '@/src/components/Icon/Icon';
 import Image from 'next/image';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,6 +12,7 @@ import { getMedicine } from '@/src/lib/medicine';
 import Select from 'react-select';
 import { useParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 const schema = yup.object({
   name: yup.string().required('Medicine name is required'),
@@ -23,21 +24,17 @@ const schema = yup.object({
   photo: yup.string().required('Photo is required'),
 });
 
+interface Props {
+  onClose?: () => void;
+}
+
 type FormData = yup.InferType<typeof schema>;
 
-// export type Props = {
-//   isOpen: boolean;
-//   shopId: string;
-//   categories: string[];
-//   onClose: () => void;
-//   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-//   onSuccess: (newProduct: any) => void;
-// };
 
-export default function AddModalModal() {
+export default function AddModal({ onClose }: Props) {
   const router = useRouter();
-  const params = useParams()
-  const shopId = params.id as string
+  const params = useParams();
+  const shopId = (params.id as string) || Cookies.get('shopId');
 
   const [photoPreview, setPhotoPreview] = useState('/pills.png');
   const [categories, setCategories] = useState<string[]>([]);
@@ -54,7 +51,13 @@ export default function AddModalModal() {
     mode: 'onTouched',
   });
   const watchCategory = watch('category');
-  const watchPhoto = watch('photo');
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [])
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -65,7 +68,7 @@ export default function AddModalModal() {
           : data.medicines || data.data || [];
 
         const cats = [
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ...new Set(list.map((item: any) => item.category)),
         ] as string[];
         setCategories(cats);
@@ -79,7 +82,11 @@ export default function AddModalModal() {
   const handleClose = () => {
     reset();
     setPhotoPreview('/pills.png');
-    router.back()
+    if (onClose) {
+      onClose();
+    } else {
+      router.back();
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -90,26 +97,28 @@ export default function AddModalModal() {
 
     const reader = new FileReader();
     reader.onloadend = () => {
-        setValue('photo', reader.result as string);
-    }
-    reader.readAsDataURL(file)
+      setValue('photo', reader.result as string);
+    };
+    reader.readAsDataURL(file);
   };
 
   const onSubmit = async (data: FormData) => {
+    if (!shopId) {
+      toast.error('Shop not found');
+      return;
+    }
+
     try {
-      const res = await createProduct(shopId, data);
-    //   const newProduct = {
-    //     id: res._id || res.id,
-    //     name: data.name,
-    //     price: String(data.price),
-    //     category: data.category,
-    //     photo: photoPreview,
-    //   };
+      await createProduct(shopId, data);
       toast.success('Medicine added successfully');
       reset();
-    //   setPhotoPreview('/pills.png');;
-      router.back()
-              router.refresh()
+      window.dispatchEvent(new Event('medicineUpdated'));
+      if (onClose) {
+        onClose();
+      } else {
+        router.back();
+      }
+      router.refresh();
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.log('ERROR RESPONSE:', error.response?.data);
@@ -129,7 +138,7 @@ export default function AddModalModal() {
             <div className={css.imageWrap}>
               <label htmlFor="photoUpload" className={css.imageLabel}>
                 <Image
-  src={photoPreview}
+                  src={photoPreview}
                   alt="preview"
                   width={130}
                   height={130}
@@ -148,7 +157,7 @@ export default function AddModalModal() {
                 onChange={handleFileChange}
               />
               {errors.photo && (
-                <span className={css.error}>{errors.photo.message}</span>
+                <span className={css.imageError}>{errors.photo.message}</span>
               )}
             </div>
 
@@ -187,8 +196,9 @@ export default function AddModalModal() {
                 Category
               </label>
               <Select
-              instanceId="category-select"
+                instanceId="category-select"
                 isSearchable={false}
+                maxMenuHeight={160}
                 options={[
                   { value: '', label: 'Select category' },
                   ...categories.map((cat) => ({ value: cat, label: cat })),
@@ -245,6 +255,27 @@ export default function AddModalModal() {
                     borderRadius: '16px',
                     overflow: 'hidden',
                     boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                  }),
+                  menuList: (base) => ({
+                    ...base,
+                    paddingRight: '6px',
+                    scrollbarWidth: 'thin',
+                    scrollbarColor: 'rgba(89, 177, 122, 0.5) transparent',
+                    '&::-webkit-scrollbar': {
+                      width: '6px',
+                    },
+                    '&::-webkit-scrollbar-track': {
+                      background: 'transparent',
+                      marginTop: '8px',
+                      marginBottom: '8px',
+                    },
+                    '&::-webkit-scrollbar-thumb': {
+                      backgroundColor: 'rgba(89, 177, 122, 0.5)',
+                      borderRadius: '10px',
+                    },
+                    '&::-webkit-scrollbar-thumb:hover': {
+                      backgroundColor: '#59b17a',
+                    },
                   }),
                   indicatorSeparator: () => ({ display: 'none' }),
                   dropdownIndicator: (base) => ({

@@ -81,21 +81,13 @@ export default function ProductPage() {
       }
     };
     fetchProducts();
-  }, [id]);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // const handleAddMedicine = async (data: any) => {
-  //   try {
-  //     const newProduct = await createProduct(id, data);
-  //     setProducts([...products, newProduct]);
-  //     toast.success('Medicine added successfully');
-  //     setIsAddModalOpen(false);
-  //     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  //   } catch (error: any) {
-  //     console.log('ERROR RESPONSE:', error.response?.data);
-  //     toast.error('Error adding medicine');
-  //   }
-  // };
+    window.addEventListener('medicineUpdated', fetchProducts);
+
+    return () => {
+      window.removeEventListener('medicineUpdated', fetchProducts);
+    };
+  }, [id]);
 
   const handleEdit = async (shopId: string, productId: string) => {
     try {
@@ -164,6 +156,7 @@ export default function ProductPage() {
               </Link>
               <Link
                 href={`/shop/${id}/product/add`}
+                scroll={false}
                 className={css.add}
               >
                 Add medicine
