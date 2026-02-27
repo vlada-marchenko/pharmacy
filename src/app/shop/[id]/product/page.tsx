@@ -10,8 +10,9 @@ import Link from 'next/link';
 import { getProducts } from '@/src/lib/product';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
-import { deleteProduct, editProduct } from '@/src/lib/product';
+import { deleteProduct } from '@/src/lib/product';
 import DeleteModal from '@/src/components/DeleteModal/DeleteModal';
+import EditModal from '@/src/components/EditModal/EditModal';
 
 export type ShopProps = {
   _id: string;
@@ -48,6 +49,7 @@ export default function ProductPage() {
   const [deleteTarget, setDeleteTarget] = useState<ProductProps | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const [products, setProducts] = useState<ProductProps[]>([]);
+  const [editTarget, setEditTarget] = useState<ProductProps | null>(null);
 
 
   useEffect(() => {
@@ -89,17 +91,9 @@ export default function ProductPage() {
     };
   }, [id]);
 
-  const handleEdit = async (shopId: string, productId: string) => {
-    try {
-      await editProduct(shopId, productId);
-      products.map((product) =>
-        product.id === productId ? { ...product } : product,
-      );
-    } catch (error) {
-      console.error('Error editing product:', error);
-    } finally {
-      toast.success('Product edited successfully');
-    }
+  const handleEdit = async (product: ProductProps) => {
+setEditTarget(product)
+
   };
 
   const handleDelete = async () => {
@@ -114,6 +108,7 @@ export default function ProductPage() {
       setDeleteTarget(null);
     } catch (error) {
       console.error('Error deleting product:', error);
+        toast.error('Error deleting product');
     } finally {
       setIsDeleting(false);
     }
@@ -209,7 +204,7 @@ export default function ProductPage() {
                     <div className={css.down}>
                       <button
                         className={css.btnEdit}
-                        onClick={() => handleEdit(shop._id, item.id)}
+                        onClick={() => handleEdit(item)}
                       >
                         Edit
                       </button>
@@ -238,6 +233,12 @@ export default function ProductPage() {
         itemCategory={deleteTarget?.category || ''}
       />
 
+     {editTarget && (
+  <EditModal
+    product={editTarget}
+    onClose={() => setEditTarget(null)}
+  />
+)}
     </div>
   );
 }
