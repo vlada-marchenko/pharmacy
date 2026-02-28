@@ -3,19 +3,42 @@ import Cookies from "js-cookie";
 
 const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API,
+    timeout: 60000,
+    withCredentials: true,
     headers: {
         "Content-Type": "application/json",
     },
 });
 
-api.interceptors.request.use((config) => {
-    if (typeof window !== "undefined") {
-        const token = Cookies.get("token");
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
-        }
+api.interceptors.request.use(
+  (config) => {
+    const token = Cookies.get('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
     }
-    return config
-})
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  })
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.code === 'ECONNABORTED' || error.code === 'ERR_NETWORK') {
+      console.error('Backend server is sleeping (Render free tier). Please wait...');
+    }
+
+    if (error.response?.status === 401) {
+     Cookies.remove('token');
+     Cookies.remove('shopId');
+      if (typeof window !== 'undefined') {
+       window.location.href = '/login';
+     }
+   }
+
+   return Promise.reject(error);
+}
+);
 
 export default api
