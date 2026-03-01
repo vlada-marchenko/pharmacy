@@ -1,0 +1,35 @@
+.page {
+  width: 100%;
+  background-color: #f7f8fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content {
+  width: 100%;
+  padding: 30px 20px 60px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 375px) {
+  .content {
+    width: 375px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .content {
+    width: 768px;
+    padding: 40px 40px 70px;
+  }}
+
+  @media screen and (min-width: 1440px) {
+  .content {
+    width: 1440px;
+    padding: 60px 138px 50px;
+  }}

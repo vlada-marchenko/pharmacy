@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import Icon from '../Icon/Icon';
+import { useParams } from 'next/navigation';
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,6 +16,7 @@ export default function Header() {
 
   const router = useRouter();
   const pathname = usePathname();
+  const params = useParams()
 
   useEffect(() => {
     const token = Cookies.get('token');
@@ -35,6 +37,8 @@ export default function Header() {
 
 
   const shopId = Cookies.get('shopId');
+  const medicineId = params.medicineId as string;
+
 
   const getMobileNavClass = (paths: string[]) => {
     return paths.includes(pathname) ? `${css.navLinkMobActive} ${css.navLinkMob}`: css.navLinkMob;
@@ -58,7 +62,7 @@ export default function Header() {
                 <Link href="/shop/create" className={getDesktopNavClass(['/shop/create', `/shop/${shopId}/update`])}>
                   Shop
                 </Link>
-                <Link href={`/shop/${shopId}/product`} className={getDesktopNavClass([`/medicine`, `/shop/${shopId}/product`])}>
+                <Link href={`/shop/${shopId}/product`} className={getDesktopNavClass([`/medicine`, `/shop/${shopId}/product`, `/medicine/${medicineId}`])}>
                   Medicine
                 </Link>
                 <Link href="/statistics" className={getDesktopNavClass(['/statistics'])}>
@@ -72,7 +76,7 @@ export default function Header() {
                     <Link href="/shop/create" className={getMobileNavClass(['/shop/create', `/shop/${shopId}/update`])}>
                       Shop
                     </Link>
-                    <Link href={`/shop/${shopId}/product`} className={getMobileNavClass([`/medicine`, `/shop/${shopId}/product`])}>
+                    <Link href={`/shop/${shopId}/product`} className={getMobileNavClass([`/medicine`, `/shop/${shopId}/product`, `/medicine/${medicineId}`])}>
                       Medicine
                     </Link>
                     <Link href="/statistics" className={getMobileNavClass(['/statistics'])}>
