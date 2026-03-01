@@ -100,6 +100,7 @@ export default function MedicinePage() {
       <div className={css.content}>
         <div className={css.item}>
           <Image
+            className={css.image}
             src={medicine?.photo}
             alt={medicine?.name}
             width={300}
@@ -111,7 +112,7 @@ export default function MedicinePage() {
                 <span className={css.name}>{medicine.name}</span>
                 <span className={css.category}>{medicine.category}</span>
               </div>
-              <span className={css.price}>${medicine.price}</span>
+              <span className={css.price}>৳{medicine.price}</span>
             </div>
             <button
               className={css.btn}
@@ -144,13 +145,43 @@ export default function MedicinePage() {
           <div className={css.tabContent}>
             {activeTab === 'description' && (
               <div className={css.descr}>
-                <p className={css.overview}>
-                  {medicine.description.overview}</p>
-                <p className={css.med}>Medical Effect: <span className={css.spanMed}>{medicine.description.medicinal_properties.anti_inflammatory}</span></p>
-                <p className={css.med}>Medical Uses: <span className={css.spanMed}>{medicine.description.medicinal_properties.symptom_relief}</span></p>
-                <p className={css.med}>Supportive Care: <span className={css.spanMed}>{medicine.description.medicinal_properties.supportive_care}</span></p>
-                <p className={css.med}>Medical Properties: <span className={css.spanMed}>{medicine.description.medicinal_properties.preventive_benefits}</span></p>
-                <p className={css.med}>Safety Note: <span className={css.spanMed}>{medicine.description.medicinal_properties.safety_note}</span></p>
+                <p className={css.overview}>{medicine.description.overview}</p>
+                <p className={css.med}>
+                  Medical Effect:{' '}
+                  <span className={css.spanMed}>
+                    {
+                      medicine.description.medicinal_properties
+                        .anti_inflammatory
+                    }
+                  </span>
+                </p>
+                <p className={css.med}>
+                  Medical Uses:{' '}
+                  <span className={css.spanMed}>
+                    {medicine.description.medicinal_properties.symptom_relief}
+                  </span>
+                </p>
+                <p className={css.med}>
+                  Supportive Care:{' '}
+                  <span className={css.spanMed}>
+                    {medicine.description.medicinal_properties.supportive_care}
+                  </span>
+                </p>
+                <p className={css.med}>
+                  Medical Properties:{' '}
+                  <span className={css.spanMed}>
+                    {
+                      medicine.description.medicinal_properties
+                        .preventive_benefits
+                    }
+                  </span>
+                </p>
+                <p className={css.med}>
+                  Safety Note:{' '}
+                  <span className={css.spanMed}>
+                    {medicine.description.medicinal_properties.safety_note}
+                  </span>
+                </p>
               </div>
             )}
 
