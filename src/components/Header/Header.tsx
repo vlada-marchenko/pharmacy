@@ -65,7 +65,7 @@ export default function Header() {
                 <Link href={`/shop/${shopId}/product`} className={getDesktopNavClass([`/medicine`, `/shop/${shopId}/product`, `/medicine/${medicineId}`])}>
                   Medicine
                 </Link>
-                <Link href="/statistics" className={getDesktopNavClass(['/statistics'])}>
+                <Link href={`/shop/${shopId}/statistics`}  className={getDesktopNavClass([`shop/${shopId}/statistics`])}>
                   Statistics
                 </Link>
               </nav>
@@ -79,7 +79,7 @@ export default function Header() {
                     <Link href={`/shop/${shopId}/product`} className={getMobileNavClass([`/medicine`, `/shop/${shopId}/product`, `/medicine/${medicineId}`])}>
                       Medicine
                     </Link>
-                    <Link href="/statistics" className={getMobileNavClass(['/statistics'])}>
+                    <Link href={`/shop/${shopId}/statistics`} className={getMobileNavClass([`shop/${shopId}/statistics`])}>
                       Statistics
                     </Link>
                     <button className={css.logoutMob} onClick={handleLogout}>

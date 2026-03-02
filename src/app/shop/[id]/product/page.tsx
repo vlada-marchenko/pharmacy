@@ -51,7 +51,6 @@ export default function ProductPage() {
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [editTarget, setEditTarget] = useState<ProductProps | null>(null);
 
-
   useEffect(() => {
     const fetchShop = async () => {
       if (!id) return;
@@ -92,8 +91,7 @@ export default function ProductPage() {
   }, [id]);
 
   const handleEdit = async (product: ProductProps) => {
-setEditTarget(product)
-
+    setEditTarget(product);
   };
 
   const handleDelete = async () => {
@@ -108,7 +106,7 @@ setEditTarget(product)
       setDeleteTarget(null);
     } catch (error) {
       console.error('Error deleting product:', error);
-        toast.error('Error deleting product');
+      toast.error('Error deleting product');
     } finally {
       setIsDeleting(false);
     }
@@ -233,12 +231,9 @@ setEditTarget(product)
         itemCategory={deleteTarget?.category || ''}
       />
 
-     {editTarget && (
-  <EditModal
-    product={editTarget}
-    onClose={() => setEditTarget(null)}
-  />
-)}
+      {editTarget && (
+        <EditModal product={editTarget} onClose={() => setEditTarget(null)} />
+      )}
     </div>
   );
 }
