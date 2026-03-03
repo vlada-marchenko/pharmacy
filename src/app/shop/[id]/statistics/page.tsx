@@ -59,7 +59,6 @@ export default function StatisticsPage() {
         setTotalCustomers(data.totalCustomers);
         setCustomers(data.customers);
 
-        // Flatten transactions from transactionsByType
         if (data.transactionsByType) {
           const allTransactions = [
             ...(data.transactionsByType.Income || []),
@@ -105,6 +104,35 @@ export default function StatisticsPage() {
             </div>
             <span className={css.amount}>{totalCustomers}</span>
           </div>
+        </div>
+        <div className={css.conts}>
+            <div className={css.customers}>
+                <h3 className={css.tableTitle}>Recent Customers</h3>
+                    <div className={css.tableWrapper}>
+                <table className={css.table}>
+                    <thead>
+                        <tr>
+                            <th className={css.th}>Name</th>
+                            <th className={css.th}>Email</th>
+                            <th className={css.th}>Spent</th>
+                            <th className={css.th}>Medicine</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {customers.slice(0,5).map((customer) => (
+                            <tr key={customer._id} className={css.tr}>
+                                <td className={css.td}>{customer.name}</td>
+                                <td className={css.td}>{customer.email}</td>
+                                <td className={css.tdSpent}>{customer.spent}</td>
+                                <td className={css.td}>
+                                    <button className={css.viewBtn}>View</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                </div>
+            </div>
         </div>
       </div>
     </div>
