@@ -53,21 +53,13 @@ export default function StatisticsPage() {
     const fetchStatistics = async () => {
       try {
         const res = await api.get(`/shop/${shopId}/statistics`);
-        const data = await res.data
+        const data = await res.data;
 
         setTotalProducts(data.totalProducts);
         setTotalCustomers(data.totalCustomers);
         setCustomers(data.customers);
 
-        if (data.transactionsByType) {
-          const allTransactions = [
-            ...(data.transactionsByType.Income || []),
-            ...(data.transactionsByType.Expense || []),
-            ...(data.transactionsByType.Error || []),
-            ...(data.transactionsByType.Unknown || []),
-          ];
-          setTransactions(allTransactions);
-        }
+        setTransactions(data.transactions);
       } catch (error) {
         console.error('Error fetching statistics:', error);
         setError(
@@ -92,47 +84,87 @@ export default function StatisticsPage() {
         <div className={css.containers}>
           <div className={css.productsCont}>
             <div className={css.up}>
-              <Icon name="products" width={18} height={18}  className={css.icon}/>
+              <Icon
+                name="products"
+                width={18}
+                height={18}
+                className={css.icon}
+              />
               <span className={css.span}>All products</span>
             </div>
             <span className={css.amount}>{totalProducts}</span>
           </div>
           <div className={css.productsCont}>
             <div className={css.up}>
-              <Icon name="users" width={18} height={18} className={css.icon}/>
+              <Icon name="users" width={18} height={18} className={css.icon} />
               <span className={css.span}>All customers</span>
             </div>
             <span className={css.amount}>{totalCustomers}</span>
           </div>
         </div>
         <div className={css.conts}>
-            <div className={css.customers}>
-                <h3 className={css.tableTitle}>Recent Customers</h3>
-                    <div className={css.tableWrapper}>
-                <table className={css.table}>
-                    <thead>
-                        <tr>
-                            <th className={css.th}>Name</th>
-                            <th className={css.th}>Email</th>
-                            <th className={css.th}>Spent</th>
-                            <th className={css.th}>Medicine</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {customers.slice(0,5).map((customer) => (
-                            <tr key={customer._id} className={css.tr}>
-                                <td className={css.td}>{customer.name}</td>
-                                <td className={css.td}>{customer.email}</td>
-                                <td className={css.tdSpent}>{customer.spent}</td>
-                                <td className={css.td}>
-                                    <button className={css.viewBtn}>View</button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-                </div>
+          <div className={css.customers}>
+            <h3 className={css.tableTitle}>Recent Customers</h3>
+            <div className={css.tableWrapper}>
+              <table className={css.table}>
+                <thead>
+                  <tr className={css.tr}>
+                    <th className={css.th}>Name</th>
+                    <th className={css.th}>Email</th>
+                    <th className={css.th}>Spent</th>
+                    <th className={css.th}>Medicine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {customers.slice(0, 5).map((customer) => (
+                    <tr key={customer._id} className={css.tr}>
+                      <td className={css.td}>{customer.name}</td>
+                      <td className={css.td}>{customer.email}</td>
+                      <td className={css.tdSpent}>{customer.spent}</td>
+                      <td className={css.td}>
+                        <button className={css.viewBtn}>View</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
+          </div>
+          <div className={css.transactions}>
+            <h3 className={css.tableTitle}>Income/Expenses</h3>
+            <table className={css.tableTr}>
+              <thead className={css.thead}>
+                <tr className={css.date}>
+                  <th className={css.dateItem}>Today</th>
+                </tr>
+              </thead>
+              <tbody>
+                {transactions.slice(0, 6).map((transaction, index) => (
+                  <tr key={index} className={css.trItem}>
+                    <td className={css.trContent}>
+                      <span
+                        className={`${css.type} ${
+                          css[transaction.type.toLowerCase()]
+                        }`}
+                      >
+                        {transaction.type}
+                      </span>
+                    </td>
+                    <td className={css.trName}>{transaction.name}</td>
+                    <td className={css.trAmount}>
+                      <span
+                        className={`${css.amount} ${
+                          css[transaction.type.toLowerCase()]
+                        }`}
+                      >
+                        {transaction.amount}
+                      </span>{' '}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
