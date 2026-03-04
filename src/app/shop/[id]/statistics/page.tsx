@@ -6,6 +6,7 @@ import Icon from '@/src/components/Icon/Icon';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import api from '../../../../lib/api';
+import Link from 'next/link';
 
 type BoughtProducts = {
   productId: string;
@@ -22,13 +23,7 @@ type Customer = {
   bought_products: BoughtProducts[];
 };
 
-type Product = {
-  _id: string;
-  id: string;
-  photo: string;
-  name: string;
-  price: string;
-};
+
 
 type Transaction = {
   shopId: string;
@@ -43,11 +38,11 @@ export default function StatisticsPage() {
 
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
-  const [products, setProducts] = useState<Product[]>([]);
   const [totalProducts, setTotalProducts] = useState(0);
   const [totalCustomers, setTotalCustomers] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
 
   useEffect(() => {
     const fetchStatistics = async () => {
@@ -122,7 +117,7 @@ export default function StatisticsPage() {
                       <td className={css.td}>{customer.email}</td>
                       <td className={css.tdSpent}>{customer.spent}</td>
                       <td className={css.td}>
-                        <button className={css.viewBtn}>View</button>
+                        <Link href={`/shop/${shopId}/statistics/${customer._id}/goods`} className={css.viewBtn}>View</Link>
                       </td>
                     </tr>
                   ))}
