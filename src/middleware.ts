@@ -15,6 +15,11 @@ export function middleware(request: NextRequest) {
   console.log('token:', token ? 'exists' : 'missing');
   console.log('shopId cookie:', shopId);
 
+  //   if (pathname.includes('/undefined')) {
+  //   console.log('Detected /undefined in path');
+  //   return NextResponse.redirect(new URL('/shop/create', request.url));
+  // }
+
   const isProtectedRoute = protectedRoutes.some((route) =>
     pathname.startsWith(route),
   );
@@ -31,6 +36,7 @@ export function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL('/shop/create', request.url));
     }
   }
+    return NextResponse.next();
 }
 
 export const config = {

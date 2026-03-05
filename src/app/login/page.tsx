@@ -59,8 +59,13 @@ export default function LoginPage() {
           sameSite: 'lax',
         });
         localStorage.setItem('shopId', shopId);
+        const cookieCheck = Cookies.get('shopId');
+        console.log('Cookie set check:', cookieCheck);
+        console.log('LocalStorage set check:', localStorage.getItem('shopId'));
         toast.success(`Welcome back, ${res.user.name}`);
-        router.push(`/shop/${shopId}/product`);
+        setTimeout(() => {
+          router.push(`/shop/${shopId}/product`);
+        }, 100);
       } else {
         router.push('/shop/create');
       }

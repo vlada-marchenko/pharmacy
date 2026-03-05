@@ -86,8 +86,13 @@ export default function CreateShopPage() {
           sameSite: 'lax',
         });
         localStorage.setItem('shopId', id);
+              const cookieCheck = Cookies.get('shopId');
+      console.log('Cookie set check:', cookieCheck);
+      console.log('LocalStorage set check:', localStorage.getItem('shopId'));
         toast.success('Shop created successfully!');
+      setTimeout(() => {
         router.push(`/shop/${id}/product`);
+      }, 100);
       } else {
         toast.error('Failed to create shop. Please try again.');
       }
