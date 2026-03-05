@@ -43,22 +43,11 @@ export default function LoginPage() {
     setLoading(true);
     try {
       const res = await login(data);
-      const shopId = res.user.shopId;
 
-      const isProduction = window.location.protocol === 'https:';
+      console.log('LOGIN RESPONSE:', res);
+      console.log('shopId value:', res?.user?.shopId, typeof res?.user?.shopId);
 
-      const cookieOptions = isProduction
-        ? {
-            expires: 7,
-            path: '/',
-            sameSite: 'none' as const,
-            secure: true,
-          }
-        : {
-            expires: 7,
-            path: '/',
-            sameSite: 'lax' as const,
-          };
+      const isProduction = process.env.NODE_ENV === 'production';
 
       Cookies.set('token', res.token, {
         expires: 1,
@@ -67,24 +56,43 @@ export default function LoginPage() {
           ? { sameSite: 'none' as const, secure: true }
           : { sameSite: 'lax' as const }),
       });
+
       localStorage.setItem('user', JSON.stringify(res.user));
 
-      if (shopId) {
+      const shopId = res?.user?.shopId;
+
+      const isValidShopId =
+        typeof shopId === 'string' &&
+        shopId.trim() !== '' &&
+        shopId !== 'undefined';
+
+      if (isValidShopId) {
+        const cookieOptions = isProduction
+          ? {
+              expires: 7,
+              path: '/',
+              sameSite: 'none' as const,
+              secure: true,
+            }
+          : {
+              expires: 7,
+              path: '/',
+              sameSite: 'lax' as const,
+            };
+
         Cookies.set('shopId', shopId, cookieOptions);
         localStorage.setItem('shopId', shopId);
+
         await new Promise((resolve) => setTimeout(resolve, 50));
-        const cookieCheck = Cookies.get('shopId');
-        console.log('All cookies after setting:', document.cookie);
-        console.log('Cookie attributes used:', cookieOptions);
-        console.log('Cookie set check:', cookieCheck);
-        console.log('LocalStorage set check:', localStorage.getItem('shopId'));
+
         toast.success(`Welcome back, ${res.user.name}`);
-        setTimeout(() => {
-          router.push(`/shop/${shopId}/product`);
-        }, 100);
-      } else {
-        router.push('/shop/create');
+
+        router.push(`/shop/${shopId}/product`);
+        return;
       }
+
+      toast.info('No shop found. Please create a shop first.');
+      router.push('/shop/create');
     } catch (err) {
       setLoading(false);
       toast.error('Login failed');

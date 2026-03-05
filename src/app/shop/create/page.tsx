@@ -63,8 +63,8 @@ export default function CreateShopPage() {
   });
 
   const onSubmit = async (data: Props) => {
+    setLoading(true);
     try {
-      setLoading(true);
       const backendData = {
         shopName: data.shopName,
         shopOwnerName: data.ownerName,
@@ -77,39 +77,43 @@ export default function CreateShopPage() {
       };
 
       const response = await createShop(backendData);
+
+      console.log('CREATE SHOP RESPONSE:', response);
+
       const id = response?.shopId || response?._id;
 
-      if (id) {
-        const isProduction = window.location.protocol === 'https:';
+      const isValidId =
+        typeof id === 'string' && id.trim() !== '' && id !== 'undefined';
 
-        const cookieOptions = isProduction
-          ? {
-              expires: 7,
-              path: '/',
-              sameSite: 'none' as const,
-              secure: true,
-            }
-          : {
-              expires: 7,
-              path: '/',
-              sameSite: 'lax' as const,
-            };
-
-        Cookies.set('shopId', id, cookieOptions);
-        localStorage.setItem('shopId', id);
-        await new Promise((resolve) => setTimeout(resolve, 50));
-        const cookieCheck = Cookies.get('shopId');
-        console.log('All cookies after setting:', document.cookie);
-        console.log('Cookie attributes used:', cookieOptions);
-        console.log('Cookie set check:', cookieCheck);
-        console.log('LocalStorage set check:', localStorage.getItem('shopId'));
-        toast.success('Shop created successfully!');
-        setTimeout(() => {
-          router.push(`/shop/${id}/product`);
-        }, 100);
-      } else {
+      if (!isValidId) {
         toast.error('Failed to create shop. Please try again.');
+        return;
       }
+
+      const isProduction = process.env.NODE_ENV === 'production';
+
+      const cookieOptions = isProduction
+        ? {
+            expires: 7,
+            path: '/',
+            sameSite: 'none' as const,
+            secure: true,
+          }
+        : {
+            expires: 7,
+            path: '/',
+            sameSite: 'lax' as const,
+          };
+
+      Cookies.set('shopId', id, cookieOptions);
+      localStorage.setItem('shopId', id);
+
+      await new Promise((resolve) => setTimeout(resolve, 50));
+
+      toast.success('Shop created successfully!');
+
+      router.push(`/shop/${id}/product`);
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       const message = error.response?.data?.message || 'Shop creating error';

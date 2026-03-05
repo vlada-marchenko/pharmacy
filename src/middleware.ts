@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
 
 const protectedRoutes = ['/shop', '/medicine', '/statistics'];
-
 const authRoutes = ['/login', '/register'];
 
 export function middleware(request: NextRequest) {
@@ -20,18 +19,18 @@ export function middleware(request: NextRequest) {
   );
 
   if (isProtectedRoute && !token) {
-    console.log('Protected route without token, redirecting to /login');
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
   if (authRoutes.includes(pathname) && token) {
-    if (shopId) {
-      return NextResponse.redirect(new URL(`/shop/${shopId}`, request.url));
-    } else {
-      return NextResponse.redirect(new URL('/shop/create', request.url));
+    if (shopId && shopId !== 'undefined') {
+      return NextResponse.redirect(
+        new URL(`/shop/${shopId}/product`, request.url),
+      );
     }
+    return NextResponse.redirect(new URL('/shop/create', request.url));
   }
-    return NextResponse.next();
+  return NextResponse.next();
 }
 
 export const config = {
