@@ -10,11 +10,19 @@ export function middleware(request: NextRequest) {
   const shopId = request.cookies.get('shopId')?.value;
   const { pathname } = request.nextUrl;
 
+  console.log('=== MIDDLEWARE DEBUG ===');
+  console.log('pathname:', pathname);
+  console.log('token:', token ? 'exists' : 'missing');
+  console.log('shopId cookie:', shopId);
+
   if (pathname.includes('/undefined')) {
+    console.log('Detected /undefined in path');
     if (shopId && shopId !== 'undefined') {
       const newPath = pathname.replace('undefined', shopId);
+      console.log('Redirecting to:', newPath);
       return NextResponse.redirect(new URL(newPath, request.url));
     }
+    console.log('No valid shopId, redirecting to /shop/create');
     return NextResponse.redirect(new URL('/shop/create', request.url));
   }
 
@@ -23,19 +31,29 @@ export function middleware(request: NextRequest) {
   );
 
   if (isProtectedRoute && !token) {
+    console.log('Protected route without token, redirecting to /login');
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
   if (authRoutes.includes(pathname) && token) {
     if (shopId && shopId !== 'undefined') {
-    return NextResponse.redirect(new URL(`/shop/${shopId}`, request.url));
-  } else {
-    return NextResponse.redirect(new URL('/shop/create', request.url));
+      console.log('Auth page with token & shopId, redirecting to shop');
+      return NextResponse.redirect(new URL(`/shop/${shopId}`, request.url));
+    } else {
+      console.log('Auth page with token but no shopId, redirecting to create');
+      return NextResponse.redirect(new URL('/shop/create', request.url));
+    }
   }
-  }
+  console.log('Allowing request to proceed');
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/shop/:path*', '/medicine/:path*', '/statistics/:path*', '/login', '/register'],
+  matcher: [
+    '/shop/:path*',
+    '/medicine/:path*',
+    '/statistics/:path*',
+    '/login',
+    '/register',
+  ],
 };
