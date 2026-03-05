@@ -45,9 +45,8 @@ export default function LoginPage() {
       const res = await login(data);
       Cookies.set('token', res.token, { expires: 1 });
       localStorage.setItem('user', JSON.stringify(res.user));
-      toast.success(`Welcome back, ${res.user.name}`);
 
-      const shopId = res.user.shopId || localStorage.getItem('shopId');
+      const shopId = res.user.shopId
 
       if (shopId) {
         Cookies.set('shopId', shopId, {
@@ -56,6 +55,7 @@ export default function LoginPage() {
           sameSite: 'lax',
         });
         localStorage.setItem('shopId', shopId);
+        toast.success(`Welcome back, ${res.user.name}`);
         router.push(`/shop/${shopId}/product`);
       } else {
         router.push('/shop/create');
