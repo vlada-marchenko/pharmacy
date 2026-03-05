@@ -53,6 +53,7 @@ export default function MedicinePage() {
 
   useEffect(() => {
     const fetchMedicine = async () => {
+      setLoading(true);
       if (!medicineId) return;
 
       try {

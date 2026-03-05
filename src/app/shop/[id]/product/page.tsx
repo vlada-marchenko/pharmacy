@@ -45,7 +45,8 @@ export default function ProductPage() {
   const pathname = usePathname();
 
   const [shop, setShop] = useState<ShopProps | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [shopLoading, setShopLoading] = useState(true);
+const [productsLoading, setProductsLoading] = useState(true);
   const [deleteTarget, setDeleteTarget] = useState<ProductProps | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const [products, setProducts] = useState<ProductProps[]>([]);
@@ -54,13 +55,14 @@ export default function ProductPage() {
   useEffect(() => {
     const fetchShop = async () => {
       if (!id) return;
+      setShopLoading(true);
       try {
         const data = await getShop(id);
         setShop(data);
       } catch (error) {
         console.error('Error fetching shop:', error);
       } finally {
-        setLoading(false);
+        setShopLoading(false);
       }
     };
     fetchShop();
@@ -69,6 +71,7 @@ export default function ProductPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       if (!id) return;
+      setProductsLoading(true);
       try {
         const data = await getProducts(id);
         const list = Array.isArray(data)
@@ -78,7 +81,7 @@ export default function ProductPage() {
       } catch (error) {
         console.error('Error fetching products:', error);
       } finally {
-        setLoading(false);
+        setProductsLoading(false);
       }
     };
     fetchProducts();
@@ -112,12 +115,12 @@ export default function ProductPage() {
     }
   };
 
-  if (loading) {
-    return <Loading />;
-  }
+if (shopLoading) {
+  return <Loading />;
+}
 
   if (!shop) {
-    return <div>Shop not found</div>;
+    return <div className={css.notFound}>Shop not found</div>;
   }
 
   return (
@@ -178,8 +181,10 @@ export default function ProductPage() {
         </div>
 
         <div className={css.products}>
-          {products.length === 0 ? (
-            <p className={css.empty}>No products yet</p>
+          {productsLoading ? (
+            <p className={css.empty}>Loading products...</p>
+          ) : products.length === 0 ? (
+            <p className={css.empty}>No products found</p>
           ) : (
             <ul className={css.list}>
               {products.map((item) => (

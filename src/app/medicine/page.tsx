@@ -64,17 +64,18 @@ export default function MedicinePage() {
   const shopId = Cookies.get('shopId');
 
   const [shop, setShop] = useState<ShopProps | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [shopLoading, setShopLoading] = useState(true);
+  const [medicineLoading, setMedicineLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [medicine, setMedicine] = useState<MedicineProps[]>([]);
   const [allMedicine, setAllMedicine] = useState<MedicineProps[]>([]);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('');
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchShop = async () => {
+      setShopLoading(true);
       try {
         const shopId = Cookies.get('shopId');
         if (!shopId) return;
@@ -83,7 +84,7 @@ export default function MedicinePage() {
       } catch (error) {
         console.error('Error fetching shop:', error);
       } finally {
-        setLoading(false);
+        setShopLoading(false);
       }
     };
     fetchShop();
@@ -91,6 +92,7 @@ export default function MedicinePage() {
 
   useEffect(() => {
     const fetchMedicine = async () => {
+      setMedicineLoading(true);
       try {
         const data = await getMedicine();
         const list = Array.isArray(data)
@@ -101,7 +103,7 @@ export default function MedicinePage() {
       } catch (error) {
         console.error('Error fetching medicine:', error);
       } finally {
-        setLoading(false);
+        setMedicineLoading(false);
       }
     };
     fetchMedicine();
@@ -140,7 +142,7 @@ export default function MedicinePage() {
     ...categories.map((category) => ({ value: category, label: category })),
   ];
 
-  if (loading) {
+  if (shopLoading) {
     return <Loading />;
   }
 
@@ -175,10 +177,7 @@ export default function MedicinePage() {
               <Link href={`/shop/${shopId}/update`} className={css.edit}>
                 Edit data
               </Link>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className={css.add}
-              >
+              <button onClick={() => setIsModalOpen(true)} className={css.add}>
                 Add medicine
               </button>
             </div>
@@ -293,6 +292,11 @@ export default function MedicinePage() {
             </button>
           </div>
 
+{medicineLoading ? (
+            <p className={css.empty}>Loading medicines...</p>
+          ) : medicine.length === 0 ? (
+            <p className={css.empty}>No products found</p>
+          ) : (
           <ul className={css.list}>
             {medicine.map((item) => {
               return (
@@ -327,7 +331,7 @@ export default function MedicinePage() {
                 </li>
               );
             })}
-          </ul>
+          </ul>)}
         </div>
       </div>
       {isModalOpen && <AddModal onClose={() => setIsModalOpen(false)} />}

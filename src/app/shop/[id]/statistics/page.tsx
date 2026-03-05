@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import api from '../../../../lib/api';
 import Link from 'next/link';
+import Loading from '@/src/app/loading';
 
 type BoughtProducts = {
   productId: string;
@@ -46,6 +47,7 @@ export default function StatisticsPage() {
 
   useEffect(() => {
     const fetchStatistics = async () => {
+      setLoading(true);
       try {
         const res = await api.get(`/shop/${shopId}/statistics`);
         const data = await res.data;
@@ -60,6 +62,8 @@ export default function StatisticsPage() {
         setError(
           error instanceof Error ? error.message : 'Error fetching statistics',
         );
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -68,8 +72,12 @@ export default function StatisticsPage() {
     }
   }, [shopId]);
 
+  if (loading) {
+    return <Loading/>;
+  }
+
   if (error) {
-    return <div className={css.page}>Error: {error}</div>;
+    return <div className={css.notFound}>Failed to fetch statistics.</div>;
   }
 
   return (

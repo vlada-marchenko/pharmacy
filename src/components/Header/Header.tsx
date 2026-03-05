@@ -38,6 +38,8 @@ export default function Header() {
 
   const shopId = Cookies.get('shopId');
   const medicineId = params.medicineId as string;
+  const clientId = params.clientId as string;
+
 
 
   const getMobileNavClass = (paths: string[]) => {
@@ -65,7 +67,7 @@ export default function Header() {
                 <Link href={`/shop/${shopId}/product`} className={getDesktopNavClass([`/medicine`, `/shop/${shopId}/product`, `/medicine/${medicineId}`])}>
                   Medicine
                 </Link>
-                <Link href={`/shop/${shopId}/statistics`}  className={getDesktopNavClass([`/shop/${shopId}/statistics`])}>
+                <Link href={`/shop/${shopId}/statistics`}  className={getDesktopNavClass([`/shop/${shopId}/statistics`, `/shop/${shopId}/statistics/${clientId}/goods`])}>
                   Statistics
                 </Link>
               </nav>
@@ -79,7 +81,7 @@ export default function Header() {
                     <Link href={`/shop/${shopId}/product`} className={getMobileNavClass([`/medicine`, `/shop/${shopId}/product`, `/medicine/${medicineId}`])}>
                       Medicine
                     </Link>
-                    <Link href={`/shop/${shopId}/statistics`} className={getMobileNavClass([`/shop/${shopId}/statistics`])}>
+                    <Link href={`/shop/${shopId}/statistics`} className={getMobileNavClass([`/shop/${shopId}/statistics`, `/shop/${shopId}/statistics/${clientId}/goods`])}>
                       Statistics
                     </Link>
                     <button className={css.logoutMob} onClick={handleLogout}>

@@ -7,6 +7,7 @@ import { useState } from 'react';
 import api from '../../../../../../../../lib/api';
 import { useEffect } from 'react';
 import Loading from '../../../../../../../loading';
+import Image from 'next/image';
 
 type BoughtProducts = {
   productId: string;
@@ -23,6 +24,11 @@ type Customer = {
   bought_products: BoughtProducts[];
 };
 
+type ApiResponse = {
+  customer: Customer;
+  orders: BoughtProducts[];
+};
+
 export default function CustomerGoodsModal() {
   const router = useRouter();
   const params = useParams();
@@ -32,18 +38,23 @@ export default function CustomerGoodsModal() {
   const [customer, setCustomer] = useState<Customer | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [orders, setOrders] = useState<BoughtProducts[]>([]);
 
-
-useEffect(() => {
+  useEffect(() => {
     const fetchCustomer = async () => {
       try {
         setLoading(true);
-        const res = await api.get(`/shop/${shopId}/statistics/${clientId}/goods`);
+        const res = await api.get(
+          `/shop/${shopId}/statistics/${clientId}/goods`,
+        );
         setCustomer(res.data.customer);
+        setOrders(res.data.orders || []);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching customer:', error);
-        setError(error instanceof Error ? error.message : 'Error fetching customer');
+        setError(
+          error instanceof Error ? error.message : 'Error fetching customer',
+        );
         setLoading(false);
       }
     };
@@ -61,6 +72,21 @@ useEffect(() => {
     return <Loading />;
   }
 
+  if (error || !customer) {
+    return (
+      <div className={css.overlay} onClick={handleClose}>
+        <div className={css.modal} onClick={(e) => e.stopPropagation()}>
+          <button className={css.close} onClick={handleClose}>
+            <Icon name="x" width={20} height={20} />
+          </button>
+          <div className={css.content}>
+            <p>{error || 'Customer not found'}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={css.overlay} onClick={handleClose}>
       <div className={css.modal} onClick={(e) => e.stopPropagation()}>
@@ -76,13 +102,35 @@ useEffect(() => {
             </div>
             <div className={css.item}>
               <span className={css.name}>Email</span>
-              <span className={`${css.value} ${css.email}`}>{customer?.email}</span>
+              <span className={`${css.value} ${css.email}`}>
+                {customer?.email}
+              </span>
             </div>
             <div className={css.item}>
               <span className={css.name}>Spent</span>
               <span className={css.value}>{customer?.spent}</span>
             </div>
           </div>
+          <ul className={css.products}>
+            {orders.length > 0 ? (
+              orders.slice(0,3).map((product, index) => (
+                <li key={product.productId || index} className={css.product}>
+                  <div className={css.product}>
+                    <Image src='/pills.png' alt={product.name} width={80} height={80}/>
+                    <div className={css.info}>
+                        <div className={css.names}>
+                        <span className={css.namePr}>{product.name}</span>
+                        <span className={css.category}>{product.category}</span>
+                        </div>
+                        <span className={css.price}>{product.price}</span>
+                    </div>
+                  </div>
+                </li>
+              ))
+            ) : (
+              <li className={css.empty}>No products purchased yet</li>
+            )}
+          </ul>
         </div>
       </div>
     </div>
