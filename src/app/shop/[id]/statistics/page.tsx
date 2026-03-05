@@ -77,7 +77,7 @@ export default function StatisticsPage() {
   }
 
   if (error) {
-    return <div className={css.notFound}>Failed to fetch statistics.</div>;
+    return <div className={css.notFound}>Failed to fetch statistics</div>;
   }
 
   return (

@@ -50,7 +50,12 @@ export default function LoginPage() {
       const shopId = res.user.shopId || localStorage.getItem('shopId');
 
       if (shopId) {
-        Cookies.set('shopId', shopId, { expires: 1 });
+        Cookies.set('shopId', shopId, {
+          expires: 7,
+          path: '/',
+          secure: true,
+          sameSite: 'lax',
+        });
         router.push(`/shop/${shopId}/product`);
       } else {
         router.push('/shop/create');
@@ -60,7 +65,7 @@ export default function LoginPage() {
       toast.error('Login failed');
       console.log(err);
     }
-    }
+  };
 
   if (loading) {
     return <Loading />;

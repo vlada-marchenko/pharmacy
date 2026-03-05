@@ -80,22 +80,26 @@ export default function CreateShopPage() {
       const id = response?.shopId || response?._id;
 
       if (id) {
-        Cookies.set('shopId', id, { expires: 1 });
+        Cookies.set('shopId', id, {
+          expires: 7,
+          path: '/',
+          secure: true,
+          sameSite: 'lax',
+        });
         localStorage.setItem('shopId', id);
         toast.success('Shop created successfully!');
         router.push(`/shop/${id}/product`);
       } else {
         toast.error('Failed to create shop. Please try again.');
       }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       const message = error.response?.data?.message || 'Shop creating error';
       toast.error(message);
     } finally {
       setLoading(false);
     }
-    }
-
+  };
 
   if (loading) {
     return (
