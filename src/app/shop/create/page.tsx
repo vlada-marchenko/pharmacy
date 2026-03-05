@@ -84,7 +84,6 @@ export default function CreateShopPage() {
           expires: 7,
           path: '/',
           sameSite: 'lax',
-          ...(process.env.NODE_ENV === 'production' && { secure: true }),
         });
         localStorage.setItem('shopId', id);
         toast.success('Shop created successfully!');

@@ -54,7 +54,6 @@ export default function LoginPage() {
           expires: 7,
           path: '/',
           sameSite: 'lax',
-          ...(process.env.NODE_ENV === 'production' && { secure: true }),
         });
         localStorage.setItem('shopId', shopId);
         router.push(`/shop/${shopId}/product`);

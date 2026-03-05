@@ -43,13 +43,14 @@ export type ProductProps = {
 
 export default function ProductPage() {
   const params = useParams();
-  const id =
-    (params.id as string) ||
-    Cookies.get('shopId') ||
-    (typeof window !== 'undefined' ? localStorage.getItem('shopId') : null);
+  // const id =
+  //   (params.id as string) ||
+  //   Cookies.get('shopId') ||
+  //   (typeof window !== 'undefined' ? localStorage.getItem('shopId') : null);
   const pathname = usePathname();
   const router = useRouter();
 
+    const [id, setId] = useState<string>('');
   const [shop, setShop] = useState<ShopProps | null>(null);
   const [shopLoading, setShopLoading] = useState(true);
   const [productsLoading, setProductsLoading] = useState(true);
@@ -57,13 +58,27 @@ export default function ProductPage() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [editTarget, setEditTarget] = useState<ProductProps | null>(null);
-
   useEffect(() => {
-    if (!id) {
+    console.log('=== DEBUG: Getting shopId ===');
+    console.log('params.id:', params.id);
+    console.log('Cookies.get(shopId):', Cookies.get('shopId'));
+    console.log('localStorage.getItem(shopId):', localStorage.getItem('shopId'));
+
+    const shopId = (params.id as string) ||
+                   Cookies.get('shopId') ||
+                   localStorage.getItem('shopId') ||
+                   '';
+
+    console.log('Final shopId:', shopId);
+
+    if (shopId) {
+      setId(shopId);
+    } else {
+      console.log('No shopId found, redirecting to /shop/create');
+      toast.error('Shop ID not found. Please create a shop first.');
       router.push('/shop/create');
-      return;
     }
-  }, [id, router]);
+  }, [params.id, router]);
 
   useEffect(() => {
     const fetchShop = async () => {
