@@ -1,16 +1,15 @@
 /** @type {import('next').NextConfig} */
-const API_URL = process.env.NEXT_PUBLIC_API;
 
 const nextConfig = {
   async rewrites() {
-    if (!API_URL) return [];
     return [
       {
         source: '/api/:path*',
-        destination: `${API_URL}/:path*`,
+        destination: 'https://pharmacy-backend-app.onrender.com/api/:path*',
       },
     ];
   },
+  trailingSlash: false,
   async headers() {
     return [
       {
