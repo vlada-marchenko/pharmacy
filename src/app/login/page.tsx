@@ -41,58 +41,37 @@ export default function LoginPage() {
 
   const onSubmit = async (data: LoginFormData) => {
     setLoading(true);
-  try {
+try {
     const res = await login(data);
 
-    console.log('LOGIN RESPONSE:', res);
-    console.log('shopId value:', res?.user?.shopId, typeof res?.user?.shopId);
-
     const isProduction = process.env.NODE_ENV === 'production';
-
-    const cookieOptions = isProduction
-      ? {
-          expires: 7,
-          path: '/',
-          sameSite: 'none' as const,
-          secure: true,
-        }
-      : {
-          expires: 7,
-          path: '/',
-          sameSite: 'lax' as const,
-        };
+    const cookieOptions = {
+      expires: 7,
+      path: '/',
+      sameSite: 'lax' as const,
+      secure: isProduction,
+    };
 
     Cookies.set('token', res.token, cookieOptions);
     localStorage.setItem('user', JSON.stringify(res.user));
 
     const shopId = res?.user?.shopId;
-
-    const isValidShopId =
-      typeof shopId === 'string' &&
-      shopId.trim() !== '' &&
-      shopId !== 'undefined' &&
-      shopId !== 'null';
+    const isValidShopId = typeof shopId === 'string' && shopId.trim() !== '' && shopId !== 'null';
 
     if (isValidShopId) {
       Cookies.set('shopId', shopId, cookieOptions);
       localStorage.setItem('shopId', shopId);
 
-      console.log('✅ ShopId set successfully:', shopId);
-      console.log('Cookie check:', Cookies.get('shopId'));
-      console.log('LocalStorage check:', localStorage.getItem('shopId'));
-
-      await new Promise((resolve) => setTimeout(resolve, 100));
-
       toast.success(`Welcome back, ${res.user.name}`);
-
       // eslint-disable-next-line react-hooks/immutability
       window.location.href = `/shop/${shopId}/product`;
-      return;
-    }
+    } else {
+      Cookies.remove('shopId');
+      localStorage.removeItem('shopId');
 
-    console.log('❌ Invalid shopId, redirecting to shop creation');
-    toast.info('No shop found. Please create a shop first.');
-    router.push('/shop/create');
+      toast.info('No shop found. Please create one.');
+      router.push('/shop/create');
+    }
   } catch (err) {
       setLoading(false);
       toast.error('Login failed');

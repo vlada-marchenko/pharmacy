@@ -112,20 +112,20 @@ export default function ProductPage() {
 
 useEffect(() => {
   const urlId = params.id as string;
-
-  if (urlId && urlId !== 'undefined' && urlId !== 'null') {
+  if (urlId && urlId !== 'undefined' && urlId !== 'null' && urlId !== 'create') {
     setId(urlId);
     localStorage.setItem('shopId', urlId);
     Cookies.set('shopId', urlId, { path: '/', sameSite: 'lax' });
-  } else {
-    const storedId = localStorage.getItem('shopId');
-    if (storedId) {
-      router.replace(`/shop/${storedId}/product`);
-    } else {
-      router.push('/shop/create');
-    }
+    return;
   }
-}, [params.id, router]);
+
+  const storedId = localStorage.getItem('shopId');
+  if (storedId && storedId !== 'undefined' && storedId !== 'null') {
+    router.replace(`/shop/${storedId}/product`);
+  } else if (pathname !== '/shop/create') {
+    router.push('/shop/create');
+  }
+}, [params.id, router, pathname]);
 
 
   useEffect(() => {
