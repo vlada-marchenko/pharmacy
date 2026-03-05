@@ -15,17 +15,6 @@ export function middleware(request: NextRequest) {
   console.log('token:', token ? 'exists' : 'missing');
   console.log('shopId cookie:', shopId);
 
-  if (pathname.includes('/undefined')) {
-    console.log('Detected /undefined in path');
-    if (shopId && shopId !== 'undefined') {
-      const newPath = pathname.replace('undefined', shopId);
-      console.log('Redirecting to:', newPath);
-      return NextResponse.redirect(new URL(newPath, request.url));
-    }
-    console.log('No valid shopId, redirecting to /shop/create');
-    return NextResponse.redirect(new URL('/shop/create', request.url));
-  }
-
   const isProtectedRoute = protectedRoutes.some((route) =>
     pathname.startsWith(route),
   );
@@ -36,16 +25,12 @@ export function middleware(request: NextRequest) {
   }
 
   if (authRoutes.includes(pathname) && token) {
-    if (shopId && shopId !== 'undefined') {
-      console.log('Auth page with token & shopId, redirecting to shop');
+    if (shopId) {
       return NextResponse.redirect(new URL(`/shop/${shopId}`, request.url));
     } else {
-      console.log('Auth page with token but no shopId, redirecting to create');
       return NextResponse.redirect(new URL('/shop/create', request.url));
     }
   }
-  console.log('Allowing request to proceed');
-  return NextResponse.next();
 }
 
 export const config = {

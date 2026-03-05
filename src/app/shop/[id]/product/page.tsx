@@ -55,66 +55,66 @@ export default function ProductPage() {
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [editTarget, setEditTarget] = useState<ProductProps | null>(null);
 
-  // useEffect(() => {
-  //   console.log('=== DEBUG: Getting shopId ===');
-  //   console.log('params.id:', params.id);
-  //   console.log('Cookies.get(shopId):', Cookies.get('shopId'));
-  //   console.log('localStorage.getItem(shopId):', localStorage.getItem('shopId'));
-
-  //   let shopId = params.id as string;
-
-  //   if (!shopId || shopId === 'undefined') {
-  //     shopId = Cookies.get('shopId') || localStorage.getItem('shopId') || '';
-  //   }
-
-  //   console.log('Final shopId:', shopId);
-
-  //   if (shopId && shopId !== 'undefined') {
-  //     setId(shopId);
-  //   } else {
-  //     console.log('No shopId found, redirecting to /shop/create');
-  //     toast.error('Shop ID not found. Please create a shop first.');
-  //     router.push('/shop/create');
-  //   }
-  // }, [params.id, router]);
-
   useEffect(() => {
-    const paramId = params?.id as string;
-    const cookieId = Cookies.get('shopId');
-    const localId = localStorage.getItem('shopId');
+    console.log('=== DEBUG: Getting shopId ===');
+    console.log('params.id:', params.id);
+    console.log('Cookies.get(shopId):', Cookies.get('shopId'));
+    console.log('localStorage.getItem(shopId):', localStorage.getItem('shopId'));
 
-        console.log('=== PRODUCT PAGE DEBUG ===');
-    console.log('paramId:', paramId);
-    console.log('cookieId:', cookieId);
-    console.log('localId:', localId);
+    let shopId = params.id as string;
 
-    let validId = '';
-
-    if (paramId && paramId !== 'undefined') {
-      validId = paramId;
-    } else if (cookieId && cookieId !== 'undefined') {
-      validId = cookieId;
-            router.replace(`/shop/${validId}/product`);
-    } else if (localId && localId !== 'undefined' && localId !== 'null') {
-      validId = localId;
-       Cookies.set('shopId', localId, {
-        expires: 7,
-        path: '/',
-        sameSite: 'lax',
-      });
-      router.replace(`/shop/${validId}/product`);
+    if (!shopId || shopId === 'undefined') {
+      shopId = Cookies.get('shopId') || localStorage.getItem('shopId') || '';
     }
 
-        console.log('Final validId:', validId);
+    console.log('Final shopId:', shopId);
 
-    if (validId) {
-      setId(validId);
+    if (shopId && shopId !== 'undefined') {
+      setId(shopId);
     } else {
-            console.log('No valid ID found, redirecting to create');
-      toast.error('Shop ID missing. Redirecting to setup...');
+      console.log('No shopId found, redirecting to /shop/create');
+      toast.error('Shop ID not found. Please create a shop first.');
       router.push('/shop/create');
     }
   }, [params.id, router]);
+
+  // useEffect(() => {
+  //   const paramId = params?.id as string;
+  //   const cookieId = Cookies.get('shopId');
+  //   const localId = localStorage.getItem('shopId');
+
+  //       console.log('=== PRODUCT PAGE DEBUG ===');
+  //   console.log('paramId:', paramId);
+  //   console.log('cookieId:', cookieId);
+  //   console.log('localId:', localId);
+
+  //   let validId = '';
+
+  //   if (paramId && paramId !== 'undefined') {
+  //     validId = paramId;
+  //   } else if (cookieId && cookieId !== 'undefined') {
+  //     validId = cookieId;
+  //           router.replace(`/shop/${validId}/product`);
+  //   } else if (localId && localId !== 'undefined' && localId !== 'null') {
+  //     validId = localId;
+  //      Cookies.set('shopId', localId, {
+  //       expires: 7,
+  //       path: '/',
+  //       sameSite: 'lax',
+  //     });
+  //     router.replace(`/shop/${validId}/product`);
+  //   }
+
+  //       console.log('Final validId:', validId);
+
+  //   if (validId) {
+  //     setId(validId);
+  //   } else {
+  //           console.log('No valid ID found, redirecting to create');
+  //     toast.error('Shop ID missing. Redirecting to setup...');
+  //     router.push('/shop/create');
+  //   }
+  // }, [params.id, router]);
 
 
 
