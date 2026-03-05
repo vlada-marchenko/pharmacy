@@ -53,9 +53,10 @@ export default function LoginPage() {
         Cookies.set('shopId', shopId, {
           expires: 7,
           path: '/',
-          secure: true,
           sameSite: 'lax',
+          ...(process.env.NODE_ENV === 'production' && { secure: true }),
         });
+        localStorage.setItem('shopId', shopId);
         router.push(`/shop/${shopId}/product`);
       } else {
         router.push('/shop/create');

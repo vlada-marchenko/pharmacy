@@ -83,8 +83,8 @@ export default function CreateShopPage() {
         Cookies.set('shopId', id, {
           expires: 7,
           path: '/',
-          secure: true,
           sameSite: 'lax',
+          ...(process.env.NODE_ENV === 'production' && { secure: true }),
         });
         localStorage.setItem('shopId', id);
         toast.success('Shop created successfully!');

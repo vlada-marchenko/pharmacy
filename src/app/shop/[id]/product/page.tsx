@@ -13,6 +13,8 @@ import Image from 'next/image';
 import { deleteProduct } from '@/src/lib/product';
 import DeleteModal from '@/src/components/DeleteModal/DeleteModal';
 import EditModal from '@/src/components/EditModal/EditModal';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/navigation';
 
 export type ShopProps = {
   _id: string;
@@ -41,16 +43,27 @@ export type ProductProps = {
 
 export default function ProductPage() {
   const params = useParams();
-  const id = params.id as string;
+  const id =
+    (params.id as string) ||
+    Cookies.get('shopId') ||
+    (typeof window !== 'undefined' ? localStorage.getItem('shopId') : null);
   const pathname = usePathname();
+  const router = useRouter();
 
   const [shop, setShop] = useState<ShopProps | null>(null);
   const [shopLoading, setShopLoading] = useState(true);
-const [productsLoading, setProductsLoading] = useState(true);
+  const [productsLoading, setProductsLoading] = useState(true);
   const [deleteTarget, setDeleteTarget] = useState<ProductProps | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [editTarget, setEditTarget] = useState<ProductProps | null>(null);
+
+  useEffect(() => {
+    if (!id) {
+      router.push('/shop/create');
+      return;
+    }
+  }, [id, router]);
 
   useEffect(() => {
     const fetchShop = async () => {
@@ -115,9 +128,13 @@ const [productsLoading, setProductsLoading] = useState(true);
     }
   };
 
-if (shopLoading) {
-  return <Loading />;
-}
+  if (!id) {
+    return <Loading />;
+  }
+
+  if (shopLoading) {
+    return <Loading />;
+  }
 
   if (!shop) {
     return <div className={css.notFound}>Shop not found</div>;
