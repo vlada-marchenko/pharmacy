@@ -80,19 +80,33 @@ export default function CreateShopPage() {
       const id = response?.shopId || response?._id;
 
       if (id) {
-        Cookies.set('shopId', id, {
-          expires: 7,
-          path: '/',
-          sameSite: 'lax',
-        });
+        const isProduction = window.location.protocol === 'https:';
+
+        const cookieOptions = isProduction
+          ? {
+              expires: 7,
+              path: '/',
+              sameSite: 'none' as const,
+              secure: true,
+            }
+          : {
+              expires: 7,
+              path: '/',
+              sameSite: 'lax' as const,
+            };
+
+        Cookies.set('shopId', id, cookieOptions);
         localStorage.setItem('shopId', id);
-              const cookieCheck = Cookies.get('shopId');
-      console.log('Cookie set check:', cookieCheck);
-      console.log('LocalStorage set check:', localStorage.getItem('shopId'));
+        await new Promise((resolve) => setTimeout(resolve, 50));
+        const cookieCheck = Cookies.get('shopId');
+        console.log('All cookies after setting:', document.cookie);
+        console.log('Cookie attributes used:', cookieOptions);
+        console.log('Cookie set check:', cookieCheck);
+        console.log('LocalStorage set check:', localStorage.getItem('shopId'));
         toast.success('Shop created successfully!');
-      setTimeout(() => {
-        router.push(`/shop/${id}/product`);
-      }, 100);
+        setTimeout(() => {
+          router.push(`/shop/${id}/product`);
+        }, 100);
       } else {
         toast.error('Failed to create shop. Please try again.');
       }

@@ -43,23 +43,39 @@ export default function LoginPage() {
     setLoading(true);
     try {
       const res = await login(data);
+      const shopId = res.user.shopId;
+
+      const isProduction = window.location.protocol === 'https:';
+
+      const cookieOptions = isProduction
+        ? {
+            expires: 7,
+            path: '/',
+            sameSite: 'none' as const,
+            secure: true,
+          }
+        : {
+            expires: 7,
+            path: '/',
+            sameSite: 'lax' as const,
+          };
+
       Cookies.set('token', res.token, {
         expires: 1,
         path: '/',
-        sameSite: 'lax',
+        ...(isProduction
+          ? { sameSite: 'none' as const, secure: true }
+          : { sameSite: 'lax' as const }),
       });
       localStorage.setItem('user', JSON.stringify(res.user));
 
-      const shopId = res.user.shopId;
-
       if (shopId) {
-        Cookies.set('shopId', shopId, {
-          expires: 7,
-          path: '/',
-          sameSite: 'lax',
-        });
+        Cookies.set('shopId', shopId, cookieOptions);
         localStorage.setItem('shopId', shopId);
+        await new Promise((resolve) => setTimeout(resolve, 50));
         const cookieCheck = Cookies.get('shopId');
+        console.log('All cookies after setting:', document.cookie);
+        console.log('Cookie attributes used:', cookieOptions);
         console.log('Cookie set check:', cookieCheck);
         console.log('LocalStorage set check:', localStorage.getItem('shopId'));
         toast.success(`Welcome back, ${res.user.name}`);

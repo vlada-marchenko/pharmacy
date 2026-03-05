@@ -59,7 +59,10 @@ export default function ProductPage() {
     console.log('=== DEBUG: Getting shopId ===');
     console.log('params.id:', params.id);
     console.log('Cookies.get(shopId):', Cookies.get('shopId'));
-    console.log('localStorage.getItem(shopId):', localStorage.getItem('shopId'));
+    console.log(
+      'localStorage.getItem(shopId):',
+      localStorage.getItem('shopId'),
+    );
 
     let shopId = params.id as string;
 
@@ -78,57 +81,17 @@ export default function ProductPage() {
     }
   }, [params.id, router]);
 
-  // useEffect(() => {
-  //   const paramId = params?.id as string;
-  //   const cookieId = Cookies.get('shopId');
-  //   const localId = localStorage.getItem('shopId');
-
-  //       console.log('=== PRODUCT PAGE DEBUG ===');
-  //   console.log('paramId:', paramId);
-  //   console.log('cookieId:', cookieId);
-  //   console.log('localId:', localId);
-
-  //   let validId = '';
-
-  //   if (paramId && paramId !== 'undefined') {
-  //     validId = paramId;
-  //   } else if (cookieId && cookieId !== 'undefined') {
-  //     validId = cookieId;
-  //           router.replace(`/shop/${validId}/product`);
-  //   } else if (localId && localId !== 'undefined' && localId !== 'null') {
-  //     validId = localId;
-  //      Cookies.set('shopId', localId, {
-  //       expires: 7,
-  //       path: '/',
-  //       sameSite: 'lax',
-  //     });
-  //     router.replace(`/shop/${validId}/product`);
-  //   }
-
-  //       console.log('Final validId:', validId);
-
-  //   if (validId) {
-  //     setId(validId);
-  //   } else {
-  //           console.log('No valid ID found, redirecting to create');
-  //     toast.error('Shop ID missing. Redirecting to setup...');
-  //     router.push('/shop/create');
-  //   }
-  // }, [params.id, router]);
-
-
-
   useEffect(() => {
-        if (!id || id === 'undefined') {
+    if (!id || id === 'undefined') {
       console.log('Skipping fetchShop - invalid id:', id);
       return;
     }
     const fetchShop = async () => {
       setShopLoading(true);
       try {
-                console.log('Fetching shop with id:', id);
+        console.log('Fetching shop with id:', id);
         const data = await getShop(id);
-                console.log('Shop data received:', data);
+        console.log('Shop data received:', data);
         setShop(data);
       } catch (error) {
         console.error('Error fetching shop:', error);
@@ -141,19 +104,19 @@ export default function ProductPage() {
   }, [id]);
 
   useEffect(() => {
-        if (!id || id === 'undefined') {
+    if (!id || id === 'undefined') {
       console.log('Skipping fetchProducts - invalid id:', id);
       return;
     }
     const fetchProducts = async () => {
       setProductsLoading(true);
       try {
-                console.log('Fetching products with id:', id);
+        console.log('Fetching products with id:', id);
         const data = await getProducts(id);
         const list = Array.isArray(data)
           ? data
           : data.products || data.data || [];
-                  console.log('Products received:', list.length, 'items');
+        console.log('Products received:', list.length, 'items');
         setProducts(list);
       } catch (error) {
         console.error('Error fetching products:', error);

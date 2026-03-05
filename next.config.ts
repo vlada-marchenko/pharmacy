@@ -1,15 +1,26 @@
-
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
-        return [
-            {
-                source: '/api/:path*',
-                destination: 'http://localhost:5000/api/:path*',
-            },
-        ];
-    },
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:5000/api/:path*',
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Credentials',
+            value: 'true',
+          },
+        ],
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
@@ -19,4 +30,5 @@ const nextConfig = {
     ],
   },
 };
+
 export default nextConfig;
