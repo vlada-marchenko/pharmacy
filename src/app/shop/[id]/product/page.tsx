@@ -43,10 +43,6 @@ export type ProductProps = {
 
 export default function ProductPage() {
   const params = useParams();
-  // const id =
-  //   (params.id as string) ||
-  //   Cookies.get('shopId') ||
-  //   (typeof window !== 'undefined' ? localStorage.getItem('shopId') : null);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -59,40 +55,61 @@ export default function ProductPage() {
   const [products, setProducts] = useState<ProductProps[]>([]);
   const [editTarget, setEditTarget] = useState<ProductProps | null>(null);
 
+  // useEffect(() => {
+  //   console.log('=== DEBUG: Getting shopId ===');
+  //   console.log('params.id:', params.id);
+  //   console.log('Cookies.get(shopId):', Cookies.get('shopId'));
+  //   console.log('localStorage.getItem(shopId):', localStorage.getItem('shopId'));
+
+  //   let shopId = params.id as string;
+
+  //   if (!shopId || shopId === 'undefined') {
+  //     shopId = Cookies.get('shopId') || localStorage.getItem('shopId') || '';
+  //   }
+
+  //   console.log('Final shopId:', shopId);
+
+  //   if (shopId && shopId !== 'undefined') {
+  //     setId(shopId);
+  //   } else {
+  //     console.log('No shopId found, redirecting to /shop/create');
+  //     toast.error('Shop ID not found. Please create a shop first.');
+  //     router.push('/shop/create');
+  //   }
+  // }, [params.id, router]);
+
   useEffect(() => {
-    console.log('=== DEBUG: Getting shopId ===');
-    console.log('params.id:', params.id);
-    console.log('Cookies.get(shopId):', Cookies.get('shopId'));
-    console.log('localStorage.getItem(shopId):', localStorage.getItem('shopId'));
+    const paramId = params?.id as string;
+    const cookieId = Cookies.get('shopId');
+    const localId = localStorage.getItem('shopId');
 
-    let shopId = params.id as string;
+    let validId = '';
 
-    if (!shopId || shopId === 'undefined') {
-      shopId = Cookies.get('shopId') || localStorage.getItem('shopId') || '';
+    if (paramId && paramId !== 'undefined') {
+      validId = paramId;
+    } else if (cookieId && cookieId !== 'undefined') {
+      validId = cookieId;
+    } else if (localId && localId !== 'undefined') {
+      validId = localId;
     }
 
-    console.log('Final shopId:', shopId);
-
-    if (shopId && shopId !== 'undefined') {
-      setId(shopId);
+    if (validId) {
+      setId(validId);
+      if (paramId === 'undefined') {
+        window.history.replaceState(null, '', `/shop/${validId}/product`);
+      }
     } else {
-      console.log('No shopId found, redirecting to /shop/create');
-      toast.error('Shop ID not found. Please create a shop first.');
+      toast.error('Shop ID missing. Redirecting to setup...');
       router.push('/shop/create');
     }
   }, [params.id, router]);
 
   useEffect(() => {
+    if (!id) return;
     const fetchShop = async () => {
-      if (!id || id === 'undefined') {
-        console.log('Skipping fetchShop - invalid id:', id);
-        return;
-      }
-      console.log('Fetching shop with id:', id);
       setShopLoading(true);
       try {
         const data = await getShop(id);
-        console.log('Shop data received:', data);
         setShop(data);
       } catch (error) {
         console.error('Error fetching shop:', error);
@@ -105,19 +122,14 @@ export default function ProductPage() {
   }, [id]);
 
   useEffect(() => {
+    if (!id) return;
     const fetchProducts = async () => {
-      if (!id || id === 'undefined') {
-        console.log('Skipping fetchProducts - invalid id:', id);
-        return;
-      }
-      console.log('Fetching products with id:', id);
       setProductsLoading(true);
       try {
         const data = await getProducts(id);
         const list = Array.isArray(data)
           ? data
           : data.products || data.data || [];
-        console.log('Products received:', list);
         setProducts(list);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -156,17 +168,8 @@ export default function ProductPage() {
     }
   };
 
-  if (!id || id === 'undefined' || shopLoading) {
-    return <Loading />;
-  }
-
-  if (shopLoading) {
-    return <Loading />;
-  }
-
-  if (!shop) {
-    return <div className={css.notFound}>Shop not found</div>;
-  }
+if (!id || shopLoading) return <Loading />;
+  if (!shop) return <div className={css.notFound}>Shop not found</div>;
 
   return (
     <div className={css.page}>

@@ -43,16 +43,23 @@ export default function LoginPage() {
     setLoading(true);
     try {
       const res = await login(data);
-      Cookies.set('token', res.token, { expires: 1 });
+      const isProd = process.env.NODE_ENV === 'production';
+      Cookies.set('token', res.token, {
+        expires: 1,
+        path: '/',
+        sameSite: 'lax',
+        secure: isProd,
+      });
       localStorage.setItem('user', JSON.stringify(res.user));
 
-      const shopId = res.user.shopId
+      const shopId = res.user.shopId;
 
       if (shopId) {
         Cookies.set('shopId', shopId, {
           expires: 7,
           path: '/',
           sameSite: 'lax',
+          secure: isProd,
         });
         localStorage.setItem('shopId', shopId);
         toast.success(`Welcome back, ${res.user.name}`);

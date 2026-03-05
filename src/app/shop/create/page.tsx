@@ -78,12 +78,14 @@ export default function CreateShopPage() {
 
       const response = await createShop(backendData);
       const id = response?.shopId || response?._id;
+      const isProd = process.env.NODE_ENV === 'production';
 
       if (id) {
         Cookies.set('shopId', id, {
           expires: 7,
           path: '/',
           sameSite: 'lax',
+          secure: isProd
         });
         localStorage.setItem('shopId', id);
         toast.success('Shop created successfully!');
