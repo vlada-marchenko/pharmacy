@@ -258,18 +258,14 @@
 }
 
 .notFound {
-display: flex;
+    display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 80px 20px;
-  margin: 100px auto;
-  max-width: 480px;
-  background: #ffffff;
-  border-radius: 40px;
-  border: 1px solid rgba(29, 30, 33, 0.08);
-  box-shadow: 0px 8px 24px rgba(29, 30, 33, 0.04);
+  color: #59b17a;
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 100;
 }
 
 @media screen and (min-width: 375px) {

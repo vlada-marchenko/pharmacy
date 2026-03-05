@@ -316,14 +316,14 @@
 }
 
 .notFound {
-      display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
   color: #59b17a;
   font-weight: 500;
-  font-size: 16px;
-  margin-top: 100px;
+  font-size: 20px;
+  margin-top: 10px;
 }
 
 @media screen and (min-width: 375px) {
@@ -382,11 +382,11 @@
   }
 
   .trName {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 18px;
-  color: #1d1e21;
-}
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #1d1e21;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -430,7 +430,7 @@
     overflow-x: unset;
   }
 
-    .transactions {
+  .transactions {
     margin-top: 40px;
     width: 568px;
     height: 445px;
