@@ -56,30 +56,60 @@ export default function ProductPage() {
   const [editTarget, setEditTarget] = useState<ProductProps | null>(null);
 
   useEffect(() => {
-    console.log('=== DEBUG: Getting shopId ===');
-    console.log('params.id:', params.id);
-    console.log('Cookies.get(shopId):', Cookies.get('shopId'));
-    console.log(
-      'localStorage.getItem(shopId):',
-      localStorage.getItem('shopId'),
-    );
+  console.log('=== DEBUG: Getting shopId ===');
+  console.log('params.id:', params.id);
+  console.log('Cookies.get(shopId):', Cookies.get('shopId'));
+  console.log('localStorage.getItem(shopId):', typeof window !== 'undefined' ? localStorage.getItem('shopId') : 'SSR');
 
-    let shopId = params.id as string;
+  let shopId = '';
 
-    if (!shopId || shopId === 'undefined') {
-      shopId = Cookies.get('shopId') || localStorage.getItem('shopId') || '';
+  if (params.id && params.id !== 'undefined' && params.id !== 'null') {
+    shopId = params.id as string;
+    console.log('✅ Using shopId from URL params:', shopId);
+  } else {
+    const cookieShopId = Cookies.get('shopId');
+    if (cookieShopId && cookieShopId !== 'undefined' && cookieShopId !== 'null') {
+      shopId = cookieShopId;
+      console.log('✅ Using shopId from cookie:', shopId);
+    } else if (typeof window !== 'undefined') {
+      const localShopId = localStorage.getItem('shopId');
+      if (localShopId && localShopId !== 'undefined' && localShopId !== 'null') {
+        shopId = localShopId;
+        console.log('✅ Using shopId from localStorage:', shopId);
+      }
     }
+  }
 
-    console.log('Final shopId:', shopId);
+  console.log('Final shopId:', shopId);
 
-    if (shopId && shopId !== 'undefined') {
-      setId(shopId);
-    } else {
-      console.log('No shopId found, redirecting to /shop/create');
-      toast.error('Shop ID not found. Please create a shop first.');
-      router.push('/shop/create');
+  if (shopId && shopId !== 'undefined' && shopId !== 'null') {
+    setId(shopId);
+
+    const isProduction = process.env.NODE_ENV === 'production';
+    const cookieOptions = isProduction
+      ? {
+          expires: 7,
+          path: '/',
+          sameSite: 'none' as const,
+          secure: true,
+        }
+      : {
+          expires: 7,
+          path: '/',
+          sameSite: 'lax' as const,
+        };
+
+    Cookies.set('shopId', shopId, cookieOptions);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('shopId', shopId);
     }
-  }, [params.id, router]);
+  } else {
+    console.log('❌ No valid shopId found, redirecting to /shop/create');
+    toast.error('Shop ID not found. Please create a shop first.');
+    router.push('/shop/create');
+  }
+}, [params.id, router]);
+
 
   useEffect(() => {
     if (!id || id === 'undefined') {

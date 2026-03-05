@@ -41,59 +41,59 @@ export default function LoginPage() {
 
   const onSubmit = async (data: LoginFormData) => {
     setLoading(true);
-    try {
-      const res = await login(data);
+  try {
+    const res = await login(data);
 
-      console.log('LOGIN RESPONSE:', res);
-      console.log('shopId value:', res?.user?.shopId, typeof res?.user?.shopId);
+    console.log('LOGIN RESPONSE:', res);
+    console.log('shopId value:', res?.user?.shopId, typeof res?.user?.shopId);
 
-      const isProduction = process.env.NODE_ENV === 'production';
+    const isProduction = process.env.NODE_ENV === 'production';
 
-      Cookies.set('token', res.token, {
-        expires: 1,
-        path: '/',
-        ...(isProduction
-          ? { sameSite: 'none' as const, secure: true }
-          : { sameSite: 'lax' as const }),
-      });
+    const cookieOptions = isProduction
+      ? {
+          expires: 7,
+          path: '/',
+          sameSite: 'none' as const,
+          secure: true,
+        }
+      : {
+          expires: 7,
+          path: '/',
+          sameSite: 'lax' as const,
+        };
 
-      localStorage.setItem('user', JSON.stringify(res.user));
+    Cookies.set('token', res.token, cookieOptions);
+    localStorage.setItem('user', JSON.stringify(res.user));
 
-      const shopId = res?.user?.shopId;
+    const shopId = res?.user?.shopId;
 
-      const isValidShopId =
-        typeof shopId === 'string' &&
-        shopId.trim() !== '' &&
-        shopId !== 'undefined';
+    const isValidShopId =
+      typeof shopId === 'string' &&
+      shopId.trim() !== '' &&
+      shopId !== 'undefined' &&
+      shopId !== 'null';
 
-      if (isValidShopId) {
-        const cookieOptions = isProduction
-          ? {
-              expires: 7,
-              path: '/',
-              sameSite: 'none' as const,
-              secure: true,
-            }
-          : {
-              expires: 7,
-              path: '/',
-              sameSite: 'lax' as const,
-            };
+    if (isValidShopId) {
+      Cookies.set('shopId', shopId, cookieOptions);
+      localStorage.setItem('shopId', shopId);
 
-        Cookies.set('shopId', shopId, cookieOptions);
-        localStorage.setItem('shopId', shopId);
+      console.log('✅ ShopId set successfully:', shopId);
+      console.log('Cookie check:', Cookies.get('shopId'));
+      console.log('LocalStorage check:', localStorage.getItem('shopId'));
 
-        await new Promise((resolve) => setTimeout(resolve, 50));
+      await new Promise((resolve) => setTimeout(resolve, 100));
 
-        toast.success(`Welcome back, ${res.user.name}`);
+      toast.success(`Welcome back, ${res.user.name}`);
 
-        router.push(`/shop/${shopId}/product`);
-        return;
-      }
+      // eslint-disable-next-line react-hooks/immutability
+      window.location.href = `/shop/${shopId}/product`;
+      return;
+    }
 
-      toast.info('No shop found. Please create a shop first.');
-      router.push('/shop/create');
-    } catch (err) {
+    console.log('❌ Invalid shopId, redirecting to shop creation');
+    toast.info('No shop found. Please create a shop first.');
+    router.push('/shop/create');
+  } catch (err) {
       setLoading(false);
       toast.error('Login failed');
       console.log(err);
