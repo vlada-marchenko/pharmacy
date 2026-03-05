@@ -18,6 +18,21 @@ a {
   --bg-color: #f7f8fa;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; 
+}
+
 .container {
   width: 100%;
   min-width: 320px;

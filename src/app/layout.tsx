@@ -34,11 +34,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <TanStackProvider>
+          <div className="layout-wrapper">
           <Header />
           <main>{children}</main>
           <Footer />
+        </div>
         </TanStackProvider>
-        <ToastContainer position="top-center" autoClose={5000} />
+        <ToastContainer position="top-center" autoClose={4000} />
       </body>
     </html>
   );
