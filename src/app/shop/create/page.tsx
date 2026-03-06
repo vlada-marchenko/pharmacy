@@ -108,7 +108,7 @@ export default function CreateShopPage() {
             expires: 7,
             path: '/',
             sameSite: 'none' as const,
-            secure: true,
+            secure: false,
           }
         : {
             expires: 7,

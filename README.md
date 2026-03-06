@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💊 E-Pharmacy Management System
 
-## Getting Started
+A professional, full-stack pharmacy management platform designed for shop owners to digitize their inventory, manage drug stores, and oversee medication logistics. This application handles the entire lifecycle from shop registration to individual product management.
 
-First, run the development server:
+## 🚀 Live Links
+* **Frontend:** [https://pharmacy-ten-woad.vercel.app](https://pharmacy-ten-woad.vercel.app)
+* **Backend API:** [https://pharmacy-backend-app.onrender.com/api](https://pharmacy-backend-app.onrender.com/api)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Frontend
+* **Core:** Next.js 14+ (App Router)
+* **State & Forms:** React Hook Form with Yup schema validation
+* **Auth:** JWT-based authentication with `js-cookie` and LocalStorage persistence
+* **Styling:** CSS Modules for component-scoped styling
+* **Notifications:** React-Toastify for real-time user feedback
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Backend
+* **Runtime:** Node.js & Express
+* **Database:** MongoDB with Mongoose ODM
+* **API Client:** Axios with interceptors for automatic header injection
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ Key Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **User Authentication:** Secure login and registration with automatic redirection based on shop ownership status.
+* **Shop Lifecycle Management:** Users can create a shop profile, which is then permanently linked to their user account in the database.
+* **Dynamic Inventory:** CRUD operations for medication, including price management, category assignment, and photo uploads.
+* **Dashboard Statistics:** View analytics and inventory data specific to the authenticated shop.
+* **Responsive Design:** Fully optimized for desktop and mobile pharmacy management.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

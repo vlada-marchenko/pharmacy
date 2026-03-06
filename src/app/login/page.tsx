@@ -41,38 +41,38 @@ export default function LoginPage() {
 
   const onSubmit = async (data: LoginFormData) => {
     setLoading(true);
-try {
-    const res = await login(data);
+    try {
+      const res = await login(data);
 
-    const isProduction = process.env.NODE_ENV === 'production';
-    const cookieOptions = {
-      expires: 7,
-      path: '/',
-      sameSite: 'lax' as const,
-      secure: isProduction,
-    };
+      const cookieOptions = {
+        expires: 7,
+        path: '/',
+        sameSite: 'lax' as const,
+        secure: false
+      };
 
-    Cookies.set('token', res.token, cookieOptions);
-    localStorage.setItem('user', JSON.stringify(res.user));
+      Cookies.set('token', res.token, cookieOptions);
+      localStorage.setItem('user', JSON.stringify(res.user));
 
-    const shopId = res?.user?.shopId;
-    const isValidShopId = typeof shopId === 'string' && shopId.trim() !== '' && shopId !== 'null';
+      const shopId = res?.user?.shopId;
+      const isValidShopId =
+        typeof shopId === 'string' && shopId.trim() !== '' && shopId !== 'null';
 
-    if (isValidShopId) {
-      Cookies.set('shopId', shopId, cookieOptions);
-      localStorage.setItem('shopId', shopId);
+      if (isValidShopId) {
+        Cookies.set('shopId', shopId, cookieOptions);
+        localStorage.setItem('shopId', shopId);
 
-      toast.success(`Welcome back, ${res.user.name}`);
-      // eslint-disable-next-line react-hooks/immutability
-      window.location.href = `/shop/${shopId}/product`;
-    } else {
-      Cookies.remove('shopId');
-      localStorage.removeItem('shopId');
+        toast.success(`Welcome back, ${res.user.name}`);
+        // eslint-disable-next-line react-hooks/immutability
+        window.location.href = `/shop/${shopId}/product`;
+      } else {
+        Cookies.remove('shopId');
+        localStorage.removeItem('shopId');
 
-      toast.info('No shop found. Please create one.');
-      router.push('/shop/create');
-    }
-  } catch (err) {
+        toast.info('No shop found. Please create one.');
+        router.push('/shop/create');
+      }
+    } catch (err) {
       setLoading(false);
       toast.error('Login failed');
       console.log(err);

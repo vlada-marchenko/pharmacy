@@ -1,14 +1,5 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'https://pharmacy-backend-app.onrender.com/api/:path*',
-      },
-    ];
-  },
   trailingSlash: false,
   async headers() {
     return [
