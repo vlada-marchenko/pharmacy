@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import TanStackProvider from '../components/TanStackProvider/TanStackProvider';
 import './globals.css';
 import { Viewport } from 'next';
 import Header from '../components/Header/Header';
@@ -32,14 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <TanStackProvider>
           <div className="layout-wrapper">
           <Header />
           <main>{children}</main>
           <Footer />
         </div>
-        </TanStackProvider>
         <ToastContainer position="top-center" autoClose={4000} />
       </body>
     </html>
