@@ -33,7 +33,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ConditionalLayout>{children}</ConditionalLayout>
+        <div className="layout-wrapper">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
         <ToastContainer position="top-center" autoClose={4000} />
       </body>
     </html>
