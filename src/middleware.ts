@@ -9,14 +9,17 @@ export function middleware(request: NextRequest) {
   const shopId = request.cookies.get('shopId')?.value;
   const { pathname } = request.nextUrl;
 
-  console.log('=== MIDDLEWARE DEBUG ===');
-  console.log('pathname:', pathname);
-  console.log('token:', token ? 'exists' : 'missing');
-  console.log('shopId cookie:', shopId);
-
   const isProtectedRoute = protectedRoutes.some((route) =>
-    pathname.startsWith(route),
+    pathname.startsWith(route)
   );
+
+  // redirect root to register or shop
+  if (pathname === '/') {
+    if (token && shopId && shopId !== 'undefined') {
+      return NextResponse.redirect(new URL(`/shop/${shopId}/product`, request.url));
+    }
+    return NextResponse.redirect(new URL('/register', request.url));
+  }
 
   if (isProtectedRoute && !token) {
     return NextResponse.redirect(new URL('/login', request.url));
@@ -24,12 +27,11 @@ export function middleware(request: NextRequest) {
 
   if (authRoutes.includes(pathname) && token) {
     if (shopId && shopId !== 'undefined') {
-      return NextResponse.redirect(
-        new URL(`/shop/${shopId}/product`, request.url),
-      );
+      return NextResponse.redirect(new URL(`/shop/${shopId}/product`, request.url));
     }
     return NextResponse.redirect(new URL('/shop/create', request.url));
   }
+
   return NextResponse.next();
 }
 
