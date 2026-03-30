@@ -6,6 +6,7 @@ import Footer from '../components/Footer/Footer';
 import { Inter } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ConditionalLayout from '../components/ConditionalLayout/ConditionalLayout';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
@@ -31,12 +32,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-          <div className="layout-wrapper">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
+      <body className={inter.className}>
+        <ConditionalLayout>{children}</ConditionalLayout>
         <ToastContainer position="top-center" autoClose={4000} />
       </body>
     </html>
