@@ -6,7 +6,6 @@ import Footer from '../components/Footer/Footer';
 import { Inter } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ConditionalLayout from '../components/ConditionalLayout/ConditionalLayout';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
