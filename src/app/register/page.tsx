@@ -64,12 +64,11 @@ export default function RegisterPage() {
     }
   };
 
-  if (loading) {
-    return <Loading />;
-  }
-
-  return (
-    <div className={`'container' ${css.page}`}>
+return (
+  <div className={`'container' ${css.page}`}>
+    {loading ? (
+      <Loading />
+    ) : (
       <div className={css.content}>
         <div className={css.titleCont}>
           <Image
@@ -91,77 +90,31 @@ export default function RegisterPage() {
             autoComplete="off"
           >
             <div className={css.field}>
-              <input
-                className={css.input}
-                id="name"
-                type="text"
-                placeholder=" "
-                {...formRegister('name', { required: true })}
-              />
-              <label className={css.label} htmlFor="name">
-                User Name
-              </label>
-              {errors.name && (
-                <span className={css.errorMessage}>{errors.name.message}</span>
-              )}
+              <input className={css.input} id="name" type="text" placeholder=" " {...formRegister('name', { required: true })} />
+              <label className={css.label} htmlFor="name">User Name</label>
+              {errors.name && <span className={css.errorMessage}>{errors.name.message}</span>}
             </div>
             <div className={css.field}>
-              <input
-                className={css.input}
-                id="email"
-                type="email"
-                placeholder=" "
-                {...formRegister('email', { required: true })}
-              />
-              <label className={css.label} htmlFor="email">
-                Email address
-              </label>
-              {errors.email && (
-                <span className={css.errorMessage}>{errors.email.message}</span>
-              )}
+              <input className={css.input} id="email" type="email" placeholder=" " {...formRegister('email', { required: true })} />
+              <label className={css.label} htmlFor="email">Email address</label>
+              {errors.email && <span className={css.errorMessage}>{errors.email.message}</span>}
             </div>
             <div className={css.field}>
-              <input
-                className={css.input}
-                id="phone"
-                type="tel"
-                placeholder=" "
-                {...formRegister('phone', { required: true })}
-              />
-              <label className={css.label} htmlFor="phone">
-                Phone number
-              </label>
-              {errors.phone && (
-                <span className={css.errorMessage}>{errors.phone.message}</span>
-              )}
+              <input className={css.input} id="phone" type="tel" placeholder=" " {...formRegister('phone', { required: true })} />
+              <label className={css.label} htmlFor="phone">Phone number</label>
+              {errors.phone && <span className={css.errorMessage}>{errors.phone.message}</span>}
             </div>
             <div className={css.field}>
-              <input
-                className={css.input}
-                id="password"
-                type="password"
-                placeholder=" "
-                {...formRegister('password', { required: true })}
-              />
-              <label className={css.label} htmlFor="password">
-                Password
-              </label>
-              {errors.password && (
-                <span className={css.errorMessage}>
-                  {errors.password.message}
-                </span>
-              )}
+              <input className={css.input} id="password" type="password" placeholder=" " {...formRegister('password', { required: true })} />
+              <label className={css.label} htmlFor="password">Password</label>
+              {errors.password && <span className={css.errorMessage}>{errors.password.message}</span>}
             </div>
-
-            <button className={css.button} type="submit">
-              Register
-            </button>
+            <button className={css.button} type="submit">Register</button>
           </form>
-          <Link className={css.link} href={'/login'}>
-            Already have an account?
-          </Link>
+          <Link className={css.link} href={'/login'}>Already have an account?</Link>
         </div>
       </div>
-    </div>
-  );
+    )}
+  </div>
+);
 }
