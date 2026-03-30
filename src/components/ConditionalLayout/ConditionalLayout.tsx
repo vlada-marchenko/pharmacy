@@ -19,13 +19,15 @@ export default function ConditionalLayout({
     setMounted(true);
   }, []);
 
-  const showFooter = mounted && !NO_FOOTER_ROUTES.includes(pathname);
+  const isNoFooter = NO_FOOTER_ROUTES.includes(pathname);
 
   return (
     <div className="layout-wrapper">
       <Header />
       <main>{children}</main>
-      {showFooter && <Footer />}
+      <div style={{ display: mounted && isNoFooter ? 'none' : 'block' }}>
+        <Footer />
+      </div>
     </div>
   );
 }
