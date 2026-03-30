@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-const PUBLIC_ROUTES = ['/register', '/login'];
+const NO_FOOTER_ROUTES = ['/register', '/login'];
 
 export default function ConditionalLayout({
   children,
@@ -19,13 +19,13 @@ export default function ConditionalLayout({
     setMounted(true);
   }, []);
 
-  const isPublicRoute = PUBLIC_ROUTES.includes(pathname);
+  const showFooter = mounted && !NO_FOOTER_ROUTES.includes(pathname);
 
   return (
     <div className="layout-wrapper">
-      {mounted && !isPublicRoute && <Header />}
+      <Header />
       <main>{children}</main>
-      {mounted && !isPublicRoute && <Footer />}
+      {showFooter && <Footer />}
     </div>
   );
 }
