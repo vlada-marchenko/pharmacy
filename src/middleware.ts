@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
 
 const protectedRoutes = ['/shop', '/medicine', '/statistics'];
-const authRoutes = ['/login', '/register'];
+const authRoutes = ['/login', '/register', '/'];
 
 export function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
@@ -35,6 +35,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    '/',
     '/shop/:path*',
     '/medicine/:path*',
     '/statistics/:path*',
