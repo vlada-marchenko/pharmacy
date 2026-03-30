@@ -1,6 +1,6 @@
 'use client';
 
-import { register } from '../../lib/auth';
+import { register } from '../../../lib/auth';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -9,7 +9,7 @@ import css from './page.module.css';
 import Link from 'next/link';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import Loading from '../loading';
+import Loading from '../../loading';
 import { useState } from 'react';
 
 const schema = yup.object({

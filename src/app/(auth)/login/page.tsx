@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import css from './page.module.css';
 import Link from 'next/link';
-import Loading from '../loading';
+import Loading from '../../loading';
 import { useState } from 'react';
 
 const schema = yup.object({
